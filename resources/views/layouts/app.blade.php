@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,53 +16,25 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     @stack('styles')
 </head>
+
 <body>
-    <div id="app" style="height: 2000px">
-        <nav class="navbar navbar-expand-md fixed-top ">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="{{asset('images/logo_alumni.svg')}}" alt="Logo Alumni">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ">
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="">Tentang Kami</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="">Program</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="">Galeri</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="">Info Terbaru</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="">Database Alumni</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+    <div id="app">
+        @yield('navbar')
 
         <main class="">
             @yield('content')
         </main>
+
+        @include('partials.__footer')
+        @include('partials.__scripts')
     </div>
 </body>
+
 </html>
