@@ -53,9 +53,10 @@
     </div> <!-- .site-mobile-menu -->
 
 
-    <div class="site-navbar-wrap">
-        <div class="site-navbar site-navbar-target js-sticky-header">
+    <div class="site-navbar-wrap {{ Request::is('/') ? '' : 'sticky-top' }}">
+        <div class="site-navbar site-navbar-target js-sticky-header {{ Request::is('/') ? '' : 'bg-darkblue' }}">
             <div class="container">
+
                 <div class="row align-items-center">
                     <div class="col-2">
                         <a class="navbar-brand" href="{{ url('/') }}">
@@ -93,7 +94,7 @@
                                         <a href="#" class="nav-link">Alumni</a>
                                         <ul class="dropdown arrow-top">
                                             <li><a href="#" class="nav-link">Pendaftaran Alumni</a></li>
-                                            <li><a href="#" class="nav-link">Pencarian Alumni</a></li>
+                                            <li><a href="{{ route('data-alumni') }}" class="nav-link">Data Alumni</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="#about-section" class="nav-link">Info Terbaru</a></li>
@@ -110,5 +111,8 @@
 @push('scripts')
     <script src="{{ asset('js/jquery.sticky.js') }}"></script>
     <script src="{{ asset('js/popper.min.js') }}"></script>
-    <script src="{{ asset('js/navbar/main.js') }}"></script>
+
+    @if (Request::is('/'))
+        <script src="{{ asset('js/navbar/main.js') }}"></script>
+    @endif
 @endpush
