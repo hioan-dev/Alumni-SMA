@@ -3,8 +3,9 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-class CreateUsersTable extends Migration
+class CreateTableAlumnis extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +14,19 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('alumnis', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->string('foto')->nullable();
-            $table->boolean('is_admin')->default(false);
-            $table->rememberToken();
+            $table->string('tempat_lahir');
+            $table->date('tanggal_lahir');
+            $table->string('jenis_kelamin');
+            $table->string('angkatan');
+            $table->string('alamat');
+            $table->string('pendidikan_terakhir');
+            $table->string('pekerjaan');
             $table->timestamps();
             $table->softDeletes();
+
         });
     }
 
@@ -34,6 +37,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('alumnis');
     }
 }
