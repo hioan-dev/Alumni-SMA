@@ -21,5 +21,9 @@ Route::get('/data-alumni', function () {
     return view('data-alumni');
 })->name('data-alumni');
 
+Route::get('/pendaftaran-alumni', function () {
+    return view('pendaftaran-alumni');
+})->name('pendaftaran-alumni');
+
 Auth::routes();
 

@@ -18,3 +18,8 @@ Breadcrumbs::for('data-alumni', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
     $trail->push('Data Alumni', route('data-alumni'));
 });
+
+Breadcrumbs::for('pendaftaran-alumni', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push('Pendaftaran Alumni', route('pendaftaran-alumni'));
+});
