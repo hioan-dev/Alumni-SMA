@@ -15,7 +15,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('home');
-});
+})->name('home');
+
+Route::get('/data-alumni', function () {
+    return view('data-alumni');
+})->name('data-alumni');
 
 Auth::routes();
 
