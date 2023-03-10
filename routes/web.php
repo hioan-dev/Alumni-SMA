@@ -21,5 +21,13 @@ Route::get('/data-alumni', function () {
     return view('data-alumni');
 })->name('data-alumni');
 
+Route::get('/dashboard', function () {
+    return view('admin.dashboard');
+})->name('dashboard');
+
+Route::get('/table-alumni', function () {
+    return view('admin.table-alumni');
+})->name('table-alumni');
+
 Auth::routes();
 
