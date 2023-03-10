@@ -16,7 +16,7 @@ class CreateTableAlumnis extends Migration
     {
         Schema::create('alumnis', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('nama_lengkap');
             $table->string('tempat_lahir');
             $table->date('tanggal_lahir');
             $table->string('jenis_kelamin');
@@ -24,6 +24,8 @@ class CreateTableAlumnis extends Migration
             $table->string('alamat');
             $table->string('pendidikan_terakhir');
             $table->string('pekerjaan');
+            $table->string('kelas');
+            $table->string('foto');
             $table->timestamps();
             $table->softDeletes();
 
