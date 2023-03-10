@@ -236,12 +236,14 @@
                             <table id="datatable" class="table table-striped" data-toggle="data-table">
                                 <thead>
                                     <tr>
-                                        <th>Name</th>
-                                        <th>Position</th>
-                                        <th>Office</th>
-                                        <th>Age</th>
-                                        <th>Start date</th>
-                                        <th>Salary</th>
+                                        <th>Nama</th>
+                                        <th>Tanggal Lahir</th>
+                                        <th>Jenis Kelamin</th>
+                                        <th>Angkatan</th>
+                                        <th>Alamat</th>
+                                        <th>Pendidikan Terakhir</th>
+                                        <!-- <th>Pekerjaan</th>
+                                        <th>Aksi</th> -->
                                     </tr>
                                 </thead>
                                 <tbody>
