@@ -37,7 +37,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{ route('dashboard') }}">
+                    <a class="nav-link {{ Request::is('dashboard') ? 'active' : ''}}" aria-current="page" href="{{ route('dashboard') }}">
                         <i class="icon">
                             <svg width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
                                 class="icon-20">
@@ -113,7 +113,7 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " aria-current="page" href="{{ route('table-alumni') }}">
+                    <a class="nav-link {{ Request::is('table-alumni') ? 'active' : ''}}" aria-current="page" href="{{ route('table-alumni') }}">
                         <i class="icon">
                             <svg width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
                                 class="icon-20">
