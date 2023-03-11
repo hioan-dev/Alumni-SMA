@@ -60,7 +60,12 @@
                                             <li><a href="{{ route('data-alumni') }}" class="nav-link">Data Alumni</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="#about-section" class="nav-link">Info Terbaru</a></li>
+                                    <li class="has-children">
+                                        <a href="#" class="nav-link">Info Terbaru</a>
+                                        <ul class="dropdown arrow-top">
+                                            <li><a href="{{ route('berita') }}" class="nav-link">Berita</a></li>
+                                        </ul>
+                                    </li>
                                 </ul>
                             </div>
                         </nav>

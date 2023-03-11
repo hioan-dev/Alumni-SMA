@@ -16,9 +16,16 @@
     max-height: 3em; /* fallback */
 }
 
-.divider {
+.card-news__img {
+    height: 200px;
     width: 100%;
-    height: 1px;
-    background-color: #152d8f;
-    margin: 1rem 0;
+    padding: 5px;
+}
+
+.card-news__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 4px;
 }

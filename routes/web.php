@@ -25,11 +25,13 @@ Route::get('/data-alumni', function () {
     return view('data-alumni');
 })->name('data-alumni');
 
-
 Route::get('/pendaftaran-alumni', function () {
     return view('pendaftaran-alumni');
 })->name('pendaftaran-alumni');
 
+Route::get('/berita', function () {
+    return view('berita');
+})->name('berita');
 
 Route::get('/table-alumni', function () {
     return view('admin.table-alumni');

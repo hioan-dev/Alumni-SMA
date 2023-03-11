@@ -1,5 +1,16 @@
 @extends('layouts.app')
 
+@push('styles')
+    <style>
+        .divider {
+            width: 100%;
+            height: 1px;
+            background-color: #152d8f;
+            margin: 1rem 0;
+        }
+    </style>
+@endpush
+
 @section('title', 'Pendaftaran Alumni')
 
 @section('navbar')
