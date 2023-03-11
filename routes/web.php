@@ -35,6 +35,10 @@ Route::get('/tambah-alumni', function () {
     return view('admin.table-alumni.tambah-alumni');
 })->name('tambah-alumni');
 
+Route::get('/user-dashboard', function () {
+    return view('user.dashboard');
+})->name('user-dashboard');
+
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
 Auth::routes();
 
