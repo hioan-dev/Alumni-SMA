@@ -22,7 +22,7 @@
                 <div class="row align-items-center">
                     <div class="col-2">
                         <a class="navbar-brand" href="{{ url('/') }}">
-                            <img src="{{ asset('images/logo_alumni.svg') }}" alt="Logo Alumni">
+                            <img src="{{ asset('images/logo.png') }}" alt="Logo Alumni" class="logo">
                         </a>
                     </div>
                     <div class="col-10">

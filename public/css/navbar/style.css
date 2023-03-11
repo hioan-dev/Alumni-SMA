@@ -507,3 +507,8 @@
     a {
     color: #fff;
 }
+
+.logo {
+    height: 50px;
+    object-fit: contain;
+}
