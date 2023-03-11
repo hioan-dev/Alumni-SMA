@@ -105,10 +105,18 @@
                         </div>
                         <div class="card-body">
                             <div class="fs-6 mb-2 text-muted d-flex align-content-center">
-                                <span class="material-symbols-outlined fs-6 mr-3">
-                                    calendar_month
-                                </span>
-                                <div class="px-1" style="font-size:12px;">08 Maret 2021</div>
+                                <div class="d-flex align-content-center">
+                                    <span class="material-symbols-outlined fs-6 mr-3">
+                                        calendar_month
+                                    </span>
+                                    <div class="px-1" style="font-size:12px;">08 Maret 2021</div>
+                                </div>
+                                <div class="d-flex align-content-center">
+                                    <span class="material-symbols-outlined fs-5 mr-3">
+                                        folder
+                                    </span>
+                                    <a href="#" class="px-1 text-decoration-none" style="font-size:12px;">Event</a>
+                                </div>
                             </div>
                             <h5 class="card-title fw-semibold">Penyelengaraan Faksinasi Alumni</h5>
                             <p class="card-text clamp-2">Some quick example text to build on the card title and make up the

@@ -23,11 +23,13 @@ Route::get('/data-alumni', function () {
     return view('data-alumni');
 })->name('data-alumni');
 
-
 Route::get('/pendaftaran-alumni', function () {
     return view('pendaftaran-alumni');
 })->name('pendaftaran-alumni');
 
+Route::get('/berita', function () {
+    return view('berita');
+})->name('berita');
 
 // Route::get('/dashboard', function () {
 //     return view('admin.dashboard');
