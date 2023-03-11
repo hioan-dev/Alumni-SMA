@@ -23,6 +23,12 @@ Route::get('/data-alumni', function () {
     return view('data-alumni');
 })->name('data-alumni');
 
+
+Route::get('/pendaftaran-alumni', function () {
+    return view('pendaftaran-alumni');
+})->name('pendaftaran-alumni');
+
+
 // Route::get('/dashboard', function () {
 //     return view('admin.dashboard');
 // })->name('dashboard');
@@ -36,6 +42,7 @@ Route::get('/tambah-alumni', function () {
 })->name('tambah-alumni');
 
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
+
 Auth::routes();
 
 
