@@ -1,74 +1,7 @@
 @extends('layouts.app')
 
 @push('styles')
-    <style>
-        .hero {
-            background-image: url("{{ asset('images/gedung.jpg') }}");
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            height: 100vh;
-            position: relative
-        }
-
-        .hero h2 {
-            font-size: 3.5rem;
-            text-align: center;
-            text-transform: uppercase;
-            letter-spacing: 0.2rem;
-            font-weight: bold;
-            line-height: 1.2;
-        }
-
-        .hero__overlay {
-            position: absolute;
-            z-index: 0;
-            background-color: rgba(21, 45, 143, 0.71);
-            ;
-            height: 100%;
-            width: 100%;
-        }
-
-        .img-container {
-            width: 100%;
-            height: 400px;
-        }
-
-        .img-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 14px;
-        }
-
-        .profile-img-container {
-            height: 200px;
-            width: 200px;
-            margin: 0 auto;
-        }
-
-        .profile-img-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            border-radius: 50%;
-        }
-
-        .card-news__img {
-            height: 200px;
-            width: 100%;
-            padding: 5px;
-        }
-
-        .card-news__img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            border-radius: 4px;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ asset('css/home/style.css') }}">
 @endpush
 
 @section('navbar')
@@ -78,7 +11,7 @@
 
 @section('content')
     <div>
-        <div class="hero">
+        <div class="hero" style="background-image: url('{{ asset('images/gedung.jpg') }}')">
             <div class="hero__overlay"></div>
             <div
                 class="w-100 h-100 text-white position-relative z-3 d-flex flex-column justify-content-center align-items-center ">
