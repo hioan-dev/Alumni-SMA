@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Pendaftaran Alumni')
+
 @section('navbar')
     @include('partials.__navbar')
 @endsection

@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Data Alumni')
+
 @push('styles')
     <style>
         .student-img {
