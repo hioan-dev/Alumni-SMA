@@ -2,6 +2,10 @@
 
 @section('title', 'Table Alumni')
 
+@push('styles')
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+@endpush
+
 @section('content')
 <main class="main-content">
     <div class="position-relative iq-banner">
@@ -230,6 +234,8 @@
                         <div class="header-title">
                             <h4 class="card-title">Data Alumni</h4>
                         </div>
+                        <button type="button" class="btn btn-primary btn-sm gap-2"><i
+                                class="bi bi-plus"></i>Tambah</button>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
