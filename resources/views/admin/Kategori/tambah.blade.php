@@ -19,11 +19,11 @@
                             <div class="header-title">
                                 <h4 class="card-title">Tambah Kategori Berita</h4>
                             </div>
-                            <a href="{{ route('kategori-berita') }}" class="btn btn-warning btn-sm ml-auto">Kembali</a>
+                            <a href="{{ route('kategori-berita.index') }}" class="btn btn-warning btn-sm ml-auto">Kembali</a>
                         </div>
                         <div class="card-body">
                             <div class="new-user-info">
-                                <form action="{{ route('kategori-store') }}" method="POST">
+                                <form action="{{ route('kategori-berita.store') }}" method="POST">
                                 @csrf 
                                     <div class="row">
                                         <div class="form-group col-md-12">

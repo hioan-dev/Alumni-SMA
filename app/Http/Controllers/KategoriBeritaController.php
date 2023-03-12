@@ -30,7 +30,7 @@ class KategoriBeritaController extends Controller
             'slug' => Str::slug($request->nama_kategori)
         ]);
 
-        return redirect()->route('kategori-berita')->with('success', 'Kategori Berhasil Ditambahkan');
+        return redirect()->route('kategori-berita.index')->with('success', 'Kategori Berhasil Ditambahkan');
     }
 
     public function edit($id)
@@ -51,7 +51,7 @@ class KategoriBeritaController extends Controller
             'slug' => Str::slug($request->nama_kategori)
         ]);
 
-        return redirect()->route('kategori-berita')->with('success', 'Kategori Berhasil Diupdate');
+        return redirect()->route('kategori-berita.index')->with('success', 'Kategori Berhasil Diupdate');
     }
 
     public function destroy($id)
@@ -59,7 +59,7 @@ class KategoriBeritaController extends Controller
         $kategori = Kategori::find($id);
         $kategori->delete();
 
-        return redirect()->route('kategori-berita')->with('success', 'Kategori Berhasil Dihapus');
+        return redirect()->route('kategori-berita.index')->with('success', 'Kategori Berhasil Dihapus');
     }
 
 
