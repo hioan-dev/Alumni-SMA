@@ -25,6 +25,12 @@ Route::get('/data-alumni', function () {
     return view('data-alumni');
 })->name('data-alumni');
 
+
+Route::get('/pendaftaran-alumni', function () {
+    return view('pendaftaran-alumni');
+})->name('pendaftaran-alumni');
+
+
 Route::get('/table-alumni', function () {
     return view('admin.table-alumni');
 })->name('table-alumni');
@@ -42,6 +48,7 @@ Route::middleware(['auth'])->group(function () {
     //User Dashboard
     Route::get('/user-dashboard', [UserDashboardController::class, 'index'])->name('user-dashboard')->middleware('EnsureUserRole:user');
 });
+
 
 Auth::routes();
 
