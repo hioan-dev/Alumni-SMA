@@ -34,6 +34,14 @@ Route::get('/berita', function () {
     return view('berita');
 })->name('berita');
 
+Route::get('/iuran', function () {
+    return view('daftar-iuran');
+})->name('iuran');
+
+Route::get('/pembayaran-iuran', function () {
+    return view('pembayaran-iuran');
+})->name('pembayaran-iuran');
+
 Route::get('/table-alumni', function () {
     return view('admin.table-alumni');
 })->name('table-alumni');
