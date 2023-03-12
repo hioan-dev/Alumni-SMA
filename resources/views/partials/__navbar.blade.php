@@ -49,7 +49,7 @@
                                         <a href="#" class="nav-link">Iuran</a>
                                         <ul class="dropdown arrow-top">
                                             <li><a href="#" class="nav-link">Pembayaran Iuran</a></li>
-                                            <li><a href="#" class="nav-link">Daftar Iuran</a></li>
+                                            <li><a href="{{ route('iuran') }}" class="nav-link">Daftar Iuran</a></li>
                                         </ul>
                                     </li>
                                     <li class="has-children">

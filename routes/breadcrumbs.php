@@ -25,6 +25,11 @@ Breadcrumbs::for('berita', function (BreadcrumbTrail $trail) {
     $trail->push('Berita', route('berita'));
 });
 
+Breadcrumbs::for('iuran', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push('Iuran', route('iuran'));
+});
+
 Breadcrumbs::for('pendaftaran-alumni', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
     $trail->push('Pendaftaran Alumni', route('pendaftaran-alumni'));
