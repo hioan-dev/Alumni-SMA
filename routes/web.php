@@ -52,7 +52,6 @@ Route::get('/tambah-alumni', function () {
 })->name('tambah-alumni');
 
 
-
 Route::middleware(['auth'])->group(function () {
    
     //Admin Dashboard
@@ -64,9 +63,12 @@ Route::middleware(['auth'])->group(function () {
 
     //User Dashboard
     Route::get('/user-dashboard', [UserDashboardController::class, 'index'])->name('user-dashboard')->middleware('EnsureUserRole:user');
+
+    //Error 403
+    Route::get('/403', function () {
+        return view('error.error403');
+    })->name('error403');
 });
 
 
 Auth::routes();
-
-
