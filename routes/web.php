@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\User\DashboardController as UserDashboardController;
 use App\Http\Controllers\KategoriBeritaController;
+use App\Http\Controllers\BeritaController;
 
 
 /*
@@ -30,7 +31,7 @@ Route::get('/pendaftaran-alumni', function () {
     return view('pendaftaran-alumni');
 })->name('pendaftaran-alumni');
 
-Route::get('/berita', function () {
+Route::get('/info-berita', function () {
     return view('berita');
 })->name('berita');
 
@@ -58,6 +59,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard')->middleware('EnsureUserRole:admin');
     // Kategori Berita
     Route::resource('kategori-berita', KategoriBeritaController::class)->middleware('EnsureUserRole:admin');
+    // Berita
+    Route::resource('berita', BeritaController::class)->middleware('EnsureUserRole:admin');
 
     //User Dashboard
     Route::get('/user-dashboard', [UserDashboardController::class, 'index'])->name('user-dashboard')->middleware('EnsureUserRole:user');
