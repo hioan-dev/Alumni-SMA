@@ -22,7 +22,7 @@
                         </div>
                         <div class="card-body">
                             <div class="new-user-info">
-                                <form action="{{ route('kategori-update', $kategori->id) }}" method="POST">
+                                <form action="{{ route('kategori-berita.update', $kategori->id) }}" method="POST">
                                 @csrf
                                 @method('PUT')
                                     <div class="row">
@@ -32,7 +32,7 @@
                                         </div>
                                     </div>
                                     <button type="submit" class="btn btn-primary btn-sm">Kirim</button>
-                                    <button type="submit" class="btn btn-danger btn-sm">Batal</button>
+                                    <button type="reset" class="btn btn-danger btn-sm">Batal</button>
                                 </form>
                             </div>
                         </div>

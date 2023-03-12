@@ -21,7 +21,7 @@
                         <div class="header-title">
                             <h4 class="card-title">Kategori Berita</h4>
                         </div>
-                        <a href="{{ route('tambah-kategori') }}" class="btn btn-primary btn-sm gap-2"><i
+                        <a href="{{ route('kategori-berita.create') }}" class="btn btn-primary btn-sm gap-2"><i
                                 class="bi bi-plus"></i> &nbsp; Tambah</a>
                     </div>
                     <div class="card-body">
@@ -42,11 +42,11 @@
                                         <td>{{ $item->nama_kategori }}</td>
                                         <td>{{ $item->slug }}</td>
                                         <td>
-                                            <a href="{{ route('kategori-edit', $item->id) }}"
+                                            <a href="{{ route('kategori-berita.edit', $item->id) }}"
                                                 class="btn btn-warning btn-sm gap-2"><i
                                                     class="bi bi-pencil-square"></i></a>
 
-                                                <form action="{{ route('kategori-delete', $item->id)}}" method="POST">
+                                                <form action="{{ route('kategori-berita.destroy', $item->id)}}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
                                                 <button class="btn btn-danger btn-sm" type="submit"><i class="bi bi-trash3"></i></button>
