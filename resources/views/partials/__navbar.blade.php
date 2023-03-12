@@ -36,7 +36,13 @@
 
                                 <ul class="site-menu main-menu js-clone-nav d-none d-lg-flex justify-content-end">
                                     <li><a href="#home-section" class="nav-link">Tentang Kami</a></li>
-                                    <li><a href="#classes-section" class="nav-link">Program</a></li>
+                                    <li class="has-children">
+                                        <a href="#" class="nav-link">Info Terbaru</a>
+                                        <ul class="dropdown arrow-top">
+                                            <li><a href="{{ route('berita') }}" class="nav-link">Berita</a></li>
+                                        </ul>
+                                    </li>
+
                                     <li class="has-children">
                                         <a href="#" class="nav-link">Galeri</a>
                                         <ul class="dropdown arrow-top">
@@ -48,7 +54,8 @@
                                     <li class="has-children">
                                         <a href="#" class="nav-link">Iuran</a>
                                         <ul class="dropdown arrow-top">
-                                            <li><a href="#" class="nav-link">Pembayaran Iuran</a></li>
+                                            <li><a href="{{ route('pembayaran-iuran') }}" class="nav-link">Pembayaran
+                                                    Iuran</a></li>
                                             <li><a href="{{ route('iuran') }}" class="nav-link">Daftar Iuran</a></li>
                                         </ul>
                                     </li>
@@ -60,12 +67,7 @@
                                             <li><a href="{{ route('data-alumni') }}" class="nav-link">Data Alumni</a></li>
                                         </ul>
                                     </li>
-                                    <li class="has-children">
-                                        <a href="#" class="nav-link">Info Terbaru</a>
-                                        <ul class="dropdown arrow-top">
-                                            <li><a href="{{ route('berita') }}" class="nav-link">Berita</a></li>
-                                        </ul>
-                                    </li>
+                                    <li><a href="#classes-section" class="nav-link">Program</a></li>
                                 </ul>
                             </div>
                         </nav>

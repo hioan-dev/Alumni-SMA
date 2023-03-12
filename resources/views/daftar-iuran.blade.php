@@ -11,7 +11,7 @@
     </style>
 @endpush
 
-@section('title', 'Pendaftaran Alumni')
+@section('title', 'Daftar Iuran')
 
 @section('navbar')
     @include('partials.__navbar')
@@ -25,7 +25,7 @@
             <h3 class="text-center fw-semibold">Daftar Alumni Yang Sudah Membayar Iuran</h3>
             <div class="divider"></div>
         </div>
-        <div class="row mt-3">
+        <div class="row mt-4">
             <table class="table">
                 <thead>
                     <tr>
