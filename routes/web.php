@@ -27,10 +27,6 @@ Route::get('/data-alumni', function () {
     return view('data-alumni');
 })->name('data-alumni');
 
-Route::get('/pendaftaran-alumni', function () {
-    return view('pendaftaran-alumni');
-})->name('pendaftaran-alumni');
-
 Route::get('/info-berita', function () {
     return view('berita');
 })->name('berita');
@@ -44,12 +40,17 @@ Route::get('/pembayaran-iuran', function () {
 })->name('pembayaran-iuran');
 
 Route::get('/table-alumni', function () {
-    return view('admin.table-alumni');
+    return view('admin.table-alumni.table-alumni');
 })->name('table-alumni');
 
 Route::get('/tambah-alumni', function () {
     return view('admin.table-alumni.tambah-alumni');
 })->name('tambah-alumni');
+
+// Pendaftran Alumni By User
+Route::get('/pendaftaran-alumni', function () {
+    return view('pendaftaran-alumni');
+})->name('pendaftaran-alumni')->middleware('auth');
 
 
 Route::middleware(['auth'])->group(function () {

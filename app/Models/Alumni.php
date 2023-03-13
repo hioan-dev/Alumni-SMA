@@ -11,4 +11,5 @@ class Alumni extends Model
     use HasFactory, SoftDeletes;
 
     protected $table = 'alumnis';
+
 }
