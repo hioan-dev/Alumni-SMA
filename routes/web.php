@@ -7,6 +7,7 @@ use App\Http\Controllers\User\DashboardController as UserDashboardController;
 use App\Http\Controllers\KategoriBeritaController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\AlumniController;
+use App\Http\Controllers\Admin\PendaftarController;
 
 
 /*
@@ -56,10 +57,14 @@ Route::get('/tambah-alumni', function () {
 Route::middleware(['auth'])->group(function () {
     //Admin Dashboard
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard')->middleware('EnsureUserRole:admin');
+
     // Kategori Berita
     Route::resource('kategori-berita', KategoriBeritaController::class)->middleware('EnsureUserRole:admin');
     // Berita
     Route::resource('berita', BeritaController::class)->middleware('EnsureUserRole:admin');
+    // Pendafatar Alumni
+    Route::get('/pendaftar-alumni', [PendaftarController::class, 'index'])->name('pendaftar-alumni')->middleware('EnsureUserRole:admin');
+    Route::post('/pendaftar-approve', [PendaftarController::class, 'approval'])->name('pendaftar-approve')->middleware('EnsureUserRole:admin');
 
     //User Dashboard
     Route::get('/user-dashboard', [UserDashboardController::class, 'index'])->name('user-dashboard')->middleware('EnsureUserRole:user');

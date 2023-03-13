@@ -29,6 +29,7 @@ class Alumni extends Model
         'universitas',
         'foto',
         'pekerjaan',
+        'approved',
     ];
 
     protected $hidden = [];

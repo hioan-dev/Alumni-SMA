@@ -32,6 +32,7 @@ class CreateTableAlumnis extends Migration
             $table->string('no_hp');
             $table->string('email');
             $table->string('foto');
+            $table->boolean('approved')->nullable();
             $table->timestamps();
             $table->softDeletes();
 
