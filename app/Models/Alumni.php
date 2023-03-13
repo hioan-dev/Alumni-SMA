@@ -12,4 +12,24 @@ class Alumni extends Model
 
     protected $table = 'alumnis';
 
+    protected $fillable = [
+        'nama_lengkap',
+        'tempat_lahir',
+        'tanggal_lahir',
+        'jenkel',
+        'ukuran_baju',
+        'alamat',
+        'tahun_lulus',
+        'jurusan',
+        'teman_sebangku',
+        'pendidikan_terakhir',
+        'kelas',
+        'no_hp',
+        'email',
+        'universitas',
+        'foto',
+        'pekerjaan',
+    ];
+
+    protected $hidden = [];
 }

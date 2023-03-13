@@ -6,11 +6,12 @@ use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\User\DashboardController as UserDashboardController;
 use App\Http\Controllers\KategoriBeritaController;
 use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\AlumniController;
 
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes
+| Web Routes Halomoan Nababan / Richardo Ehbet
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
@@ -47,14 +48,12 @@ Route::get('/tambah-alumni', function () {
     return view('admin.table-alumni.tambah-alumni');
 })->name('tambah-alumni');
 
-// Pendaftran Alumni By User
-Route::get('/pendaftaran-alumni', function () {
-    return view('pendaftaran-alumni');
-})->name('pendaftaran-alumni')->middleware('auth');
-
+    // Pendaftaran Alumni Before Login
+    Route::get('/pendaftaran-alumni', function () {
+        return view('pendaftaran-alumni');
+    })->name('pendaftaran-alumni');
 
 Route::middleware(['auth'])->group(function () {
-   
     //Admin Dashboard
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard')->middleware('EnsureUserRole:admin');
     // Kategori Berita
@@ -69,7 +68,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/403', function () {
         return view('error.error403');
     })->name('error403');
-});
 
+    // Pendaftaran Alumni After Login
+    Route::resource('pendaftaran', AlumniController::class);
+
+});
 
 Auth::routes();
