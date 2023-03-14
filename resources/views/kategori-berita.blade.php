@@ -54,7 +54,7 @@
                             <div class="col-md-4">
                                 <div class="card shadow-sm" style="height:400px">
                                     <div class="card-news__img">
-                                        <a href="#">
+                                        <a href="{{ route('detail-berita', $row->slug) }}">
                                             <img src="{{ asset('storage/' . $row->banner) }}" class="card-img-top"
                                                 alt="">
                                         </a>
@@ -79,7 +79,7 @@
                                         </div>
                                         <h5 class="card-title fw-semibold clamp-2">{{ $row->title }}</h5>
                                         <p class="card-text clamp-2">{{ $row->description }}</p>
-                                        <a href="{{ $row->slug }}"
+                                        <a href="{{ route('detail-berita', $row->slug) }}"
                                             class="card-link text-decoration-none d-flex align-items-center">Read
                                             More
                                             <span class="material-symbols-outlined px-1 fs-5">

@@ -103,9 +103,9 @@
                     @foreach ($news as $row)
                         <div class="col-md-4">
                             <div class="card shadow-sm" style="height:400px">
-                                <div class="card-news__img">
+                                <a href="{{ route('detail-berita', $row->slug) }}" class="card-news__img">
                                     <img src="{{ asset('storage/' . $row->banner) }}" alt="">
-                                </div>
+                                </a>
                                 <div class="card-body">
                                     <div class="fs-6 mb-2 text-muted d-flex align-content-center">
                                         <div class="d-flex align-content-center">
@@ -119,13 +119,15 @@
                                             <span class="material-symbols-outlined fs-5 mr-3">
                                                 folder
                                             </span>
-                                            <a href="#" class="px-1 text-decoration-none"
+                                            <a href="{{ route('kategori-berita', $row->kategori->slug) }}"
+                                                class="px-1 text-decoration-none"
                                                 style="font-size:12px;">{{ $row->kategori->nama_kategori }}</a>
                                         </div>
                                     </div>
                                     <h5 class="card-title fw-semibold">{{ $row->title }}</h5>
                                     <p class="card-text clamp-2">{{ $row->description }}</p>
-                                    <a href="#" class="card-link text-decoration-none d-flex align-items-center">Read
+                                    <a href="{{ route('detail-berita', $row->slug) }}"
+                                        class="card-link text-decoration-none d-flex align-items-center">Read
                                         More
                                         <span class="material-symbols-outlined px-1 fs-5">
                                             east

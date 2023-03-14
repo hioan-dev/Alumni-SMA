@@ -25,8 +25,21 @@ class FrontendController extends Controller
     {
         $news = Berita::paginate(5)->fragment('news');
         $categories = Kategori::all();
+
         return view('berita', [
             'news' => $news,
+            'categories' => $categories
+        ]);
+    }
+
+    public function detail_berita($slug)
+    {
+        $detail = Berita::where('slug', $slug)->first();
+        $categories = Kategori::all();
+
+
+        return view('detail-berita', [
+            'detail' => $detail,
             'categories' => $categories
         ]);
     }
@@ -35,6 +48,10 @@ class FrontendController extends Controller
     {
         $category = Kategori::where('slug', $categoryName)->first();
         $categories = Kategori::all();
+
+        if (!$category) {
+            abort(404);
+        }
 
         $newsByCategory = Berita::where('kategori_id', $category->id)->paginate(6);
 
