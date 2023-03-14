@@ -91,6 +91,37 @@
                 </div>
             </div>
         </div>
+
+        <div class="container mt-5">
+            <div class="row justify-content-center">
+                <div class="countdown col-md-8 bg-primary text-white rounded-3 p-5 my-5">
+                    <div>
+                        <h2 class="fw-bold">Musyawarah Nasional</h2>
+                        <p>Selasa, 25 April 2023</p>
+                    </div>
+                    <div class="mt-3 row justify-content-center gx-5 " id="countdown__timer">
+                        <div class="col-auto text-center">
+                            <h3 class="countdown__date" id="day">00</h3>
+                            <p class="countdown__desc">Hari</p>
+                        </div>
+                        <div class="col-auto text-center">
+                            <h3 class="countdown__date" id="hour">00</h3>
+                            <p class="countdown__desc">Jam</p>
+                        </div>
+                        <div class="col-auto text-center">
+                            <h3 class="countdown__date" id="minute">00</h3>
+                            <p class="countdown__desc">Menit</p>
+                        </div>
+                        <div class="col-auto text-center">
+                            <h3 class="countdown__date" id="second">00</h3>
+                            <p class="countdown__desc">Detik</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
         @if ($news->count() > 0)
             <div class="container">
                 <div class="row mt-5">
@@ -139,5 +170,47 @@
                 </div>
             </div>
         @endif
+
+
     </div>
 @endsection
+
+@push('scripts')
+    <script>
+        var countDownDate = new Date("Apr 25, 2023 00:56:00").getTime();
+        const dayElement = document.getElementById('day');
+        const hourElement = document.getElementById('hour');
+        const minuteElement = document.getElementById('minute');
+        const secondElement = document.getElementById('second');
+
+        // Update the count down every 1 second
+        var x = setInterval(function() {
+
+            // Get today's date and time
+            var now = new Date().getTime();
+
+            // Find the distance between now and the count down date
+            var distance = countDownDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Output the result in an element
+            dayElement.innerHTML = days;
+            hourElement.innerHTML = hours;
+            minuteElement.innerHTML = minutes;
+            secondElement.innerHTML = seconds;
+
+
+            // If the count down is over, write some text 
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown__timer").innerHTML =
+                    "<h2 class='text-center'>Acara Berakhir</h2>";
+            }
+        }, 1000);
+    </script>
+@endpush
