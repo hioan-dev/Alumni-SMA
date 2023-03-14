@@ -91,47 +91,53 @@
                 </div>
             </div>
         </div>
-        <div class="container">
-            <div class="row mt-5">
-                <div class="d-flex justify-content-between">
-                    <h3 class="fw-bold text-center">Berita Terbaru</h3>
-                    <button class="btn btn-outline-primary">See all</button>
-                </div>
-            </div>
-            <div class="row gy-3 gx-3 mt-2">
-                <div class="col-md-4">
-                    <div class="card shadow-sm" style="height:400px">
-                        <div class="card-news__img">
-                            <img src="https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-                                alt="">
-                        </div>
-                        <div class="card-body">
-                            <div class="fs-6 mb-2 text-muted d-flex align-content-center">
-                                <div class="d-flex align-content-center">
-                                    <span class="material-symbols-outlined fs-6 mr-3">
-                                        calendar_month
-                                    </span>
-                                    <div class="px-1" style="font-size:12px;">08 Maret 2021</div>
-                                </div>
-                                <div class="d-flex align-content-center">
-                                    <span class="material-symbols-outlined fs-5 mr-3">
-                                        folder
-                                    </span>
-                                    <a href="#" class="px-1 text-decoration-none" style="font-size:12px;">Event</a>
-                                </div>
-                            </div>
-                            <h5 class="card-title fw-semibold">Penyelengaraan Faksinasi Alumni</h5>
-                            <p class="card-text clamp-2">Some quick example text to build on the card title and make up the
-                                bulk of
-                                the card's content.</p>
-                            <a href="#" class="card-link text-decoration-none d-flex align-items-center">Read More
-                                <span class="material-symbols-outlined px-1 fs-5">
-                                    east
-                                </span></a>
-                        </div>
+        @if ($news->count() > 0)
+            <div class="container">
+                <div class="row mt-5">
+                    <div class="d-flex justify-content-between">
+                        <h3 class="fw-bold text-center">Berita Terbaru</h3>
+                        <a href="{{ route('berita') }}" class="btn btn-outline-primary">See all</a>
                     </div>
                 </div>
+                <div class="row gy-3 gx-3 mt-2">
+                    @foreach ($news as $row)
+                        <div class="col-md-4">
+                            <div class="card shadow-sm" style="height:400px">
+                                <a href="{{ route('detail-berita', $row->slug) }}" class="card-news__img">
+                                    <img src="{{ asset('storage/' . $row->banner) }}" alt="">
+                                </a>
+                                <div class="card-body">
+                                    <div class="fs-6 mb-2 text-muted d-flex align-content-center">
+                                        <div class="d-flex align-content-center">
+                                            <span class="material-symbols-outlined fs-6 mr-3">
+                                                calendar_month
+                                            </span>
+                                            <div class="px-1" style="font-size:12px;">
+                                                {{ date('M j, Y', strtotime($row->created_at)) }}</div>
+                                        </div>
+                                        <div class="d-flex align-content-center">
+                                            <span class="material-symbols-outlined fs-5 mr-3">
+                                                folder
+                                            </span>
+                                            <a href="{{ route('kategori-berita', $row->kategori->slug) }}"
+                                                class="px-1 text-decoration-none"
+                                                style="font-size:12px;">{{ $row->kategori->nama_kategori }}</a>
+                                        </div>
+                                    </div>
+                                    <h5 class="card-title fw-semibold">{{ $row->title }}</h5>
+                                    <p class="card-text clamp-2">{{ $row->description }}</p>
+                                    <a href="{{ route('detail-berita', $row->slug) }}"
+                                        class="card-link text-decoration-none d-flex align-items-center">Read
+                                        More
+                                        <span class="material-symbols-outlined px-1 fs-5">
+                                            east
+                                        </span></a>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
             </div>
-        </div>
+        @endif
     </div>
 @endsection

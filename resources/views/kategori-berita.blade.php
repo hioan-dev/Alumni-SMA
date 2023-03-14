@@ -42,9 +42,10 @@
 
 @section('content')
     <div class="container" style="margin-top: 120px">
-        {{ Breadcrumbs::render('berita') }}
+        {{ Breadcrumbs::render('kategori-berita', $category->nama_kategori) }}
 
         <div class="row">
+
 
             @if ($news->count() > 0)
                 <div class="col-md-8">

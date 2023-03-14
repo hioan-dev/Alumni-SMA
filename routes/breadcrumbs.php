@@ -25,6 +25,18 @@ Breadcrumbs::for('berita', function (BreadcrumbTrail $trail) {
     $trail->push('Berita', route('berita'));
 });
 
+Breadcrumbs::for('kategori-berita', function (BreadcrumbTrail $trail, $categoryName) {
+    $trail->parent('home');
+    $trail->push('Berita', route('berita'));
+    $trail->push($categoryName, route('kategori-berita', $categoryName));
+});
+
+Breadcrumbs::for('detail-berita', function (BreadcrumbTrail $trail, $news) {
+    $trail->parent('home');
+    $trail->push('Berita', route('berita'));
+    $trail->push($news->title, route('detail-berita', $news->slug));
+});
+
 Breadcrumbs::for('iuran', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
     $trail->push('Iuran', route('iuran'));

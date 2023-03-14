@@ -52,13 +52,12 @@ class BeritaController extends Controller
         $originalName = $banner->getClientOriginalName();
 
         $berita = $request->all();
-        $berita['slug']= \Str::slug($request->title);
+        $berita['slug'] = \Str::slug($request->title);
         $berita['user_id'] = \Auth::user()->id;
         $berita['is_active'] = $request->has('is_active') ? 1 : 0;
-        $berita['banner'] = $originalName;
 
         if ($request->hasFile('banner')) {
-            $banner->storeAs('public/berita', $originalName);
+            $berita['banner'] = $banner->store('public/berita');;
         } else {
             return $request;
             $berita->banner = '';
@@ -67,7 +66,6 @@ class BeritaController extends Controller
         $berita = Berita::create($berita);
 
         return redirect()->route('berita.index')->with('success', 'Berita berhasil ditambahkan');
-
     }
 
     /**
@@ -116,11 +114,10 @@ class BeritaController extends Controller
             ]);
 
             return redirect()->route('berita.index')->with('success', 'Berita berhasil diubah');
-
         } else {
             $berita = Berita::find($id);
             Storage::delete('public/berita' . $berita->banner);
-            
+
             $banner = $request->file('banner');
             $originalName = $banner->getClientOriginalName();
             $banner->storeAs('public/berita', $originalName);
