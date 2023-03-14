@@ -40,8 +40,8 @@
                                 <tbody>
                                 @forelse ($berita as $item)
                                     <tr>
-                                        <th>{{ $loop->iteration }}</th>
-                                        <th>{{$item->title}}</th>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{$item->title}}</td>
                                         <td>{{$item->kategori->nama_kategori}}</td>
                                         <td>{{$item->author}}</td>
                                         <td><img src="{{ asset('public/berita' . $item->banner) }}" alt="" width="100px" height="60px"></td>
