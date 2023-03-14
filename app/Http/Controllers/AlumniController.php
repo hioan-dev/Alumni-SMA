@@ -12,7 +12,7 @@ class AlumniController extends Controller
     {
         $alumni = Alumni::all();
         if (Auth::check()) {
-           return view('pendaftaran-alumni', compact('alumni'));
+            return view('pendaftaran-alumni', compact('alumni'));
         } else {
             return redirect()->route('login');
         }
@@ -20,12 +20,11 @@ class AlumniController extends Controller
 
     public function create()
     {
-       
     }
 
     public function store(Request $request)
     {
-   
+
         $request->validate([
             'nama_lengkap' => 'required',
             'tahun_lulus' => 'required',
@@ -51,7 +50,7 @@ class AlumniController extends Controller
         $originalName = $foto->getClientOriginalName();
 
         if ($request->hasFile('foto')) {
-            $foto->storeAs('public/alumni', $originalName);
+            $alumni['foto'] = $foto->store('public/alumni');
         } else {
             return $request;
             $alumni->foto = '';
