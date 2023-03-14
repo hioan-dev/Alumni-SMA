@@ -42,9 +42,10 @@
 
 @section('content')
     <div class="container" style="margin-top: 120px">
-        {{ Breadcrumbs::render('berita') }}
+        {{ Breadcrumbs::render('kategori-berita', $category->nama_kategori) }}
 
         <div class="row">
+
 
             @if ($news->count() > 0)
                 <div class="col-md-8">
@@ -78,7 +79,7 @@
                                         </div>
                                         <h5 class="card-title fw-semibold clamp-2">{{ $row->title }}</h5>
                                         <p class="card-text clamp-2">{{ $row->description }}</p>
-                                        <a href="#"
+                                        <a href="{{ $row->slug }}"
                                             class="card-link text-decoration-none d-flex align-items-center">Read
                                             More
                                             <span class="material-symbols-outlined px-1 fs-5">

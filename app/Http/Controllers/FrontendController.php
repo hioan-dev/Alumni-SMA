@@ -31,6 +31,20 @@ class FrontendController extends Controller
         ]);
     }
 
+    public function category($categoryName)
+    {
+        $category = Kategori::where('slug', $categoryName)->first();
+        $categories = Kategori::all();
+
+        $newsByCategory = Berita::where('kategori_id', $category->id)->paginate(6);
+
+        return view('kategori-berita', [
+            'news' => $newsByCategory,
+            'categories' => $categories,
+            'category' => $category
+        ]);
+    }
+
     public function iuran()
     {
         return view('daftar-iuran');
