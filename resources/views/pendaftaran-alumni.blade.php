@@ -80,98 +80,98 @@
             </div>
         </div>
         <div class="row mt-5">
-            <form action="{{route('pendaftaran.store')}}" method="POST" enctype="multipart/form-data">
-            @csrf 
-            <div class="col-md-6">
-                <div class=" mb-3">
-                    <label for="foto" class="form-label">Foto</label>
-                    <input type="file" class="form-control" id="foto" name="foto">
+            <form action="{{ route('pendaftaran.store') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div class="col-md-6">
+                    <div class=" mb-3">
+                        <label for="foto" class="form-label">Foto</label>
+                        <input type="file" class="form-control" id="foto" name="foto">
+                    </div>
+                    <div class="mb-3">
+                        <label for="nama_lengkap" class="form-label">Nama Lengkap</label>
+                        <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap">
+                    </div>
+                    <div class="mb-3">
+                        <label for="tahun_lulus" class="form-label">Tahun Lulus</label>
+                        <input type="text" class="form-control" id="tahun_lulus" name="tahun_lulus">
+                    </div>
+                    <div class="mb-3">
+                        <label for="kelas" class="form-label">Kelas</label>
+                        <input type="text" class="form-control" id="kelas" name="kelas">
+                    </div>
+                    <div class="mb-3">
+                        <label for="tempat_lahir" class="form-label">Tempat Lahir</label>
+                        <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir">
+                    </div>
+                    <div class="mb-3">
+                        <label for="tanggal_lahir" class="form-label">Tanggal Lahir</label>
+                        <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir">
+                    </div>
+                    <div class="mb-3">
+                        <label for="teman_sebangku" class="form-label">Nama Teman Sebangku</label>
+                        <input type="text" class="form-control" id="teman_sebangku" name="teman_sebangku">
+                    </div>
+                    <div class="mb-3">
+                        <label for="alamat" class="form-label">Alamat</label>
+                        <textarea class="form-control" id="alamat" name="alamat" rows="3"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="jenkel" class="form-label">Jenis Kelamin</label>
+                        <select class="form-select" aria-label="Jenis kelamin select" name="jenkel">
+                            <option selected value="male">Laki-Laki</option>
+                            <option value="female">Perempuan</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="ukuran_baju" class="form-label">Ukuran Baju</label>
+                        <select class="form-select" aria-label="Ukuran Baju select" name="ukuran_baju">
+                            <option selected value="S">S</option>
+                            <option value="M">M</option>
+                            <option value="L">L</option>
+                            <option value="XL">XL</option>
+                            <option value="XXL">XXL</option>
+                            <option value="XXXL">XXXL</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="pendidikan_terakhir" class="form-label">Pendidikan Terakhir</label>
+                        <select class="form-select" aria-label="Pendidikan select" name="pendidikan_terakhir">
+                            <option selected value="SMA">SMA</option>
+                            <option value="D1">D1</option>
+                            <option value="D2">D2</option>
+                            <option value="D3">D3</option>
+                            <option value="D4">D4</option>
+                            <option value="S1">S1</option>
+                            <option value="S2">S2</option>
+                            <option value="S3">S3</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="universitas" class="form-label">Universitas</label>
+                        <input type="text" class="form-control" id="universitas" name="universitas">
+                    </div>
+                    <div class="mb-3">
+                        <label for="jurusan" class="form-label">Program Studi / Jurusan</label>
+                        <input type="text" class="form-control" id="jurusan" name="jurusan">
+                    </div>
+                    <div class="mb-3">
+                        <label for="pekerjaan" class="form-label">Pekerjaan</label>
+                        <input type="text" class="form-control" id="pekerjaan" name="pekerjaan">
+                    </div>
+                    <div class="mb-3">
+                        <label for="no_hp" class="form-label">No HP / WA</label>
+                        <input type="text" class="form-control" id="no_hp" name="no_hp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email">
+                    </div>
+                    <div class="float-end">
+                        <button type="submit" class="btn btn-primary">Sumbit</button>
+                    </div>
                 </div>
-                <div class="mb-3">
-                    <label for="nama_lengkap" class="form-label">Nama Lengkap</label>
-                    <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap">
-                </div>
-                <div class="mb-3">
-                    <label for="tahun_lulus" class="form-label">Tahun Lulus</label>
-                    <input type="text" class="form-control" id="tahun_lulus" name="tahun_lulus">
-                </div>
-                <div class="mb-3">
-                    <label for="kelas" class="form-label">Kelas</label>
-                    <input type="text" class="form-control" id="kelas" name="kelas">
-                </div>
-                <div class="mb-3">
-                    <label for="tempat_lahir" class="form-label">Tempat Lahir</label>
-                    <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir">
-                </div>
-                <div class="mb-3">
-                    <label for="tanggal_lahir" class="form-label">Tanggal Lahir</label>
-                    <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir">
-                </div>
-                <div class="mb-3">
-                    <label for="teman_sebangku" class="form-label">Nama Teman Sebangku</label>
-                    <input type="text" class="form-control" id="teman_sebangku" name="teman_sebangku">
-                </div>
-                <div class="mb-3">
-                    <label for="alamat" class="form-label">Alamat</label>
-                    <textarea class="form-control" id="alamat" name="alamat" rows="3"></textarea>
-                </div>
-                <div class="mb-3">
-                    <label for="jenkel" class="form-label">Jenis Kelamin</label>
-                    <select class="form-select" aria-label="Jenis kelamin select" name="jenkel">
-                        <option selected value="male">Laki-Laki</option>
-                        <option value="female">Perempuan</option>
-                    </select>
-                </div>
-                <div class="mb-3">
-                    <label for="ukuran_baju" class="form-label">Ukuran Baju</label>
-                    <select class="form-select" aria-label="Ukuran Baju select" name="ukuran_baju">
-                        <option selected value="S">S</option>
-                        <option value="M">M</option>
-                        <option value="L">L</option>
-                        <option value="XL">XL</option>
-                        <option value="XXL">XXL</option>
-                        <option value="XXXL">XXXL</option>
-                    </select>
-                </div>
-                <div class="mb-3">
-                    <label for="pendidikan_terakhir" class="form-label">Pendidikan Terakhir</label>
-                    <select class="form-select" aria-label="Pendidikan select" name="pendidikan_terakhir">
-                        <option selected value="male">SMA</option>
-                        <option value="D1">D1</option>
-                        <option value="D2">D2</option>
-                        <option value="D3">D3</option>
-                        <option value="D4">D4</option>
-                        <option value="S1">S1</option>
-                        <option value="S2">S2</option>
-                        <option value="S3">S3</option>
-                    </select>
-                </div>
-                <div class="mb-3">
-                    <label for="universitas" class="form-label">Universitas</label>
-                    <input type="text" class="form-control" id="universitas" name="universitas">
-                </div>
-                <div class="mb-3">
-                    <label for="jurusan" class="form-label">Program Studi / Jurusan</label>
-                    <input type="text" class="form-control" id="jurusan" name="jurusan">
-                </div>
-                <div class="mb-3">
-                    <label for="pekerjaan" class="form-label">Pekerjaan</label>
-                    <input type="text" class="form-control" id="pekerjaan" name="pekerjaan">
-                </div>
-                <div class="mb-3">
-                    <label for="no_hp" class="form-label">No HP / WA</label>
-                    <input type="text" class="form-control" id="no_hp" name="no_hp">
-                </div>
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" name="email">
-                </div>
-                <div class="float-end">
-                    <button type="submit" class="btn btn-primary">Sumbit</button>
-                </div>
-            </div>
             </form>
-            
+
             <div class="col-md-6">
                 <div>
                     <h5 class="fw-semibold">Tata cara Pengisian:</h5>
