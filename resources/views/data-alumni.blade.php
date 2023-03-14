@@ -40,31 +40,35 @@
                 </div>
             </div>
         </div>
-        <div class="row mt-3">
+        {{-- <div class="row mt-3">
             <p class="text-center">Hasil pencarian untuk "<span class="fw-bold">Rudi</span>"</p>
-        </div>
-        <div class="row mt-1 gy-3">
-            @for ($i = 0; $i < 10; $i++)
+        </div> --}}
+        <div class="row mt-5 gy-3">
+            @forelse ($alumni as $row)
                 <div class="col-md-6 col-lg-4">
                     <div class="card text-center shadow-sm">
                         <div class="card-header">
-                            <h5 class="fw-semibold">IPA 3</h5>
-                            <h6>2019</h6>
+                            <h5 class="fw-semibold">{{ $row->kelas }}</h5>
+                            <h6>{{ $row->tahun_lulus }}</h6>
                         </div>
                         <div class="card-body">
                             <div class="student-img">
-                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
-                                    alt="" class="img-fluid">
+                                <img src="{{ asset('storage/' . $row->foto) }}" alt="" class="img-fluid">
                             </div>
                             <div class="mt-3">
-                                <h5 class="card-title fw-semibold">Abrahan GT Sinaga</h5>
-                                <p class="card-text">abramtambatuasinaga@gmail.com</p>
+                                <h5 class="card-title fw-semibold">{{ $row->nama_lengkap }}</h5>
+                                <p class="card-text">{{ $row->email }}</p>
                             </div>
                         </div>
                     </div>
                 </div>
-            @endfor
-
+            @empty
+                <div class="col-12">
+                    <div class="alert alert-warning text-center" role="alert">
+                        Belum ada alumni yang mendaftar
+                    </div>
+                </div>
+            @endforelse
 
         </div>
     </div>

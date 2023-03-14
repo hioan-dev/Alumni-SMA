@@ -1,14 +1,16 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
-use App\Http\Controllers\User\DashboardController as UserDashboardController;
-use App\Http\Controllers\KategoriBeritaController;
-use App\Http\Controllers\BeritaController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AlumniController;
+use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\KategoriBeritaController;
 use App\Http\Controllers\Admin\PendaftarController;
 use App\Http\Controllers\Admin\TabelAlumniController;
+use App\Http\Controllers\User\DashboardController as UserDashboardController;
+use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
+
 
 
 /*
@@ -22,31 +24,17 @@ use App\Http\Controllers\Admin\TabelAlumniController;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
-
-Route::get('/data-alumni', function () {
-    return view('data-alumni');
-})->name('data-alumni');
-
-Route::get('/info-berita', function () {
-    return view('berita');
-})->name('berita');
-
-Route::get('/iuran', function () {
-    return view('daftar-iuran');
-})->name('iuran');
-
-Route::get('/pembayaran-iuran', function () {
-    return view('pembayaran-iuran');
-})->name('pembayaran-iuran');
+Route::get('/', [FrontendController::class, 'index'])->name('home');
+Route::get('/data-alumni', [FrontendController::class, 'alumni'])->name('data-alumni');
+Route::get('/info-berita', [FrontendController::class, 'berita'])->name('berita');
+Route::get('/iuran', [FrontendController::class, 'iuran'])->name('iuran');
+Route::get('/pembayaran-iuran', [FrontendController::class, 'pembayaran'])->name('pembayaran-iuran');
 
 
-    // Pendaftaran Alumni Before Login
-    Route::get('/pendaftaran-alumni', function () {
-        return view('pendaftaran-alumni');
-    })->name('pendaftaran-alumni');
+// Pendaftaran Alumni Before Login
+Route::get('/pendaftaran-alumni', function () {
+    return view('pendaftaran-alumni');
+})->name('pendaftaran-alumni');
 
 Route::middleware(['auth'])->group(function () {
     //Admin Dashboard
@@ -72,7 +60,6 @@ Route::middleware(['auth'])->group(function () {
 
     // Pendaftaran Alumni After Login
     Route::resource('pendaftaran', AlumniController::class);
-
 });
 
 Auth::routes();
