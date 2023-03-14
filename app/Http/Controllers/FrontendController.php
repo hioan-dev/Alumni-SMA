@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Alumni;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
@@ -13,7 +14,8 @@ class FrontendController extends Controller
 
     public function alumni()
     {
-        return view('data-alumni');
+        $alumni = Alumni::where('approved', 1)->get();
+        return view('data-alumni', compact('alumni'));
     }
 
     public function berita()
