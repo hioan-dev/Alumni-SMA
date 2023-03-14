@@ -8,6 +8,7 @@ use App\Http\Controllers\KategoriBeritaController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\AlumniController;
 use App\Http\Controllers\Admin\PendaftarController;
+use App\Http\Controllers\Admin\TabelAlumniController;
 
 
 /*
@@ -41,13 +42,6 @@ Route::get('/pembayaran-iuran', function () {
     return view('pembayaran-iuran');
 })->name('pembayaran-iuran');
 
-Route::get('/table-alumni', function () {
-    return view('admin.table-alumni.table-alumni');
-})->name('table-alumni');
-
-Route::get('/tambah-alumni', function () {
-    return view('admin.table-alumni.tambah-alumni');
-})->name('tambah-alumni');
 
     // Pendaftaran Alumni Before Login
     Route::get('/pendaftaran-alumni', function () {
@@ -65,6 +59,8 @@ Route::middleware(['auth'])->group(function () {
     // Pendafatar Alumni
     Route::get('/pendaftar-alumni', [PendaftarController::class, 'index'])->name('pendaftar-alumni')->middleware('EnsureUserRole:admin');
     Route::post('/pendaftar-approve', [PendaftarController::class, 'approval'])->name('pendaftar-approve')->middleware('EnsureUserRole:admin');
+    // Tabel Alumni
+    Route::resource('table-alumni', TabelAlumniController::class)->middleware('EnsureUserRole:admin');
 
     //User Dashboard
     Route::get('/user-dashboard', [UserDashboardController::class, 'index'])->name('user-dashboard')->middleware('EnsureUserRole:user');

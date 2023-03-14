@@ -138,7 +138,7 @@
                     </a>
                     <ul class="sub-nav collapse" id="sidebar-widget" data-bs-parent="#sidebar-menu">
                         <li class="nav-item">
-                        <a class="nav-link {{ Request::is('table-alumni') ? 'active' : ''}}" aria-current="page" href="{{ route('table-alumni') }}">
+                        <a class="nav-link {{ Request::is('table-alumni') ? 'active' : ''}}" aria-current="page" href="{{ route('table-alumni.index') }}">
                                 <i class="icon">
                                     <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
                                         viewBox="0 0 24 24" fill="currentColor">

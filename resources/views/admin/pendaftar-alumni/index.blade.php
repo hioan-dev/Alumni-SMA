@@ -27,6 +27,7 @@
                                 <table id="datatable" class="table table-striped" data-toggle="data-table">
                                     <thead>
                                         <tr>
+                                            <th>No</th>
                                             <th>Nama</th>
                                             <th>Tahun Lulus</th>
                                             <th>Aksi</th>
@@ -34,6 +35,7 @@
                                     </thead>
                                     <tbody>
                                         @forelse ($alumni as $row)
+                                            <td>{{$loop->iteration}}</td>
                                             <td>{{ $row->nama_lengkap }}</td>
                                             <td>{{ $row->tahun_lulus }}</td>
                                             <td>
@@ -54,6 +56,7 @@
                                             <tr>
                                                 <td></td>
                                                 <td class="text-center">Belum Ada Pendaftar</td>
+                                                <td></td>
                                                 <td></td>
                                             </tr>
                                         @endforelse
