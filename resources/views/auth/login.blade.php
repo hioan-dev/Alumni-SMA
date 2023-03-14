@@ -9,16 +9,16 @@
                     <div class="col-md-10">
                         <div class="card card-transparent shadow-none d-flex justify-content-center mb-0 auth-card">
                             <div class="card-body">
-                                <a href="{{url('/')}}" class="navbar-brand d-flex align-items-center mb-3">
+                                <div class="navbar-brand d-flex align-items-center mb-3">
                                     <div class="logo-main">
                                         <div class="logo-normal">
-                                            <img src="{{ asset('images/logo_alumni_warna.svg') }}" class="mb-5" alt="">
+                                            <img src="{{ asset('images/logofix.svg') }}" class="mb-5" alt="">
                                         </div>
                                         <div class="logo-mini">
-                                            <img src="{{ asset('images/logo_alumni_warna.svg') }}" class="mb-5" alt="">
+                                            <img src="{{ asset('images/logofix.svg') }}" class="mb-5" alt="">
                                         </div>
                                     </div>
-                                </a>
+                                </div>
 
                                 <h2 class="mb-2 text-center">Sign In</h2>
                                 <form method="POST" action="{{ route('login') }}">

@@ -1,13 +1,14 @@
 <aside class="sidebar sidebar-default sidebar-white sidebar-base navs-rounded-all ">
     <div class="sidebar-header d-flex align-items-center justify-content-start">
-        <a href="../dashboard/index.html" class="navbar-brand">
+        <a href="" class="navbar-brand">
             <!--Logo start-->
             <div class="logo-main">
                 <div class="logo-normal">
-                    <img src="{{ asset('images/logo_alumni.svg') }}" alt="Logo Alumni">
+                    <center>  <img src="{{ asset('images/logofix.svg') }}" alt="Logo Alumni"></center>
+                   
                 </div>
                 <div class="logo-mini">
-                    <img src="{{ asset('images/logo_alumni.svg') }}" alt="Logo Alumni">
+                <center>  <img src="{{ asset('images/logofix.svg') }}" alt="Logo Alumni"></center>
                 </div>
             </div>
             <!--logo End-->
