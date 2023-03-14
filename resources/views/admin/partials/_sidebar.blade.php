@@ -1,13 +1,14 @@
 <aside class="sidebar sidebar-default sidebar-white sidebar-base navs-rounded-all ">
     <div class="sidebar-header d-flex align-items-center justify-content-start">
-        <a href="../dashboard/index.html" class="navbar-brand">
+        <a href="" class="navbar-brand">
             <!--Logo start-->
             <div class="logo-main">
                 <div class="logo-normal">
-                    <img src="{{ asset('images/logo_alumni.svg') }}" alt="Logo Alumni">
+                    <center>  <img src="{{ asset('images/logofix.svg') }}" alt="Logo Alumni"></center>
+                   
                 </div>
                 <div class="logo-mini">
-                    <img src="{{ asset('images/logo_alumni.svg') }}" alt="Logo Alumni">
+                <center>  <img src="{{ asset('images/logofix.svg') }}" alt="Logo Alumni"></center>
                 </div>
             </div>
             <!--logo End-->
@@ -138,7 +139,7 @@
                     </a>
                     <ul class="sub-nav collapse" id="sidebar-widget" data-bs-parent="#sidebar-menu">
                         <li class="nav-item">
-                        <a class="nav-link {{ Request::is('table-alumni') ? 'active' : ''}}" aria-current="page" href="{{ route('table-alumni') }}">
+                        <a class="nav-link {{ Request::is('table-alumni') ? 'active' : ''}}" aria-current="page" href="{{ route('table-alumni.index') }}">
                                 <i class="icon">
                                     <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
                                         viewBox="0 0 24 24" fill="currentColor">
