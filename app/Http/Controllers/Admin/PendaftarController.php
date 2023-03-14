@@ -10,21 +10,15 @@ class PendaftarController extends Controller
 {
     public function index()
     {
-        $alumni = Alumni::all();
+        $alumni = Alumni::where('approved', 0)->get();
         return view('admin.pendaftar-alumni.index', compact('alumni'));
     }
 
     public function approval(Request $request)
     {
-        $alumni = Alumni::find($request->alumniId);
-        $approVal = $request->approved;
-        if ($approVal == 'on') {
-            $approVal = 1;
-        } else {
-            $approVal = 0;
-        }
+        $alumni = Alumni::find($request->id);
 
-        $alumni->approved = $approVal;
+        $alumni->approved = 1;
         $alumni->save();
         return back();
     }
