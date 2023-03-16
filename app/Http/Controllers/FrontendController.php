@@ -6,6 +6,7 @@ use App\Models\Alumni;
 use App\Models\Berita;
 use App\Models\Kategori;
 use Illuminate\Http\Request;
+use Illuminate\Database\Query\Builder;
 
 class FrontendController extends Controller
 {
@@ -15,10 +16,22 @@ class FrontendController extends Controller
         return view('home', compact('news'));
     }
 
-    public function alumni()
+    public function alumni(Request $request)
     {
-        $alumni = Alumni::where('approved', 1)->get();
-        return view('data-alumni', compact('alumni'));
+        $keyword = $request->get('search');
+
+        if ($keyword) {
+            $alumni = Alumni::where('approved', 1)->where(function ($query) use ($keyword) {
+                $query->where('tahun_lulus', 'LIKE', "%$keyword%")->orWhere('nama_lengkap', 'LIKE', "%$keyword%")->orWhere('kelas', 'LIKE', "%$keyword%");
+            })->paginate(10);
+        } else {
+            $alumni = Alumni::where('approved', 1)->paginate(10);
+        }
+
+        return view('data-alumni', [
+            'alumni' => $alumni,
+            'keyword' => $keyword
+        ]);
     }
 
     public function berita()
