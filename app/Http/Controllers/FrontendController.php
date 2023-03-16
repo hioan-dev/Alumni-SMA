@@ -17,7 +17,7 @@ class FrontendController extends Controller
 
     public function alumni()
     {
-        $alumni = Alumni::where('approved', 1)->get();
+        $alumni = Alumni::where('approved', 1)->paginate(10);
         return view('data-alumni', compact('alumni'));
     }
 

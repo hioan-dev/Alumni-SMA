@@ -45,7 +45,7 @@
         </div> --}}
         <div class="row mt-5 gy-3">
             @forelse ($alumni as $row)
-                <div class="col-md-6 col-lg-4">
+                <div class="col-md-6 col-lg-3">
                     <div class="card text-center shadow-sm">
                         <div class="card-header">
                             <h5 class="fw-semibold">{{ $row->kelas }}</h5>
@@ -53,7 +53,9 @@
                         </div>
                         <div class="card-body">
                             <div class="student-img">
-                                <img src="{{ asset('storage/' . $row->foto) }}" alt="" class="img-fluid">
+                                {{-- <img src="{{ asset('storage/' . $row->foto) }}" alt="" class="img-fluid"> --}}
+                                <img src="{{ $row->foto }}" alt="" class="img-fluid">
+
                             </div>
                             <div class="mt-3">
                                 <h5 class="card-title fw-semibold">{{ $row->nama_lengkap }}</h5>
@@ -61,6 +63,7 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
             @empty
                 <div class="col-12">
@@ -69,7 +72,13 @@
                     </div>
                 </div>
             @endforelse
-
+            @if (count($alumni) > 0)
+                <div class="mt-5">
+                    <div class="d-flex justify-content-center ">
+                        {!! $alumni->links() !!}
+                    </div>
+                </div>
+            @endif
         </div>
     </div>
 @endsection
