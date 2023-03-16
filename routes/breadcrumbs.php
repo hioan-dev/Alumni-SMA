@@ -47,6 +47,11 @@ Breadcrumbs::for('pembayaran-iuran', function (BreadcrumbTrail $trail) {
     $trail->push('Pembayaran Iuran', route('pembayaran-iuran'));
 });
 
+Breadcrumbs::for('tentang-kami', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push('Tentang Kami', route('tentang-kami'));
+});
+
 Breadcrumbs::for('pendaftaran-alumni', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
     $trail->push('Pendaftaran Alumni', route('pendaftaran-alumni'));
