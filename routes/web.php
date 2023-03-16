@@ -31,6 +31,8 @@ Route::get('/info-berita/{slug}', [FrontendController::class, 'detail_berita'])-
 Route::get('/kategori/{slug}', [FrontendController::class, 'category'])->name('kategori-berita');
 Route::get('/iuran', [FrontendController::class, 'iuran'])->name('iuran');
 Route::get('/pembayaran-iuran', [FrontendController::class, 'pembayaran'])->name('pembayaran-iuran');
+Route::get('/tentang-kami', [FrontendController::class, 'tentang_kami'])->name('tentang-kami');
+
 
 
 // Pendaftaran Alumni Before Login

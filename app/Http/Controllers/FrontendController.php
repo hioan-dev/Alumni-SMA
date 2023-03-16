@@ -57,6 +57,11 @@ class FrontendController extends Controller
         ]);
     }
 
+    public function tentang_kami()
+    {
+        return view('tentang-kami');
+    }
+
     public function category($categoryName)
     {
         $category = Kategori::where('slug', $categoryName)->first();

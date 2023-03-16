@@ -31,10 +31,9 @@
         <main class="">
             @yield('content')
         </main>
-
-        @include('partials.__footer')
-        @include('partials.__scripts')
     </div>
+    @include('partials.__footer')
+    @include('partials.__scripts')
 </body>
 
 </html>

@@ -35,14 +35,13 @@
                                         </span></a></div>
 
                                 <ul class="site-menu main-menu js-clone-nav d-none d-lg-flex justify-content-end">
-                                    <li><a href="#home-section" class="nav-link">Tentang Kami</a></li>
+                                    <li><a href="{{ route('tentang-kami') }}" class="nav-link">Tentang Kami</a></li>
                                     <li class="has-children">
                                         <a href="#" class="nav-link">Info Terbaru</a>
                                         <ul class="dropdown arrow-top">
                                             <li><a href="{{ route('berita') }}" class="nav-link">Berita</a></li>
                                         </ul>
                                     </li>
-
                                     <li class="has-children">
                                         <a href="#" class="nav-link">Galeri</a>
                                         <ul class="dropdown arrow-top">
@@ -66,7 +65,8 @@
                                                 <li><a href="{{ route('pendaftaran.index') }}" class="nav-link">Pendaftaran
                                                         Alumni</a></li>
                                             @else
-                                                <li><a href="{{ route('pendaftaran-alumni') }}" class="nav-link">Pendaftaran
+                                                <li><a href="{{ route('pendaftaran-alumni') }}"
+                                                        class="nav-link">Pendaftaran
                                                         Alumni</a></li>
                                             @endif
                                             <li><a href="{{ route('data-alumni') }}" class="nav-link">Data Alumni</a></li>
@@ -93,6 +93,6 @@
 @push('scripts')
     <script src="{{ asset('js/jquery.sticky.js') }}"></script>
     <script src="{{ asset('js/popper.min.js') }}"></script>
-
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/navbar/main.js') }}"></script>
 @endpush
