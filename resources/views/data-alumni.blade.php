@@ -17,6 +17,13 @@
             object-position: center;
             border-radius: 50%;
         }
+
+        @media (max-width: 768px) {
+            .student-img {
+                height: 150px;
+                width: 150px;
+            }
+        }
     </style>
 @endpush
 
@@ -55,7 +62,7 @@
         @endif
         <div class="row mt-5 gy-3">
             @forelse ($alumni as $row)
-                <div class="col-md-6 col-lg-3">
+                <div class=" col-md-6 col-lg-3">
                     <div class="card text-center shadow-sm">
                         <div class="card-header">
                             <h5 class="fw-semibold">{{ $row->kelas }}</h5>

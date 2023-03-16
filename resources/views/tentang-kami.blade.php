@@ -28,9 +28,9 @@
     <div class="container" style="margin-top: 120px">
         {{ Breadcrumbs::render('tentang-kami') }}
 
-        <div class="mt-5">
-            <div class="mt-5">
-                <h1>Visi & Misi</h1>
+        <div class="mt-md-5 p-3 p-md-0 ">
+            <div class="mt-md-5">
+                <h1 class="fw-bold">Visi & Misi</h1>
                 <div class="mt-3">
                     <h3>Visi</h3>
                     <p class="fs-5">
@@ -53,9 +53,9 @@
                 </div>
             </div>
             <div class="mt-5">
-                <h1>Sejarah</h1>
+                <h1 class="fw-bold">Sejarah</h1>
                 <div class="mt-3 fs-5">
-                    <p>
+                    <p class="text-justify text-md-start">
                         SMA Negeri 1 Tebing tinggi berdiri sejak tahun 1959, dan merupakan salah satu Sekolah menengah atas
                         terbaik di Kota Tebing Tinggi. Prestasi itu antara lain dapat dilihat dari tingginya persentase
                         siswa
