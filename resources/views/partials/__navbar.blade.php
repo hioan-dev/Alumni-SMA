@@ -93,6 +93,6 @@
 @push('scripts')
     <script src="{{ asset('js/jquery.sticky.js') }}"></script>
     <script src="{{ asset('js/popper.min.js') }}"></script>
-
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/navbar/main.js') }}"></script>
 @endpush
