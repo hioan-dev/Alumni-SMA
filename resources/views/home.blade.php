@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Halaman Beranda')
+@section('title', 'Alumni SMAN 1 Tebing Tinggi')
 
 @push('styles')
     <link rel="stylesheet" href="{{ asset('css/home/style.css') }}">
@@ -19,7 +19,7 @@
                 class="w-100 h-100 text-white position-relative z-3 d-flex flex-column justify-content-center align-items-center ">
                 <h2 class="fs-2">SELAMAT DATANG DI WEBSITE KAMI</h2>
                 <h2 class="">IKATAN KELUARGA ALUMNI</h2>
-                <h2 class="">SMA 1 TEBING TINGGI</h2>
+                <h2 class="">SMA Negeri 1 TEBING TINGGI</h2>
             </div>
         </div>
         <div class="container">
