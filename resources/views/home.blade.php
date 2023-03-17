@@ -37,14 +37,15 @@
                 </div>
                 <div class="col-lg-8 col-md-6">
                     <div class="d-flex flex-column justify-content-between h-100 ">
-                        <p class="mt-3 mt-md-0">Assalam mu’alaikum wr. wb. Puji syukur rahmat dan karunia Allah SWT
-                            sehingga kami
-                            dapat
-                            menerbitkan
-                            website resmi Alumni SMA Negeri 4 Banjarmasin sebagai sarana informasi dan komunikasi alumni.
-                            Website ini merupakan sarana bagi para alumni SMA Negeri 4 Banjarmasin untuk saling
-                            berkomunikasi
-                            dan mendapatkan informasi-informasi mengenai berita dan agenda tentang alumni. Website ini juga
+                        <p class="mt-3 mt-md-0">Perkembangan teknologi informasi sangat pesat. Perkembangan tersebut
+                            didukung oleh semakin banyaknya pengguna internet. Indonesia merupakan negera nomer 6 dengan
+                            pengguna internet terbanyak di dunia. <br><br>
+
+                            Maka sekolah tentu terus mengikuti perkembangan tersebut. Maka dibangun website resmi Alumni SMA
+                            Negeri 1 Tebing Tinggi sebagai sarana informasi dan komunikasi alumni. Website ini merupakan
+                            sarana bagi para alumni SMA Negeri 1 Tebing Tinggi untuk saling
+                            berkomunikasi dan mendapatkan informasi-informasi mengenai berita dan agenda tentang alumni.
+                            Website ini juga
                             dapat digunakan oleh pihak masyarakat umum untuk mendapat informasi di website ini. </p>
                         <h4 class="fw-semibold">Johnson Saragih</h4>
                     </div>
