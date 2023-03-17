@@ -57,6 +57,11 @@ class FrontendController extends Controller
         ]);
     }
 
+    public function galeri_foto()
+    {
+        return view('galeri-foto');
+    }
+
     public function tentang_kami()
     {
         return view('tentang-kami');

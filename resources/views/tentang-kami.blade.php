@@ -29,6 +29,7 @@
         {{ Breadcrumbs::render('tentang-kami') }}
 
         <div class="mt-md-5 p-3 p-md-0 ">
+            <h1 class="text-center my-3 fw-bold">Tentang SMAN 1 Tebing Tinggi </h1>
             <div class="mt-md-5">
                 <h1 class="fw-bold">Visi & Misi</h1>
                 <div class="mt-3">

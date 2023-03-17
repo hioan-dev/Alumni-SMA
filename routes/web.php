@@ -32,6 +32,7 @@ Route::get('/kategori/{slug}', [FrontendController::class, 'category'])->name('k
 Route::get('/iuran', [FrontendController::class, 'iuran'])->name('iuran');
 Route::get('/pembayaran-iuran', [FrontendController::class, 'pembayaran'])->name('pembayaran-iuran');
 Route::get('/tentang-kami', [FrontendController::class, 'tentang_kami'])->name('tentang-kami');
+Route::get('/galeri-foto', [FrontendController::class, 'galeri_foto'])->name('galeri-foto');
 
 
 

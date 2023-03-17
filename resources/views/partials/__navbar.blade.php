@@ -35,7 +35,8 @@
                                         </span></a></div>
 
                                 <ul class="site-menu main-menu js-clone-nav d-none d-lg-flex justify-content-end">
-                                    <li><a href="{{ route('tentang-kami') }}" class="nav-link">Tentang Kami</a></li>
+                                    <li><a href="{{ route('tentang-kami') }}" class="nav-link">Tentang SMAN 1 Tebing
+                                            Tinggi</a></li>
                                     <li class="has-children">
                                         <a href="#" class="nav-link">Info Terbaru</a>
                                         <ul class="dropdown arrow-top">
@@ -45,7 +46,7 @@
                                     <li class="has-children">
                                         <a href="#" class="nav-link">Galeri</a>
                                         <ul class="dropdown arrow-top">
-                                            <li><a href="#" class="nav-link">Foto</a></li>
+                                            <li><a href="{{ route('galeri-foto') }}" class="nav-link">Foto</a></li>
                                             <li><a href="#" class="nav-link">Video</a></li>
                                         </ul>
                                     </li>
