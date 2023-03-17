@@ -56,3 +56,8 @@ Breadcrumbs::for('pendaftaran-alumni', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
     $trail->push('Pendaftaran Alumni', route('pendaftaran-alumni'));
 });
+
+Breadcrumbs::for('galeri-foto', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push('Galeri Foto', route('galeri-foto'));
+});
