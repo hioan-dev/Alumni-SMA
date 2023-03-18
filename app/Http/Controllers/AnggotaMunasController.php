@@ -51,7 +51,7 @@ class AnggotaMunasController extends Controller
         $originalName = $foto->getClientOriginalName();
 
         if ($request->hasFile('foto')) {
-            $alumni['foto'] = $foto->store('public/anggota-munas');
+            $anggota['foto'] = $foto->store('public/anggota-munas');
         } else {
             return $request;
             $anggota->foto = '';
@@ -129,7 +129,7 @@ class AnggotaMunasController extends Controller
     public function destroy($id)
     {
         $anggota = AnggotaMunas::find($id);
-        Storage::delete('public/anggota-munas' . $anggota->banner);
+        Storage::delete('public/anggota-munas' . $anggota->foto);
         $anggota->delete();
 
         return redirect()->route('anggota-munas.index')->with('success', 'Berita berhasil dihapus');

@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Anggota Munas')
+@section('title', 'Panitia Munas')
 
 @push('styles')
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
@@ -19,9 +19,9 @@
                 <div class="card">
                     <div class="card-header d-flex justify-content-between">
                         <div class="header-title">
-                            <h4 class="card-title">Anggota Munas</h4>
+                            <h4 class="card-title">Panitia Munas</h4>
                         </div>
-                        <a href="{{route('anggota-munas.create')}}" class="btn btn-primary btn-sm gap-2"><i
+                        <a href="{{route('panitia-munas.create')}}" class="btn btn-primary btn-sm gap-2"><i
                                 class="bi bi-plus"></i> &nbsp; Tambah</a>
                     </div>
                     <div class="card-body">
@@ -37,18 +37,18 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @forelse ($anggota as $row)
+                                    @forelse ($panitia as $row)
                                     <tr>
                                         <td>{{$loop->iteration}}</td>
                                         <td>{{$row->nama}}</td>
                                         <td>{{$row->jabatan}}</td>
                                         <td>Foto</td>
                                         <td>
-                                            <a href="{{ route('anggota-munas.edit', $row->id) }}"
+                                            <a href="{{ route('panitia-munas.edit', $row->id) }}"
                                                 class="btn btn-warning btn-sm gap-2"><i
                                                     class="bi bi-pencil-square"></i></a>
 
-                                                <form action="{{ route('anggota-munas.destroy', $row->id)}}" method="POST">
+                                                <form action="{{ route('panitia-munas.destroy', $row->id)}}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
                                                 <button class="btn btn-danger btn-sm" type="submit"><i class="bi bi-trash3"></i></button>
@@ -59,7 +59,7 @@
                                     <tr>
                                         <td></td>
                                         <td></td>
-                                        <td class="text-center">Belum Ada Data Anggota</td>
+                                        <td class="text-center">Belum Ada Data Panitia</td>
                                         <td></td>
                                         <td></td>
                                     </tr>

@@ -12,6 +12,7 @@ use App\Http\Controllers\User\DashboardController as UserDashboardController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\AnggotaMunasController;
 use App\Http\Controllers\Admin\PendaftarMunasController;
+use App\Http\Controllers\PanitiaController;
 
 
 
@@ -63,6 +64,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/anggota-approve', [PendaftarMunasController::class, 'approval'])->name('anggota-approve')->middleware('EnsureUserRole:admin');
     // Anggota Munas
     Route::resource('anggota-munas', AnggotaMunasController::class)->middleware('EnsureUserRole:admin');
+    // Panitia Munas
+    Route::resource('panitia-munas', PanitiaController::class)->middleware('EnsureUserRole:admin');
 
     //User Dashboard
     Route::get('/user-dashboard', [UserDashboardController::class, 'index'])->name('user-dashboard')->middleware('EnsureUserRole:user');
