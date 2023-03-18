@@ -28,13 +28,13 @@
                     <div class="col-10">
                         <nav class="site-navigation text-right" role="navigation">
                             <div class="container">
-                                <div class="d-inline-block d-lg-none ml-md-0 float-end py-3"><a href="#"
+                                <div class="d-inline-block d-xxl-none ml-md-0 float-end py-3"><a href="#"
                                         class="site-menu-toggle js-menu-toggle text-white"><span
                                             class="material-symbols-outlined h3">
                                             menu
                                         </span></a></div>
 
-                                <ul class="site-menu main-menu js-clone-nav d-none d-lg-flex justify-content-end">
+                                <ul class="site-menu main-menu js-clone-nav d-none d-xxl-flex justify-content-end">
                                     <li class="has-children">
                                         <a href="#" class="nav-link">Tentang SMAN 1 Tebing Tinggi</a>
                                         <ul class="arrow-top sub-menu ">
