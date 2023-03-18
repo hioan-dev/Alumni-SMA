@@ -41,9 +41,10 @@
                                             <li>
                                                 <p class="title">Tentang Sekolah</p>
                                                 <ul>
-                                                    <li class="nav-link"><a href="{{ route('tentang-kami') }}">Visi &
+                                                    <li class="nav-link"><a href="{{ route('visimisi-sekolah') }}">Visi &
                                                             Misi</a></li>
-                                                    <li class="nav-link"><a href="#">Sejarah</a></li>
+                                                    <li class="nav-link"><a
+                                                            href="{{ route('sejarah-sekolah') }}">Sejarah</a></li>
 
                                                 </ul>
                                             </li>
