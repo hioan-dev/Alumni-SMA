@@ -35,8 +35,30 @@
                                         </span></a></div>
 
                                 <ul class="site-menu main-menu js-clone-nav d-none d-lg-flex justify-content-end">
-                                    <li><a href="{{ route('tentang-kami') }}" class="nav-link">Tentang SMAN 1 Tebing
-                                            Tinggi</a></li>
+                                    <li class="has-children">
+                                        <a href="#" class="nav-link">Tentang SMAN 1 Tebing Tinggi</a>
+                                        <ul class="arrow-top sub-menu ">
+                                            <li>
+                                                <p class="title">Tentang Sekolah</p>
+                                                <ul>
+                                                    <li class="nav-link"><a href="{{ route('visimisi-sekolah') }}">Visi &
+                                                            Misi</a></li>
+                                                    <li class="nav-link"><a
+                                                            href="{{ route('sejarah-sekolah') }}">Sejarah</a></li>
+
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <p class="title">Tentang Alumni</p>
+                                                <ul class="">
+                                                    <li class="nav-link"><a href="#">Visi & Misi</a></li>
+                                                    <li class="nav-link"><a href="#">Struktur Organisasi</a></li>
+
+                                                </ul>
+                                            </li>
+                                        </ul>
+
+                                    </li>
                                     <li class="has-children">
                                         <a href="#" class="nav-link">Info Terbaru</a>
                                         <ul class="dropdown arrow-top">
