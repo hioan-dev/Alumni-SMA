@@ -57,6 +57,11 @@ Breadcrumbs::for('sejarah-sekolah', function (BreadcrumbTrail $trail) {
     $trail->push('Sejarah SMAN 1 Tebing Tinggi', route('sejarah-sekolah'));
 });
 
+Breadcrumbs::for('anggaran-rumah-tangga', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push('Anggaran Rumah Tangga IKA SMANSA', route('anggaran-rumah-tangga'));
+});
+
 Breadcrumbs::for('pendaftaran-alumni', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
     $trail->push('Pendaftaran Alumni', route('pendaftaran-alumni'));
