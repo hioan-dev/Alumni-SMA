@@ -33,7 +33,7 @@ class PanitiaController extends Controller
         $originalName = $foto->getClientOriginalName();
 
         if ($request->hasFile('foto')) {
-            $alumni['foto'] = $foto->store('public/panitia-munas');
+            $panitia['foto'] = $foto->store('public/panitia-munas');
         } else {
             return $request;
             $panitia->foto = '';

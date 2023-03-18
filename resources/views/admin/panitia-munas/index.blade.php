@@ -42,7 +42,7 @@
                                         <td>{{$loop->iteration}}</td>
                                         <td>{{$row->nama}}</td>
                                         <td>{{$row->jabatan}}</td>
-                                        <td>Foto</td>
+                                        <td><img src="{{asset('storage/'.$row->foto)}}" alt="" width="100px"></td>
                                         <td>
                                             <a href="{{ route('panitia-munas.edit', $row->id) }}"
                                                 class="btn btn-warning btn-sm gap-2"><i
