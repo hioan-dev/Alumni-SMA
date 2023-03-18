@@ -105,6 +105,27 @@
                                         </ul>
                                     </li>
                                     <li><a href="#classes-section" class="nav-link">Program</a></li>
+
+                                    @if (Auth::check())
+                                    <li class="has-children">
+                                        <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg"
+                                            width="40" height="40" class="rounded-circle">
+                                        <ul class="dropdown arrow-top">
+                                            <li><a href="{{route('user-dashboard')}}" class="nav-link">My Dashboard</a>
+                                            </li>
+                                            <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+											document.getElementById('logout-form').submit();">
+                                                    {{ __('Logout') }}
+                                                </a>
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                                    class="d-none">
+                                                    @csrf
+                                                </form>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    @endif
+                     
                                 </ul>
                             </div>
                         </nav>
