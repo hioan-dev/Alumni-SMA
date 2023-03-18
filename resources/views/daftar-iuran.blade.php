@@ -25,7 +25,7 @@
             <h3 class="text-center fw-semibold">Daftar Alumni Yang Sudah Membayar Iuran</h3>
             <div class="divider"></div>
         </div>
-        <div class="row mt-4">
+        <div class="row mt-4 px-3">
             <table class="table">
                 <thead>
                     <tr>

@@ -47,9 +47,19 @@ Breadcrumbs::for('pembayaran-iuran', function (BreadcrumbTrail $trail) {
     $trail->push('Pembayaran Iuran', route('pembayaran-iuran'));
 });
 
-Breadcrumbs::for('tentang-kami', function (BreadcrumbTrail $trail) {
+Breadcrumbs::for('visimisi-sekolah', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
-    $trail->push('Tentang Kami', route('tentang-kami'));
+    $trail->push('Visi & Misi SMAN 1 Tebing Tinggi', route('visimisi-sekolah'));
+});
+
+Breadcrumbs::for('sejarah-sekolah', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push('Sejarah SMAN 1 Tebing Tinggi', route('sejarah-sekolah'));
+});
+
+Breadcrumbs::for('anggaran-rumah-tangga', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push('Anggaran Rumah Tangga IKA SMANSA', route('anggaran-rumah-tangga'));
 });
 
 Breadcrumbs::for('pendaftaran-alumni', function (BreadcrumbTrail $trail) {

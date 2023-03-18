@@ -62,9 +62,14 @@ class FrontendController extends Controller
         return view('galeri-foto');
     }
 
-    public function tentang_kami()
+    public function visimisi_sekolah()
     {
-        return view('tentang-kami');
+        return view('visimisi-sekolah');
+    }
+
+    public function sejarah_sekolah()
+    {
+        return view('sejarah-sekolah');
     }
 
     public function category($categoryName)

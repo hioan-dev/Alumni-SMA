@@ -28,15 +28,39 @@
                     <div class="col-10">
                         <nav class="site-navigation text-right" role="navigation">
                             <div class="container">
-                                <div class="d-inline-block d-lg-none ml-md-0 float-end py-3"><a href="#"
+                                <div class="d-inline-block d-xl-none ml-md-0 float-end py-3"><a href="#"
                                         class="site-menu-toggle js-menu-toggle text-white"><span
                                             class="material-symbols-outlined h3">
                                             menu
                                         </span></a></div>
 
-                                <ul class="site-menu main-menu js-clone-nav d-none d-lg-flex justify-content-end">
-                                    <li><a href="{{ route('tentang-kami') }}" class="nav-link">Tentang SMAN 1 Tebing
-                                            Tinggi</a></li>
+                                <ul class="site-menu main-menu js-clone-nav d-none d-xl-flex justify-content-end">
+                                    <li class="has-children">
+                                        <a href="#" class="nav-link">Tentang SMAN 1 Tebing Tinggi</a>
+                                        <ul class="arrow-top sub-menu ">
+                                            <li>
+                                                <p class="title">Tentang Sekolah</p>
+                                                <ul>
+                                                    <li class="nav-link"><a href="{{ route('visimisi-sekolah') }}">Visi &
+                                                            Misi</a></li>
+                                                    <li class="nav-link"><a
+                                                            href="{{ route('sejarah-sekolah') }}">Sejarah</a></li>
+
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <p class="title">Tentang Alumni</p>
+                                                <ul class="">
+                                                    <li class="nav-link"><a href="#">Visi & Misi</a></li>
+                                                    <li class="nav-link"><a href="#">Struktur Organisasi</a></li>
+                                                    <li class="nav-link"><a
+                                                            href="{{ route('anggaran-rumah-tangga') }}">Anggaran Rumah
+                                                            Tangga</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+
+                                    </li>
                                     <li class="has-children">
                                         <a href="#" class="nav-link">Info Terbaru</a>
                                         <ul class="dropdown arrow-top">

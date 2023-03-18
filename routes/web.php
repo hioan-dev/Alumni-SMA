@@ -31,8 +31,11 @@ Route::get('/info-berita/{slug}', [FrontendController::class, 'detail_berita'])-
 Route::get('/kategori/{slug}', [FrontendController::class, 'category'])->name('kategori-berita');
 Route::get('/iuran', [FrontendController::class, 'iuran'])->name('iuran');
 Route::get('/pembayaran-iuran', [FrontendController::class, 'pembayaran'])->name('pembayaran-iuran');
-Route::get('/tentang-kami', [FrontendController::class, 'tentang_kami'])->name('tentang-kami');
+Route::get('/tentang-sekolah/visi-misi', [FrontendController::class, 'visimisi_sekolah'])->name('visimisi-sekolah');
+Route::get('/tentang-sekolah/sejarah', [FrontendController::class, 'sejarah_sekolah'])->name('sejarah-sekolah');
 Route::get('/galeri-foto', [FrontendController::class, 'galeri_foto'])->name('galeri-foto');
+
+Route::view('tentang-alumni/anggaran-rumah-tangga', 'art-alumni')->name('anggaran-rumah-tangga');
 
 
 
