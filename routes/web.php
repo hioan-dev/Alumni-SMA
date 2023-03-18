@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\AnggotaMunasController;
 use App\Http\Controllers\Admin\PendaftarMunasController;
 use App\Http\Controllers\PanitiaController;
+use App\Http\Controllers\FotoController;
 
 
 
@@ -66,6 +67,8 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('anggota-munas', AnggotaMunasController::class)->middleware('EnsureUserRole:admin');
     // Panitia Munas
     Route::resource('panitia-munas', PanitiaController::class)->middleware('EnsureUserRole:admin');
+    //Gallery Foto
+    Route::resource('gallery-foto', FotoController::class)->middleware('EnsureUserRole:admin');
 
     //User Dashboard
     Route::get('/user-dashboard', [UserDashboardController::class, 'index'])->name('user-dashboard')->middleware('EnsureUserRole:user');
