@@ -95,7 +95,7 @@
 
         <div class="container mt-5">
             <div class="row justify-content-center">
-                <div class="countdown col-md-8 bg-primary text-white rounded-3 p-5 my-5">
+                <div class="countdown col-md-8 bg-primary text-white rounded-3 p-5 my-md-5">
                     <div>
                         <h2 class="fw-bold">Musyawarah Nasional</h2>
                         <p>Selasa, 25 April 2023</p>
