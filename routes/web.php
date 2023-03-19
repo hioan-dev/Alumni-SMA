@@ -14,8 +14,7 @@ use App\Http\Controllers\AnggotaMunasController;
 use App\Http\Controllers\Admin\PendaftarMunasController;
 use App\Http\Controllers\PanitiaController;
 use App\Http\Controllers\FotoController;
-
-
+use App\Http\Controllers\KegiatanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,6 +54,8 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('kategori-berita', KategoriBeritaController::class)->middleware('EnsureUserRole:admin');
     // Berita
     Route::resource('berita', BeritaController::class)->middleware('EnsureUserRole:admin');
+    // Kegaitan
+    Route::resource('kegiatan', KegiatanController::class)->middleware('EnsureUserRole:admin');
     // Pendafatar Alumni
     Route::get('/pendaftar-alumni', [PendaftarController::class, 'index'])->name('pendaftar-alumni')->middleware('EnsureUserRole:admin');
     Route::post('/pendaftar-approve', [PendaftarController::class, 'approval'])->name('pendaftar-approve')->middleware('EnsureUserRole:admin');
@@ -72,7 +73,6 @@ Route::middleware(['auth'])->group(function () {
 
     //User Dashboard
     Route::get('/user-dashboard', [UserDashboardController::class, 'index'])->name('user-dashboard')->middleware('EnsureUserRole:user');
-
     //Error 403
     Route::get('/403', function () {
         return view('error.error403');
