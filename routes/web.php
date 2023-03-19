@@ -14,8 +14,7 @@ use App\Http\Controllers\AnggotaMunasController;
 use App\Http\Controllers\Admin\PendaftarMunasController;
 use App\Http\Controllers\PanitiaController;
 use App\Http\Controllers\FotoController;
-
-
+use App\Http\Controllers\KegiatanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +31,8 @@ Route::get('/', [FrontendController::class, 'index'])->name('home');
 Route::get('/data-alumni', [FrontendController::class, 'alumni'])->name('data-alumni');
 Route::get('/info-berita', [FrontendController::class, 'berita'])->name('berita');
 Route::get('/info-berita/{slug}', [FrontendController::class, 'detail_berita'])->name('detail-berita');
+Route::get('/info-kegiatan', [FrontendController::class, 'kegiatan'])->name('kegiatan');
+Route::get('/info-kegiatan/{slug}', [FrontendController::class, 'detail_kegiatan'])->name('detail-kegiatan');
 Route::get('/kategori/{slug}', [FrontendController::class, 'category'])->name('kategori-berita');
 Route::get('/iuran', [FrontendController::class, 'iuran'])->name('iuran');
 Route::get('/pembayaran-iuran', [FrontendController::class, 'pembayaran'])->name('pembayaran-iuran');
@@ -55,6 +56,8 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('kategori-berita', KategoriBeritaController::class)->middleware('EnsureUserRole:admin');
     // Berita
     Route::resource('berita', BeritaController::class)->middleware('EnsureUserRole:admin');
+    // Kegaitan
+    Route::resource('kegiatan', KegiatanController::class)->middleware('EnsureUserRole:admin');
     // Pendafatar Alumni
     Route::get('/pendaftar-alumni', [PendaftarController::class, 'index'])->name('pendaftar-alumni')->middleware('EnsureUserRole:admin');
     Route::post('/pendaftar-approve', [PendaftarController::class, 'approval'])->name('pendaftar-approve')->middleware('EnsureUserRole:admin');
@@ -72,7 +75,6 @@ Route::middleware(['auth'])->group(function () {
 
     //User Dashboard
     Route::get('/user-dashboard', [UserDashboardController::class, 'index'])->name('user-dashboard')->middleware('EnsureUserRole:user');
-
     //Error 403
     Route::get('/403', function () {
         return view('error.error403');

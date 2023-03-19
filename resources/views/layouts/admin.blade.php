@@ -7,28 +7,28 @@
     <title>@yield('title')</title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{{asset('admin/assets/images/favicon.ico')}}" />
+    <link rel="shortcut icon" href="{{ asset('admin/assets/images/favicon.ico') }}" />
 
     <!-- Library / Plugin Css Build -->
-    <link rel="stylesheet" href="{{asset('admin/assets/css/core/libs.min.css')}}" />
+    <link rel="stylesheet" href="{{ asset('admin/assets/css/core/libs.min.css') }}" />
 
     <!-- Aos Animation Css -->
-    <link rel="stylesheet" href="{{asset('admin/assets/vendor/aos/dist/aos.css')}}" />
+    <link rel="stylesheet" href="{{ asset('admin/assets/vendor/aos/dist/aos.css') }}" />
 
     <!-- Hope Ui Design System Css -->
-    <link rel="stylesheet" href="{{asset('admin/assets/css/hope-ui.min.css?v=2.0.0')}}" />
+    <link rel="stylesheet" href="{{ asset('admin/assets/css/hope-ui.min.css?v=2.0.0') }}" />
 
     <!-- Custom Css -->
-    <link rel="stylesheet" href="{{asset('admin/assets/css/custom.min.css?v=2.0.0')}}" />
+    <link rel="stylesheet" href="{{ asset('admin/assets/css/custom.min.css?v=2.0.0') }}" />
 
     <!-- Dark Css -->
-    <link rel="stylesheet" href="{{asset('admin/assets/css/dark.min.css')}}" />
+    <link rel="stylesheet" href="{{ asset('admin/assets/css/dark.min.css') }}" />
 
     <!-- Customizer Css -->
-    <link rel="stylesheet" href="{{asset('admin/assets/css/customizer.min.css')}}" />
+    <link rel="stylesheet" href="{{ asset('admin/assets/css/customizer.min.css') }}" />
 
     <!-- RTL Css -->
-    <link rel="stylesheet" href="{{asset('admin/assets/css/rtl.min.css')}}" />
+    <link rel="stylesheet" href="{{ asset('admin/assets/css/rtl.min.css') }}" />
 
     @stack('styles')
 

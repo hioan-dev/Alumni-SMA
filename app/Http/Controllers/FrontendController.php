@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Alumni;
 use App\Models\Berita;
 use App\Models\Kategori;
+use App\Models\Kegiatan;
 use Illuminate\Http\Request;
 use Illuminate\Database\Query\Builder;
 
@@ -13,7 +14,12 @@ class FrontendController extends Controller
     public function index()
     {
         $news = Berita::orderBy('created_at', 'DESC')->limit('3')->get();
-        return view('home', compact('news'));
+        $kegiatan = Kegiatan::orderBy('created_at', 'DESC')->limit('3')->get();
+
+        return view('home', [
+            'news' => $news,
+            'kegiatan' => $kegiatan
+        ]);
     }
 
     public function alumni(Request $request)
@@ -45,11 +51,36 @@ class FrontendController extends Controller
         ]);
     }
 
+    public function kegiatan()
+    {
+        $kegiatan = Kegiatan::paginate(5)->fragment('kegiatan');
+
+        return view('kegiatan', [
+            'kegiatan' => $kegiatan,
+        ]);
+    }
+
+    public function detail_kegiatan($slug)
+    {
+        $detail = Kegiatan::where('slug', $slug)->first();
+
+        if (!$detail) {
+            abort(404);
+        }
+
+        return view('detail-kegiatan', [
+            'detail' => $detail,
+        ]);
+    }
+
     public function detail_berita($slug)
     {
         $detail = Berita::where('slug', $slug)->first();
         $categories = Kategori::all();
 
+        if (!$detail) {
+            abort(404);
+        }
 
         return view('detail-berita', [
             'detail' => $detail,

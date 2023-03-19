@@ -4,11 +4,11 @@
             <!--Logo start-->
             <div class="logo-main">
                 <div class="logo-normal">
-                    <center>  <img src="{{ asset('images/logofix.svg') }}" alt="Logo Alumni"></center>
-                   
+                    <center> <img src="{{ asset('images/logofix.svg') }}" alt="Logo Alumni"></center>
+
                 </div>
                 <div class="logo-mini">
-                <center>  <img src="{{ asset('images/logofix.svg') }}" alt="Logo Alumni"></center>
+                    <center> <img src="{{ asset('images/logofix.svg') }}" alt="Logo Alumni"></center>
                 </div>
             </div>
             <!--logo End-->
@@ -17,7 +17,8 @@
         </a>
         <div class="sidebar-toggle" data-toggle="sidebar" data-active="true">
             <i class="icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
                     <path d="M4.25 12.2744L19.25 12.2744" stroke="currentColor" stroke-width="1.5"
                         stroke-linecap="round" stroke-linejoin="round"></path>
                     <path d="M10.2998 18.2988L4.2498 12.2748L10.2998 6.24976" stroke="currentColor" stroke-width="1.5"
@@ -38,7 +39,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('dashboard') ? 'active' : ''}}" aria-current="page" href="{{ route('dashboard') }}">
+                    <a class="nav-link {{ Request::is('dashboard') ? 'active' : '' }}" aria-current="page"
+                        href="{{ route('dashboard') }}">
                         <i class="icon">
                             <svg width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
                                 class="icon-20">
@@ -54,7 +56,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('panitia-munas') ? 'active' : ''}}" aria-current="page" href="{{route('panitia-munas.index')}}">
+                    <a class="nav-link {{ Request::is('panitia-munas') ? 'active' : '' }}" aria-current="page"
+                        href="{{ route('panitia-munas.index') }}">
                         <i class="icon">
                             <svg width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
                                 class="icon-20">
@@ -100,12 +103,14 @@
                     </a>
                     <ul class="sub-nav collapse" id="sidebar-widget" data-bs-parent="#sidebar-menu">
                         <li class="nav-item">
-                            <a class="nav-link {{ Request::is('kategori-berita') ? 'active' : ''}}" href="{{route('kategori-berita.index')}}">
+                            <a class="nav-link {{ Request::is('kategori-berita') ? 'active' : '' }}"
+                                href="{{ route('kategori-berita.index') }}">
                                 <i class="icon">
                                     <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
                                         viewBox="0 0 24 24" fill="currentColor">
                                         <g>
-                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                            <circle cx="12" cy="12" r="8"
+                                                fill="currentColor"></circle>
                                         </g>
                                     </svg>
                                 </i>
@@ -114,17 +119,62 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{ Request::is('berita') ? 'active' : ''}}" href="{{route('berita.index')}}">
+                            <a class="nav-link {{ Request::is('berita') ? 'active' : '' }}"
+                                href="{{ route('berita.index') }}">
                                 <i class="icon">
                                     <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
                                         viewBox="0 0 24 24" fill="currentColor">
                                         <g>
-                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                            <circle cx="12" cy="12" r="8"
+                                                fill="currentColor"></circle>
                                         </g>
                                     </svg>
                                 </i>
                                 <i class="sidenav-mini-icon"> B </i>
                                 <span class="item-name">Berita</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#sidebar-widget" role="button"
+                        aria-expanded="false" aria-controls="sidebar-widget">
+                        <i class="icon">
+                            <svg class="icon-20" width="20" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path opacity="0.4"
+                                    d="M21.25 13.4764C20.429 13.4764 19.761 12.8145 19.761 12.001C19.761 11.1865 20.429 10.5246 21.25 10.5246C21.449 10.5246 21.64 10.4463 21.78 10.3076C21.921 10.1679 22 9.97864 22 9.78146L21.999 7.10415C21.999 4.84102 20.14 3 17.856 3H6.144C3.86 3 2.001 4.84102 2.001 7.10415L2 9.86766C2 10.0648 2.079 10.2541 2.22 10.3938C2.36 10.5325 2.551 10.6108 2.75 10.6108C3.599 10.6108 4.239 11.2083 4.239 12.001C4.239 12.8145 3.571 13.4764 2.75 13.4764C2.336 13.4764 2 13.8093 2 14.2195V16.8949C2 19.158 3.858 21 6.143 21H17.857C20.142 21 22 19.158 22 16.8949V14.2195C22 13.8093 21.664 13.4764 21.25 13.4764Z"
+                                    fill="currentColor"></path>
+                                <path
+                                    d="M15.4303 11.5887L14.2513 12.7367L14.5303 14.3597C14.5783 14.6407 14.4653 14.9177 14.2343 15.0837C14.0053 15.2517 13.7063 15.2727 13.4543 15.1387L11.9993 14.3737L10.5413 15.1397C10.4333 15.1967 10.3153 15.2267 10.1983 15.2267C10.0453 15.2267 9.89434 15.1787 9.76434 15.0847C9.53434 14.9177 9.42134 14.6407 9.46934 14.3597L9.74734 12.7367L8.56834 11.5887C8.36434 11.3907 8.29334 11.0997 8.38134 10.8287C8.47034 10.5587 8.70034 10.3667 8.98134 10.3267L10.6073 10.0897L11.3363 8.61268C11.4633 8.35868 11.7173 8.20068 11.9993 8.20068H12.0013C12.2843 8.20168 12.5383 8.35968 12.6633 8.61368L13.3923 10.0897L15.0213 10.3277C15.2993 10.3667 15.5293 10.5587 15.6173 10.8287C15.7063 11.0997 15.6353 11.3907 15.4303 11.5887Z"
+                                    fill="currentColor"></path>
+                            </svg>
+                        </i>
+                        <span class="item-name">Kegiatan</span>
+                        <i class="right-icon">
+                            <svg class="icon-18" xmlns="http://www.w3.org/2000/svg" width="18" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5l7 7-7 7" />
+                            </svg>
+                        </i>
+                    </a>
+                    <ul class="sub-nav collapse" id="sidebar-widget" data-bs-parent="#sidebar-menu">
+                        <li class="nav-item">
+                            <a class="nav-link {{ Request::is('kegiatan') ? 'active' : '' }}"
+                                href="{{ route('kegiatan.index') }}">
+                                <i class="icon">
+                                    <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
+                                        viewBox="0 0 24 24" fill="currentColor">
+                                        <g>
+                                            <circle cx="12" cy="12" r="8"
+                                                fill="currentColor"></circle>
+                                        </g>
+                                    </svg>
+                                </i>
+                                <i class="sidenav-mini-icon"> B </i>
+                                <span class="item-name">Kegiatan</span>
                             </a>
                         </li>
                     </ul>
@@ -155,12 +205,14 @@
                     </a>
                     <ul class="sub-nav collapse" id="sidebar-widget" data-bs-parent="#sidebar-menu">
                         <li class="nav-item">
-                        <a class="nav-link {{ Request::is('table-alumni') ? 'active' : ''}}" aria-current="page" href="{{ route('table-alumni.index') }}">
+                            <a class="nav-link {{ Request::is('table-alumni') ? 'active' : '' }}" aria-current="page"
+                                href="{{ route('table-alumni.index') }}">
                                 <i class="icon">
                                     <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
                                         viewBox="0 0 24 24" fill="currentColor">
                                         <g>
-                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                            <circle cx="12" cy="12" r="8"
+                                                fill="currentColor"></circle>
                                         </g>
                                     </svg>
                                 </i>
@@ -169,12 +221,14 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{ Request::is('pendaftar-alumni') ? 'active' : ''}}" href="{{ route('pendaftar-alumni') }}">
+                            <a class="nav-link {{ Request::is('pendaftar-alumni') ? 'active' : '' }}"
+                                href="{{ route('pendaftar-alumni') }}">
                                 <i class="icon">
                                     <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
                                         viewBox="0 0 24 24" fill="currentColor">
                                         <g>
-                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                            <circle cx="12" cy="12" r="8"
+                                                fill="currentColor"></circle>
                                         </g>
                                     </svg>
                                 </i>
@@ -210,12 +264,14 @@
                     </a>
                     <ul class="sub-nav collapse" id="sidebar-widget" data-bs-parent="#sidebar-menu">
                         <li class="nav-item">
-                        <a class="nav-link {{ Request::is('anggota-munas') ? 'active' : ''}}" aria-current="page" href="{{ route('anggota-munas.index') }}">
+                            <a class="nav-link {{ Request::is('anggota-munas') ? 'active' : '' }}"
+                                aria-current="page" href="{{ route('anggota-munas.index') }}">
                                 <i class="icon">
                                     <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
                                         viewBox="0 0 24 24" fill="currentColor">
                                         <g>
-                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                            <circle cx="12" cy="12" r="8"
+                                                fill="currentColor"></circle>
                                         </g>
                                     </svg>
                                 </i>
@@ -224,12 +280,14 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link  {{ Request::is('anggota-pendaftar') ? 'active' : ''}}" href="{{route('anggota-pendaftar')}}">
+                            <a class="nav-link  {{ Request::is('anggota-pendaftar') ? 'active' : '' }}"
+                                href="{{ route('anggota-pendaftar') }}">
                                 <i class="icon">
                                     <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
                                         viewBox="0 0 24 24" fill="currentColor">
                                         <g>
-                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                            <circle cx="12" cy="12" r="8"
+                                                fill="currentColor"></circle>
                                         </g>
                                     </svg>
                                 </i>
@@ -247,7 +305,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  {{ Request::is('gallery-foto') ? 'active' : ''}}" href="{{route('gallery-foto.index')}}">
+                    <a class="nav-link  {{ Request::is('gallery-foto') ? 'active' : '' }}"
+                        href="{{ route('gallery-foto.index') }}">
                         <i class="icon">
                             <svg class="icon-20" width="20" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
