@@ -42,22 +42,22 @@
 
 @section('content')
     <div class="container" style="margin-top: 120px">
-        {{ Breadcrumbs::render('berita') }}
+        {{ Breadcrumbs::render('kegiatan') }}
 
         <div class="row">
-            @if ($news->count() > 0)
+            @if ($kegiatan->count() > 0)
                 <div class="col-md-8">
                     <div class="row gy-3 gx-3 mt-2">
-                        @foreach ($news as $row)
+                        @foreach ($kegiatan as $row)
                             <div class="col-md-4">
-                                <div class="card shadow-sm" style="height:400px">
+                                <div class="card shadow-sm" style="height:300px">
                                     <div class="card-news__img">
-                                        <a href="{{ route('detail-berita', $row->slug) }}">
-                                            <img src="{{ asset('storage/' . $row->banner) }}" class="card-img-top"
+                                        <a href="{{ route('detail-kegiatan', $row->slug) }}">
+                                            <img src="{{ asset('storage/' . $row->thumbnail) }}" class="card-img-top"
                                                 alt="">
                                         </a>
                                     </div>
-                                    <div class="card-body">
+                                    <div class="card-body h-auto">
                                         <div class="fs-6 mb-2 text-muted d-flex align-content-center">
                                             <div class="d-flex align-content-center">
                                                 <span class="material-symbols-outlined fs-6 mr-3">
@@ -67,33 +67,26 @@
                                                     {{ date('M j, Y', strtotime($row->created_at)) }}</div>
                                             </div>
                                             <div class="d-flex align-content-center">
-                                                <span class="material-symbols-outlined fs-5 mr-3">
-                                                    folder
-                                                </span>
-                                                <a href="{{ route('kategori-berita', $row->kategori->slug) }}"
-                                                    class="px-1 text-decoration-none"
-                                                    style="font-size:12px;">{{ $row->kategori->nama_kategori }}</a>
+                                                <p class="px-1 mb-2  rounded-1 text-capitalize {{ $row->informasi == 'akan datang' ? 'bg-warning' : 'bg-danger' }} text-white"
+                                                    style="font-size:12px;">
+                                                    {{ $row->informasi }}</p>
                                             </div>
                                         </div>
-                                        <h5 class="card-title fw-semibold clamp-2">{{ $row->title }}</h5>
-                                        <p class="card-text clamp-2">{{ $row->description }}</p>
-                                        <a href="{{ route('detail-berita', $row->slug) }}"
-                                            class="card-link text-decoration-none d-flex align-items-center">Read
-                                            More
-                                            <span class="material-symbols-outlined px-1 fs-5">
-                                                east
-                                            </span></a>
+
+                                        <a href="{{ route('detail-kegiatan', $row->slug) }}"
+                                            class="card-link text-decoration-none d-flex align-items-center">
+                                            <h5 class="card-title fw-semibold clamp-2">{{ $row->title }}</h5>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
                         @endforeach
                     </div>
                 </div>
-                @include('partials.__category')
             @else
                 <div class="col-12">
                     <div class="alert alert-info text-center" role="alert">
-                        Tidak ada berita
+                        Tidak ada Kegiatan
                     </div>
                 </div>
             @endif

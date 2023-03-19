@@ -65,6 +65,7 @@
                                         <a href="#" class="nav-link">Info Terbaru</a>
                                         <ul class="dropdown arrow-top">
                                             <li><a href="{{ route('berita') }}" class="nav-link">Berita</a></li>
+                                            <li><a href="{{ route('kegiatan') }}" class="nav-link">Kegiatan</a></li>
                                         </ul>
                                     </li>
                                     <li class="has-children">

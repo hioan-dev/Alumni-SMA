@@ -31,6 +31,8 @@ Route::get('/', [FrontendController::class, 'index'])->name('home');
 Route::get('/data-alumni', [FrontendController::class, 'alumni'])->name('data-alumni');
 Route::get('/info-berita', [FrontendController::class, 'berita'])->name('berita');
 Route::get('/info-berita/{slug}', [FrontendController::class, 'detail_berita'])->name('detail-berita');
+Route::get('/info-kegiatan', [FrontendController::class, 'kegiatan'])->name('kegiatan');
+Route::get('/info-kegiatan/{slug}', [FrontendController::class, 'detail_kegiatan'])->name('detail-kegiatan');
 Route::get('/kategori/{slug}', [FrontendController::class, 'category'])->name('kategori-berita');
 Route::get('/iuran', [FrontendController::class, 'iuran'])->name('iuran');
 Route::get('/pembayaran-iuran', [FrontendController::class, 'pembayaran'])->name('pembayaran-iuran');

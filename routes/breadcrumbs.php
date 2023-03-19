@@ -25,6 +25,11 @@ Breadcrumbs::for('berita', function (BreadcrumbTrail $trail) {
     $trail->push('Berita', route('berita'));
 });
 
+Breadcrumbs::for('kegiatan', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push('Kegiatan', route('kegiatan'));
+});
+
 Breadcrumbs::for('kategori-berita', function (BreadcrumbTrail $trail, $categoryName) {
     $trail->parent('home');
     $trail->push('Berita', route('berita'));
@@ -33,9 +38,16 @@ Breadcrumbs::for('kategori-berita', function (BreadcrumbTrail $trail, $categoryN
 
 Breadcrumbs::for('detail-berita', function (BreadcrumbTrail $trail, $news) {
     $trail->parent('home');
-    $trail->push('Berita', route('berita'));
+    $trail->push('Kegiatan', route('kegiatan'));
     $trail->push($news->title, route('detail-berita', $news->slug));
 });
+
+Breadcrumbs::for('detail-kegiatan', function (BreadcrumbTrail $trail, $kegiatan) {
+    $trail->parent('home');
+    $trail->push('kegiatan', route('kegiatan'));
+    $trail->push($kegiatan->title, route('detail-kegiatan', $kegiatan->slug));
+});
+
 
 Breadcrumbs::for('iuran', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
