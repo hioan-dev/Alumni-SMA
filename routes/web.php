@@ -15,6 +15,9 @@ use App\Http\Controllers\Admin\PendaftarMunasController;
 use App\Http\Controllers\PanitiaController;
 use App\Http\Controllers\FotoController;
 use App\Http\Controllers\KegiatanController;
+use App\Http\Controllers\Admin\IuranController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -35,7 +38,11 @@ Route::get('/info-kegiatan', [FrontendController::class, 'kegiatan'])->name('keg
 Route::get('/info-kegiatan/{slug}', [FrontendController::class, 'detail_kegiatan'])->name('detail-kegiatan');
 Route::get('/kategori/{slug}', [FrontendController::class, 'category'])->name('kategori-berita');
 Route::get('/iuran', [FrontendController::class, 'iuran'])->name('iuran');
+
+// Pembayaran Iuran by User
 Route::get('/pembayaran-iuran', [FrontendController::class, 'pembayaran'])->name('pembayaran-iuran');
+Route::post('/pembayaran-iuran-store', [FrontendController::class, 'storei'])->name('pembayaran-iuran-store');
+
 Route::get('/tentang-sekolah/visi-misi', [FrontendController::class, 'visimisi_sekolah'])->name('visimisi-sekolah');
 Route::get('/tentang-sekolah/sejarah', [FrontendController::class, 'sejarah_sekolah'])->name('sejarah-sekolah');
 Route::get('/galeri-foto', [FrontendController::class, 'galeri_foto'])->name('galeri-foto');
@@ -56,7 +63,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('kategori-berita', KategoriBeritaController::class)->middleware('EnsureUserRole:admin');
     // Berita
     Route::resource('berita', BeritaController::class)->middleware('EnsureUserRole:admin');
-    // Kegaitan
+    // Kegiatan
     Route::resource('kegiatan', KegiatanController::class)->middleware('EnsureUserRole:admin');
     // Pendafatar Alumni
     Route::get('/pendaftar-alumni', [PendaftarController::class, 'index'])->name('pendaftar-alumni')->middleware('EnsureUserRole:admin');
@@ -72,6 +79,9 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('panitia-munas', PanitiaController::class)->middleware('EnsureUserRole:admin');
     //Gallery Foto
     Route::resource('gallery-foto', FotoController::class)->middleware('EnsureUserRole:admin');
+    // Iuran
+    Route::get('/iuran-konfirmasi', [IuranController::class, 'index'])->name('iuran-konfirmasi')->middleware('EnsureUserRole:admin');
+    Route::post('/iuran-approve', [IuranController::class, 'approval'])->name('iuran-approve')->middleware('EnsureUserRole:admin');
 
     //User Dashboard
     Route::get('/user-dashboard', [UserDashboardController::class, 'index'])->name('user-dashboard')->middleware('EnsureUserRole:user');
@@ -82,6 +92,9 @@ Route::middleware(['auth'])->group(function () {
 
     // Pendaftaran Alumni After Login
     Route::resource('pendaftaran', AlumniController::class);
+
+
+    
 });
 
 Auth::routes();

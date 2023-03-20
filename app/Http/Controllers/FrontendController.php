@@ -8,6 +8,8 @@ use App\Models\Kategori;
 use App\Models\Kegiatan;
 use Illuminate\Http\Request;
 use Illuminate\Database\Query\Builder;
+use App\Models\Iuran;
+use App\Models\Foto;
 
 class FrontendController extends Controller
 {
@@ -90,7 +92,10 @@ class FrontendController extends Controller
 
     public function galeri_foto()
     {
-        return view('galeri-foto');
+        $foto = Foto::all();
+        return view('galeri-foto', [
+            'foto' => $foto
+        ]);
     }
 
     public function visimisi_sekolah()
@@ -123,11 +128,45 @@ class FrontendController extends Controller
 
     public function iuran()
     {
-        return view('daftar-iuran');
+        $iuran = Iuran::where('approved', 1)->get();
+        return view('daftar-iuran', [
+            'iuran' => $iuran
+        ]);
+    
     }
 
     public function pembayaran()
     {
-        return view('pembayaran-iuran');
+        if (auth()->user()) {
+            return view('pembayaran-iuran');
+        } else {
+            return redirect()->route('login');
+        }
+    }
+
+    public function storei(Request $request)
+    {
+        $request->validate([
+            'nama_lengkap' => 'required',
+            'tanggal_pembayaran' => 'required',
+            'nominal' => 'required',
+            'bukti_pembayaran' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $bukti_pembayaran = $request->file('bukti_pembayaran');
+        $originalName = $bukti_pembayaran->getClientOriginalName();
+
+        $pembayaran = $request->all();
+        
+        if ($request->hasFile('bukti_pembayaran')) {
+            $pembayaran['bukti_pembayaran'] = $bukti_pembayaran->store('public/pembayaran');;
+        } else {
+            return $request;
+            $pembayaran->bukti_pembayaran = '';
+        }
+
+        $pembayaran = Iuran::create($pembayaran);
+
+        return redirect()->route('pembayaran-iuran')->with('success', 'Pembayaran berhasil dikirim');
     }
 }

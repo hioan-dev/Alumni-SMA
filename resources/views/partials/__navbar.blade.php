@@ -76,6 +76,7 @@
                                         </ul>
                                     </li>
 
+                                    
                                     <li class="has-children">
                                         <a href="#" class="nav-link">Iuran</a>
                                         <ul class="dropdown arrow-top">
@@ -84,17 +85,13 @@
                                             <li><a href="{{ route('iuran') }}" class="nav-link">Daftar Iuran</a></li>
                                         </ul>
                                     </li>
+
                                     <li class="has-children">
                                         <a href="#" class="nav-link">Alumni</a>
                                         <ul class="dropdown arrow-top">
-                                            @if (Auth::check())
                                                 <li><a href="{{ route('pendaftaran.index') }}" class="nav-link">Pendaftaran
                                                         Alumni</a></li>
-                                            @else
-                                                <li><a href="{{ route('pendaftaran-alumni') }}"
-                                                        class="nav-link">Pendaftaran
-                                                        Alumni</a></li>
-                                            @endif
+                
                                             <li><a href="{{ route('data-alumni') }}" class="nav-link">Data Alumni</a></li>
                                         </ul>
                                     </li>
