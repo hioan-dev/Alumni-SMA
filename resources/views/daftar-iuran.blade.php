@@ -36,24 +36,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Rp275.000</td>
-                        <td>13/03/2023</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Rp125.000</td>
-                        <td>10/03/2023</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>Rp152.000</td>
-                        <td>09/03/2023</td>
-                    </tr>
+                    @foreach ($iuran as $item)
+                        <tr>
+                            <th scope="row">{{ $loop->iteration }}</th>
+                            <td>{{ $item->nama_lengkap }}</td>
+                            <td>Rp{{ number_format($item->nominal, 0, ',', '.') }}</td>
+                            <td>{{ $item->tanggal_pembayaran }}</td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

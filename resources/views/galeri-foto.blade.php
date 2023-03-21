@@ -19,18 +19,17 @@
         <h1 class="text-center my-5 ffw-bold">Galeri Foto</h1>
         <div class="grid tz-gallery">
             <div class="grid-item">
-                <div class="gallery-item">
-                    <a href="{{ asset('images/gedung.jpg') }}" class="lightbox">
-                        <img src="{{ asset('images/gedung.jpg') }}" alt="">
-                        <div class="title">
-                            <small>17 Maret 2023</small>
-                            <p class="clamp-2">Gedung SMA Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde a
-                                molestias impedit
-                                eum similique iusto soluta nostrum, quod hic reiciendis, nesciunt atque excepturi eius nihil
-                                inventore qui aut sit et? </p>
-                        </div>
-                    </a>
-                </div>
+                @foreach ($foto as $item)
+                    <div class="gallery-item">
+                        <a href="{{ asset('storage/' .$item->foto) }}" class="lightbox">
+                            <img src="{{ asset('storage/' .$item->foto) }}" alt="">
+                            <div class="title">
+                                <small>17 Maret 2023</small>
+                                <p class="clamp-2">{{$item->deskripsi}} </p>
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
             </div>
 
         </div>

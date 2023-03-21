@@ -27,21 +27,29 @@
         </div>
         <div class="row mt-5 justify-content-center ">
             <div class="col-md-6">
-                <div class="mb-3">
-                    <label for="nama" class="form-label">Nama Lengkap</label>
-                    <input type="text" class="form-control" id="nama">
+                    <form action="{{ route('pembayaran-iuran-store') }}" method="POST" enctype="multipart/form-data">
+                        @csrf 
+                    <div class="mb-3">
+                        <label for="nama_lengkap" class="form-label">Nama Lengkap</label>
+                        <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap">
+                    </div>
+                    <div class="mb-3">
+                        <label for="tanggal_pembayaran" class="form-label">Tanggal Pembayaran</label>
+                        <input type="date" class="form-control" id="tanggal_pembayaran" name="tanggal_pembayaran">
+                    </div>
+                    <div class="mb-3">
+                        <label for="nominal" class="form-label">Nominal</label>
+                        <input type="text" class="form-control" id="nominal" name="nominal" placeholder="50000">
+                        <span class="text-muted">*Masukkan nominal tanpa titik atau koma</span>
+                    </div>
+                    <div class=" mb-3">
+                        <label for="bukti_pembayaran" class="form-label">Bukti Pembayaran</label>
+                        <input type="file" class="form-control" id="bukti_pembayaran" name="bukti_pembayaran">
+                    </div>
+                    <div class="float-end">
+                        <button type="submit" class="btn btn-primary">Sumbit</button>
+                    </div>
+                </form>
                 </div>
-                <div class="mb-3">
-                    <label for="tgl-pembayaran" class="form-label">Tenggal Pembayaran</label>
-                    <input type="date" class="form-control" id="tgl-pembayaran">
-                </div>
-                <div class=" mb-3">
-                    <label for="foto" class="form-label">Bukti Pembayaran</label>
-                    <input type="file" class="form-control" id="foto">
-                </div>
-                <div class="float-end">
-                    <button type="button" class="btn btn-primary">Sumbit</button>
-                </div>
-            </div>
         </div>
     @endsection
