@@ -124,7 +124,7 @@
         </div>
 
         {{-- Kegiatan --}}
-        @if ($news->count() > 0)
+        @if ($kegiatan->count() > 0)
             <div class="container">
                 <div class="row mt-5">
                     <div class="d-flex justify-content-between">
