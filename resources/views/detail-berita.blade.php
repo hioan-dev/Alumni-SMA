@@ -65,13 +65,10 @@
                     </div>
 
                     <div class="mt-3">
-                        <img src="https://images.unsplash.com/photo-1538688423619-a81d3f23454b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-                            alt="" class="image-fluid  rounded-1">
+                        <img src="{{ asset('storage/' . $detail->banner) }}" alt="" class="image-fluid  rounded-1">
                     </div>
                     <div class="mt-3">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, libero! Velit dolore praesentium
-                        quis dolorem hic veritatis distinctio fugit labore similique sed molestiae deleniti officiis
-                        mollitia, blanditiis molestias aut obcaecati.
+                        {!! $detail->description !!}
                     </div>
             </div>
             @include('partials.__category')
