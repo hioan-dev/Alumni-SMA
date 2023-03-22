@@ -19,13 +19,13 @@
         <div class="site-navbar site-navbar-target js-sticky-header {{ Request::is('/') ? '' : 'bg-darkblue' }}">
             <div class="container">
 
-                <div class="row align-items-center">
-                    <div class="col-2">
+                <div class="row align-items-center justify-content-between ">
+                    <div class="col-xxl-2 col-auto">
                         <a class="navbar-brand" href="{{ url('/') }}">
                             <img src="{{ asset('images/logo.png') }}" alt="Logo Alumni" class="logo">
                         </a>
                     </div>
-                    <div class="col-10">
+                    <div class="col-xxl-10 col-auto">
                         <nav class="site-navigation text-right" role="navigation">
                             <div class="container">
                                 <div class="d-inline-block d-xl-none ml-md-0 float-end py-3"><a href="#"
@@ -76,7 +76,7 @@
                                         </ul>
                                     </li>
 
-                                    
+
                                     <li class="has-children">
                                         <a href="#" class="nav-link">Iuran</a>
                                         <ul class="dropdown arrow-top">
@@ -89,9 +89,9 @@
                                     <li class="has-children">
                                         <a href="#" class="nav-link">Alumni</a>
                                         <ul class="dropdown arrow-top">
-                                                <li><a href="{{ route('pendaftaran.index') }}" class="nav-link">Pendaftaran
-                                                        Alumni</a></li>
-                
+                                            <li><a href="{{ route('pendaftaran.index') }}" class="nav-link">Pendaftaran
+                                                    Alumni</a></li>
+
                                             <li><a href="{{ route('data-alumni') }}" class="nav-link">Data Alumni</a></li>
                                         </ul>
                                     </li>
