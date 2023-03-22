@@ -32,14 +32,12 @@
         <div class="container">
             <div class="text-center mt-5 ">
                 <h4 class="fw-bold fs-5 text-primary">KATA SAMBUTAN</h4>
-                <h4 class="fw-bold  fs-2">KETUA UMUM ALUMNI</h4>
+                <h4 class="fw-bold  fs-2">KETUA REUNI AKBAR</h4>
             </div>
             <div class="row  mt-5">
                 <div class="col-lg-4 col-md-6 ">
                     <div class="img-container">
-                        <img class=""
-                            src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
-                            alt="Ketua Umum">
+                        <img class="" src="{{ asset('images/ketua-reuni.jpeg') }}" alt="Ketua Umum">
                     </div>
                 </div>
                 <div class="col-lg-8 col-md-6">
@@ -54,12 +52,12 @@
                             berkomunikasi dan mendapatkan informasi-informasi mengenai berita dan agenda tentang alumni.
                             Website ini juga
                             dapat digunakan oleh pihak masyarakat umum untuk mendapat informasi di website ini. </p>
-                        <h4 class="fw-semibold">Johnson Saragih</h4>
+                        <h4 class="fw-semibold">Martua Sinurat, ST</h4>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="w-100 bg-gray mt-5 py-4">
+        {{-- <div class="w-100 bg-gray mt-5 py-4">
             <div class="container">
                 <h3 class="text-center fw-bold">PROFILE PENGURUS</h3>
                 <div class="w-75 mx-auto">
@@ -98,6 +96,102 @@
                     </div>
                 </div>
             </div>
+        </div> --}}
+
+
+        <div class="mt-5">
+            {{-- Kegiatan --}}
+            @if ($kegiatan->count() > 0)
+                <div class="container">
+                    <div class="row mt-5">
+                        <div class="d-flex justify-content-between">
+                            <h3 class="fw-bold text-center">Kegiatan Terbaru</h3>
+                            <a href="{{ route('berita') }}" class="btn btn-outline-primary">See all</a>
+                        </div>
+                    </div>
+                    <div class="row gy-3 gx-3 mt-2">
+                        @foreach ($kegiatan as $row)
+                            <div class="col-md-4">
+                                <div class="card shadow-sm">
+                                    <div class="card-news__img">
+                                        <a href="{{ route('detail-kegiatan', $row->slug) }}">
+                                            <img src="{{ asset('storage/' . $row->thumbnail) }}" class="card-img-top"
+                                                alt="">
+                                        </a>
+                                    </div>
+                                    <div class="card-body h-auto">
+                                        <div class="fs-6 mb-2 text-muted d-flex align-content-center">
+                                            <div class="d-flex align-content-center">
+                                                <span class="material-symbols-outlined fs-6 mr-3">
+                                                    calendar_month
+                                                </span>
+                                                <div class="px-1" style="font-size:12px;">
+                                                    {{ date('M j, Y', strtotime($row->created_at)) }}</div>
+                                            </div>
+                                            <div class="d-flex align-content-center">
+                                                <p class="px-1 mb-2  rounded-1 text-capitalize {{ $row->informasi == 'akan datang' ? 'bg-warning' : 'bg-danger' }} text-white"
+                                                    style="font-size:12px;">
+                                                    {{ $row->informasi }}</p>
+                                            </div>
+                                        </div>
+
+                                        <a href="{{ route('detail-kegiatan', $row->slug) }}"
+                                            class="card-link text-decoration-none d-flex align-items-center">
+                                            <h5 class="card-title fw-semibold clamp-2">{{ $row->title }}</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            @endif
+
+            {{-- Berita --}}
+            @if ($news->count() > 0)
+                <div class="container">
+                    <div class="row mt-5">
+                        <div class="d-flex justify-content-between">
+                            <h3 class="fw-bold text-center">Berita Terbaru</h3>
+                            <a href="{{ route('berita') }}" class="btn btn-outline-primary">See all</a>
+                        </div>
+                    </div>
+                    <div class="row gy-3 gx-3 mt-2">
+                        @foreach ($news as $row)
+                            <div class="col-md-4">
+                                <div class="card shadow-sm">
+                                    <a href="{{ route('detail-berita', $row->slug) }}" class="card-news__img">
+                                        <img src="{{ asset('storage/' . $row->banner) }}" alt="">
+                                    </a>
+                                    <div class="card-body">
+                                        <div class="fs-6 mb-2 text-muted d-flex align-content-center">
+                                            <div class="d-flex align-content-center">
+                                                <span class="material-symbols-outlined fs-6 mr-3">
+                                                    calendar_month
+                                                </span>
+                                                <div class="px-1" style="font-size:12px;">
+                                                    {{ date('M j, Y', strtotime($row->created_at)) }}</div>
+                                            </div>
+                                            <div class="d-flex align-content-center">
+                                                <span class="material-symbols-outlined fs-5 mr-3">
+                                                    folder
+                                                </span>
+                                                <a href="{{ route('kategori-berita', $row->kategori->slug) }}"
+                                                    class="px-1 text-decoration-none"
+                                                    style="font-size:12px;">{{ $row->kategori->nama_kategori }}</a>
+                                            </div>
+                                        </div>
+                                        <a href="{{ route('detail-berita', $row->slug) }}"
+                                            class="card-link text-decoration-none d-flex align-items-center">
+                                            <h5 class="card-title fw-semibold clamp-2">{{ $row->title }}</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            @endif
         </div>
 
         <div class="container mt-5">
@@ -129,99 +223,6 @@
 
             </div>
         </div>
-
-        {{-- Kegiatan --}}
-        @if ($kegiatan->count() > 0)
-            <div class="container">
-                <div class="row mt-5">
-                    <div class="d-flex justify-content-between">
-                        <h3 class="fw-bold text-center">Kegiatan Terbaru</h3>
-                        <a href="{{ route('berita') }}" class="btn btn-outline-primary">See all</a>
-                    </div>
-                </div>
-                <div class="row gy-3 gx-3 mt-2">
-                    @foreach ($kegiatan as $row)
-                        <div class="col-md-4">
-                            <div class="card shadow-sm">
-                                <div class="card-news__img">
-                                    <a href="{{ route('detail-kegiatan', $row->slug) }}">
-                                        <img src="{{ asset('storage/' . $row->thumbnail) }}" class="card-img-top"
-                                            alt="">
-                                    </a>
-                                </div>
-                                <div class="card-body h-auto">
-                                    <div class="fs-6 mb-2 text-muted d-flex align-content-center">
-                                        <div class="d-flex align-content-center">
-                                            <span class="material-symbols-outlined fs-6 mr-3">
-                                                calendar_month
-                                            </span>
-                                            <div class="px-1" style="font-size:12px;">
-                                                {{ date('M j, Y', strtotime($row->created_at)) }}</div>
-                                        </div>
-                                        <div class="d-flex align-content-center">
-                                            <p class="px-1 mb-2  rounded-1 text-capitalize {{ $row->informasi == 'akan datang' ? 'bg-warning' : 'bg-danger' }} text-white"
-                                                style="font-size:12px;">
-                                                {{ $row->informasi }}</p>
-                                        </div>
-                                    </div>
-
-                                    <a href="{{ route('detail-kegiatan', $row->slug) }}"
-                                        class="card-link text-decoration-none d-flex align-items-center">
-                                        <h5 class="card-title fw-semibold clamp-2">{{ $row->title }}</h5>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-        @endif
-
-        {{-- Berita --}}
-        @if ($news->count() > 0)
-            <div class="container">
-                <div class="row mt-5">
-                    <div class="d-flex justify-content-between">
-                        <h3 class="fw-bold text-center">Berita Terbaru</h3>
-                        <a href="{{ route('berita') }}" class="btn btn-outline-primary">See all</a>
-                    </div>
-                </div>
-                <div class="row gy-3 gx-3 mt-2">
-                    @foreach ($news as $row)
-                        <div class="col-md-4">
-                            <div class="card shadow-sm">
-                                <a href="{{ route('detail-berita', $row->slug) }}" class="card-news__img">
-                                    <img src="{{ asset('storage/' . $row->banner) }}" alt="">
-                                </a>
-                                <div class="card-body">
-                                    <div class="fs-6 mb-2 text-muted d-flex align-content-center">
-                                        <div class="d-flex align-content-center">
-                                            <span class="material-symbols-outlined fs-6 mr-3">
-                                                calendar_month
-                                            </span>
-                                            <div class="px-1" style="font-size:12px;">
-                                                {{ date('M j, Y', strtotime($row->created_at)) }}</div>
-                                        </div>
-                                        <div class="d-flex align-content-center">
-                                            <span class="material-symbols-outlined fs-5 mr-3">
-                                                folder
-                                            </span>
-                                            <a href="{{ route('kategori-berita', $row->kategori->slug) }}"
-                                                class="px-1 text-decoration-none"
-                                                style="font-size:12px;">{{ $row->kategori->nama_kategori }}</a>
-                                        </div>
-                                    </div>
-                                    <a href="{{ route('detail-berita', $row->slug) }}"
-                                        class="card-link text-decoration-none d-flex align-items-center">
-                                        <h5 class="card-title fw-semibold clamp-2">{{ $row->title }}</h5>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-        @endif
 
     </div>
 @endsection
