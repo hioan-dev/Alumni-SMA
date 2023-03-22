@@ -59,6 +59,11 @@ Breadcrumbs::for('pembayaran-iuran', function (BreadcrumbTrail $trail) {
     $trail->push('Pembayaran Iuran', route('pembayaran-iuran'));
 });
 
+Breadcrumbs::for('pendaftaran-ketua', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push('Pendaftaran Calon Ketua Alumni', route('pendaftaran-ketua'));
+});
+
 Breadcrumbs::for('visimisi-sekolah', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
     $trail->push('Visi & Misi SMAN 1 Tebing Tinggi', route('visimisi-sekolah'));
