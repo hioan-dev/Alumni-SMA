@@ -18,6 +18,7 @@ class CreateIuransTable extends Migration
             $table->string('nama_lengkap');
             $table->date('tanggal_pembayaran');
             $table->string('nominal');
+            $table->string('no_rekening');
             $table->string('bukti_pembayaran');
             $table->boolean('approved')->default(false);
             $table->timestamps();

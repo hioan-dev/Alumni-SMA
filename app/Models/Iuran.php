@@ -16,6 +16,7 @@ class Iuran extends Model
         'tanggal_pembayaran',
         'nominal',
         'bukti_pembayaran',
+        'no_rekening',
     ];
 
     protected $hidden = [

@@ -12,10 +12,10 @@
                                 <a href="{{url('/')}}" class="navbar-brand d-flex align-items-center mb-3">
                                     <div class="logo-main">
                                         <div class="logo-normal">
-                                            <img src="{{ asset('images/logo_alumni_warna.svg') }}" class="mb-5" alt="">
+                                            <img src="{{ asset('images/logofix.svg') }}" class="mb-5" alt="">
                                         </div>
                                         <div class="logo-mini">
-                                            <img src="{{ asset('images/logo_alumni_warna.svg') }}" class="mb-5" alt="">
+                                            <img src="{{ asset('images/logofix.svg') }}" class="mb-5" alt="">
                                         </div>
                                     </div>
                                 </a>

@@ -44,8 +44,8 @@
                     </div>
                     <div class="mb-3">
                         <label for="norek" class="form-label">No Rekening Pengirim</label>
-                        <input type="text" class="form-control" id="norek" name="norek">
-                        <span class="text-muted">*Hanya</span>
+                        <input type="text" class="form-control" id="norek" name="no_rekening">
+                        <span class="text-muted">*Masukkan No Rekening dengan benar</span>
                     </div>
                     <div class=" mb-3">
                         <label for="bukti_pembayaran" class="form-label">Bukti Pembayaran</label>

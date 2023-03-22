@@ -16,6 +16,7 @@ use App\Http\Controllers\PanitiaController;
 use App\Http\Controllers\FotoController;
 use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\Admin\IuranController;
+use App\Http\Controllers\CalonKetuaController;
 
 
 
@@ -62,6 +63,10 @@ Route::get('/pendaftaran-alumni', function () {
 Route::middleware(['auth'])->group(function () {
     //Admin Dashboard
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard')->middleware('EnsureUserRole:admin');
+
+    // Calon Ketua
+    Route::resource('calon-ketua', CalonKetuaController::class)->middleware('EnsureUserRole:admin');
+    Route::post('/calon-ketua-approve', [CalonKetuaController::class, 'approval'])->name('calon-ketua-approve')->middleware('EnsureUserRole:admin');
 
     // Kategori Berita
     Route::resource('kategori-berita', KategoriBeritaController::class)->middleware('EnsureUserRole:admin');

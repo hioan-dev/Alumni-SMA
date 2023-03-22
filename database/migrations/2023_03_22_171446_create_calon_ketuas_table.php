@@ -23,8 +23,8 @@ class CreateCalonKetuasTable extends Migration
             $table->string('no_ijazah');
             $table->string('ijazah');
             $table->string('pekerjaan');
-            $table->string('visi_misi');
-            $table->string('rencana_program');
+            $table->longText('visi_misi');
+            $table->longText('rencana_program');
             $table->boolean('approved')->default(false);
             $table->timestamps();
         });

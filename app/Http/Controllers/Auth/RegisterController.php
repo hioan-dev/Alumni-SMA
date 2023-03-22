@@ -34,7 +34,7 @@ class RegisterController extends Controller
         if(Auth::user()->is_admin) {
             return '/dashboard';
         }
-        return '/user-dashboard';
+        return '/';
     }
 
     /**
