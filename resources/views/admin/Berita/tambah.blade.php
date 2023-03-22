@@ -1,6 +1,24 @@
 @extends('layouts.admin')
 
 @section('title', 'Tambah Berita')
+@push('styles')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-lite.min.css"
+        integrity="sha512-ZbehZMIlGA8CTIOtdE+M81uj3mrcgyrh6ZFeG33A4FHECakGrOsTPlPQ8ijjLkxgImrdmSVUHn1j+ApjodYZow=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .note-editor .dropdown-toggle::after {
+            all: unset;
+        }
+
+        .note-editor .note-dropdown-menu {
+            box-sizing: content-box;
+        }
+
+        .note-editor .note-modal-footer {
+            box-sizing: content-box;
+        }
+    </style>
+@endpush
 
 @section('content')
 <main class="main-content">
@@ -33,7 +51,8 @@
                                         <div class="form-group col-md-12">
                                             <label class="form-label" for="author">Penulis</label>
                                             <input type="text" class="form-control" id="author" name="author"  placeholder="Enter Penulis">
-                                        </div>  
+                                        </div>
+                                        
                                         <div class="form-group col-md-12">
                                             <label class="form-label" for="kategori_id">Kategori</label>
                                             <select type="text" name="kategori_id" class="form-control">
@@ -46,14 +65,13 @@
                                             </select>
                                         </div>
                                         <div class="form-group col-md-12">
-                                        <label for="description">Deskripsi</label>
-                                            <textarea name="description" >
-                                            </textarea>
-                                        </div>  
+                                            <label class="form-label" for="banner">Banner</label>
+                                            <input type="file" class="form-control" id="banner" name="banner">
+                                        </div> 
                                         <div class="form-group col-md-12">
-                                        <label for="banner">Banner</label>
-                                            <input type="file" name="banner" >
-                                        </div>  
+                                            <label class="form-label" for="summernote">Deskripsi</label>
+                                            <textarea class="form-control" name="description" id="summernote"></textarea>
+                                        </div>
                                     </div>
                                     <button type="submit" class="btn btn-primary btn-sm">Kirim</button>
                                     <button type="reset" class="btn btn-danger btn-sm">Batal</button>
@@ -79,4 +97,18 @@
     <!-- Footer Section End -->
 </main>
 @endsection
+
+@push('scripts')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-lite.min.js"
+        integrity="sha512-lVkQNgKabKsM1DA/qbhJRFQU8TuwkLF2vSN3iU/c7+iayKs08Y8GXqfFxxTZr1IcpMovXnf2N/ZZoMgmZep1YQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(document).ready(function() {
+            $('#summernote').summernote({
+                height: 450
+            });
+        });
+    </script>
+@endpush
+
 
