@@ -66,3 +66,9 @@
         font-size: 1.3rem;
     }
 }
+
+
+.hero_logo {
+    width: 15%;
+    margin-bottom: 50px;
+}
