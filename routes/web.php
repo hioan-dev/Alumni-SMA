@@ -48,8 +48,6 @@ Route::get('/tentang-sekolah/sejarah', [FrontendController::class, 'sejarah_seko
 Route::get('/galeri-foto', [FrontendController::class, 'galeri_foto'])->name('galeri-foto');
 Route::view('tentang-alumni/anggaran-rumah-tangga', 'art-alumni')->name('anggaran-rumah-tangga');
 
-
-
 // Pendaftaran Alumni Before Login
 Route::get('/pendaftaran-alumni', function () {
     return view('pendaftaran-alumni');
