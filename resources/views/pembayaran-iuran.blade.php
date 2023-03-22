@@ -42,6 +42,11 @@
                         <input type="text" class="form-control" id="nominal" name="nominal" placeholder="50000">
                         <span class="text-muted">*Masukkan nominal tanpa titik atau koma</span>
                     </div>
+                    <div class="mb-3">
+                        <label for="norek" class="form-label">No Rekening Pengirim</label>
+                        <input type="text" class="form-control" id="norek" name="norek">
+                        <span class="text-muted">*Hanya</span>
+                    </div>
                     <div class=" mb-3">
                         <label for="bukti_pembayaran" class="form-label">Bukti Pembayaran</label>
                         <input type="file" class="form-control" id="bukti_pembayaran" name="bukti_pembayaran">
