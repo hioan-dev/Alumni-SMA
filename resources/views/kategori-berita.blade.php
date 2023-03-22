@@ -78,7 +78,7 @@
                                             </div>
                                         </div>
                                         <h5 class="card-title fw-semibold clamp-2">{{ $row->title }}</h5>
-                                        <p class="card-text clamp-2">{{ $row->description }}</p>
+                                        <p class="card-text clamp-2">{{ strip_tags($row->description) }}</p>
                                         <a href="{{ route('detail-berita', $row->slug) }}"
                                             class="card-link text-decoration-none d-flex align-items-center">Read
                                             More

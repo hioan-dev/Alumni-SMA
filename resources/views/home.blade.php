@@ -15,7 +15,8 @@
     <div>
         <div class="hero" style="background-image: url('{{ asset('images/gedung.jpg') }}')">
             <div class="hero__overlay"></div>
-            <div class="w-100 h-100 text-white position-relative z-3 d-flex flex-column justify-content-center align-items-center">
+            <div
+                class="w-100 h-100 text-white position-relative z-3 d-flex flex-column justify-content-center align-items-center">
                 <img src="{{ asset('images/logo.png') }}" alt="Logo Alumni" class="hero_logo">
                 <h2 class="fs-2">SELAMAT DATANG DI WEBSITE KAMI</h2>
                 <h2 class="">IKATAN KELUARGA ALUMNI</h2>
@@ -141,7 +142,7 @@
                 <div class="row gy-3 gx-3 mt-2">
                     @foreach ($kegiatan as $row)
                         <div class="col-md-4">
-                            <div class="card shadow-sm" style="height:300px">
+                            <div class="card shadow-sm">
                                 <div class="card-news__img">
                                     <a href="{{ route('detail-kegiatan', $row->slug) }}">
                                         <img src="{{ asset('storage/' . $row->thumbnail) }}" class="card-img-top"
@@ -188,7 +189,7 @@
                 <div class="row gy-3 gx-3 mt-2">
                     @foreach ($news as $row)
                         <div class="col-md-4">
-                            <div class="card shadow-sm" style="height:400px">
+                            <div class="card shadow-sm">
                                 <a href="{{ route('detail-berita', $row->slug) }}" class="card-news__img">
                                     <img src="{{ asset('storage/' . $row->banner) }}" alt="">
                                 </a>
@@ -210,14 +211,10 @@
                                                 style="font-size:12px;">{{ $row->kategori->nama_kategori }}</a>
                                         </div>
                                     </div>
-                                    <h5 class="card-title fw-semibold">{{ $row->title }}</h5>
-                                    <p class="card-text clamp-2">{{ $row->description }}</p>
                                     <a href="{{ route('detail-berita', $row->slug) }}"
-                                        class="card-link text-decoration-none d-flex align-items-center">Read
-                                        More
-                                        <span class="material-symbols-outlined px-1 fs-5">
-                                            east
-                                        </span></a>
+                                        class="card-link text-decoration-none d-flex align-items-center">
+                                        <h5 class="card-title fw-semibold clamp-2">{{ $row->title }}</h5>
+                                    </a>
                                 </div>
                             </div>
                         </div>

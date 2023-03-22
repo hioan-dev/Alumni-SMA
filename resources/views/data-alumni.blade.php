@@ -70,9 +70,7 @@
                         </div>
                         <div class="card-body">
                             <div class="student-img">
-                                {{-- <img src="{{ asset('storage/' . $row->foto) }}" alt="" class="img-fluid"> --}}
-                                <img src="{{ $row->foto }}" alt="" class="img-fluid">
-
+                                <img src="{{ asset('storage/' . $row->foto) }}" alt="" class="img-fluid">
                             </div>
                             <div class="mt-3">
                                 <h5 class="card-title fw-semibold">{{ $row->nama_lengkap }}</h5>
