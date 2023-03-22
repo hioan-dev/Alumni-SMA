@@ -17,10 +17,10 @@
             <div class="hero__overlay"></div>
             <div
                 class="w-100 h-100 text-white position-relative z-3 d-flex flex-column justify-content-center align-items-center">
-                <img src="{{ asset('images/logo.png') }}" alt="Logo Alumni" class="hero_logo">
                 <h2 class="fs-2">SELAMAT DATANG DI WEBSITE KAMI</h2>
                 <h2 class="">IKATAN KELUARGA ALUMNI</h2>
                 <h2 class="">SMA Negeri 1 TEBING TINGGI</h2>
+                <img src="{{ asset('images/logo.png') }}" alt="Logo Alumni" class="hero_logo">
             </div>
             {{-- <div
                 class="w-100 h-100 text-white position-relative z-3 d-flex flex-column justify-content-center align-items-center">

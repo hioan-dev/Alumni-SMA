@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Database\Query\Builder;
 use App\Models\Iuran;
 use App\Models\Foto;
+use App\Models\CalonKetua;
 
 class FrontendController extends Controller
 {
@@ -168,5 +169,57 @@ class FrontendController extends Controller
         $pembayaran = Iuran::create($pembayaran);
 
         return redirect()->route('pembayaran-iuran')->with('success', 'Pembayaran berhasil dikirim');
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'nama_lengkap' => 'required',
+            'foto_ktp' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'pas_foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'nik' => 'required',
+            'alamat' => 'required',
+            'no_ijazah' => 'required',
+            'ijazah' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'pekerjaan' => 'required',
+            'visi_misi' => 'required',
+            'rencana_program' => 'required',
+        ]);
+
+        $foto_ktp = $request->file('foto_ktp');
+        $originalName = $foto_ktp->getClientOriginalName();
+
+        $pas_foto = $request->file('pas_foto');
+        $originalName = $pas_foto->getClientOriginalName();
+
+        $ijazah = $request->file('ijazah');
+        $originalName = $ijazah->getClientOriginalName();
+
+        $calon_ketua = $request->all();
+
+        if ($request->hasFile('foto_ktp')) {
+            $calon_ketua['foto_ktp'] = $foto_ktp->store('public/foto_ktp');
+        } else {
+            return $request;
+            $calon_ketua->foto_ktp = '';
+        }
+
+        if ($request->hasFile('pas_foto')) {
+            $calon_ketua['pas_foto'] = $pas_foto->store('public/pas_foto');
+        } else {
+            return $request;
+            $calon_ketua->pas_foto = '';
+        }
+
+        if ($request->hasFile('ijazah')) {
+            $calon_ketua['ijazah'] = $ijazah->store('public/ijazah');
+        } else {
+            return $request;
+            $calon_ketua->ijazah = '';
+        }
+
+        $calon_ketua = CalonKetua::create($calon_ketua);
+
+        return redirect()->route('pendaftaran-ketua')->with('success', 'Data berhasil dikirim');
     }
 }

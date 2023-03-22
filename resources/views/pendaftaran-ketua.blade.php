@@ -42,19 +42,19 @@
         </div>
         <div class="row mt-5 justify-content-center ">
             <div class="col-md-6">
-                <form action="{{ route('pembayaran-iuran-store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('pendaftaran-ketua-store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-3">
                         <label for="nama_lengkap" class="form-label">Nama Lengkap</label>
                         <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap">
                     </div>
                     <div class=" mb-3">
-                        <label for="ktp" class="form-label">Foto KTP</label>
-                        <input type="file" class="form-control" id="ktp" name="ktp">
+                        <label for="foto_ktp" class="form-label">Foto KTP</label>
+                        <input type="file" class="form-control" id="foto_ktp" name="foto_ktp">
                     </div>
                     <div class=" mb-3">
-                        <label for="foto" class="form-label">Pas Foto Warna</label>
-                        <input type="file" class="form-control" id="foto" name="foto">
+                        <label for="pas_foto" class="form-label">Pas Foto Warna</label>
+                        <input type="file" class="form-control" id="pas_foto" name="pas_foto">
                     </div>
                     <div class="mb-3">
                         <label for="nik" class="form-label">NIK</label>

@@ -47,7 +47,10 @@ Route::get('/tentang-sekolah/visi-misi', [FrontendController::class, 'visimisi_s
 Route::get('/tentang-sekolah/sejarah', [FrontendController::class, 'sejarah_sekolah'])->name('sejarah-sekolah');
 Route::get('/galeri-foto', [FrontendController::class, 'galeri_foto'])->name('galeri-foto');
 Route::view('tentang-alumni/anggaran-rumah-tangga', 'art-alumni')->name('anggaran-rumah-tangga');
+
+// Pendaftaran Calon Ketua Alumni
 Route::view('pendaftaran-calon-ketua-alumni', 'pendaftaran-ketua')->name('pendaftaran-ketua');
+Route::post('/pendaftaran-calon-ketua-alumni', [FrontendController::class, 'store'])->name('pendaftaran-ketua-store');
 
 
 

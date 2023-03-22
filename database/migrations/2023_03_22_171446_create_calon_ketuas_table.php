@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateIuransTable extends Migration
+class CreateCalonKetuasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,18 @@ class CreateIuransTable extends Migration
      */
     public function up()
     {
-        Schema::create('iurans', function (Blueprint $table) {
+        Schema::create('calon_ketuas', function (Blueprint $table) {
             $table->id();
             $table->string('nama_lengkap');
-            $table->date('tanggal_pembayaran');
-            $table->string('nominal');
-            $table->string('bukti_pembayaran');
+            $table->string('foto_ktp');
+            $table->string('pas_foto');
+            $table->string('nik');
+            $table->string('alamat');
+            $table->string('no_ijazah');
+            $table->string('ijazah');
+            $table->string('pekerjaan');
+            $table->string('visi_misi');
+            $table->string('rencana_program');
             $table->boolean('approved')->default(false);
             $table->timestamps();
         });
@@ -31,6 +37,6 @@ class CreateIuransTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('iurans');
+        Schema::dropIfExists('calon_ketuas');
     }
 }
