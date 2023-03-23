@@ -42,17 +42,39 @@
                 </div>
                 <div class="col-lg-8 col-md-6">
                     <div class="d-flex flex-column justify-content-between h-100 ">
-                        <p class="mt-3 mt-md-0">Perkembangan teknologi informasi sangat pesat. Perkembangan tersebut
-                            didukung oleh semakin banyaknya pengguna internet. Indonesia merupakan negera nomer 6 dengan
-                            pengguna internet terbanyak di dunia. <br><br>
+                        <p class="mt-3 mt-md-0">Alumni Smansa Tebing Tinggi Hebat....,SMA 1 Tebing tinggi juga tetap hebat.
+                            Alumni smansa menjaga silaturahmi yang erat dan Perduli Sekolahnya <br><br>
 
-                            Maka sekolah tentu terus mengikuti perkembangan tersebut. Maka dibangun website resmi Alumni SMA
-                            Negeri 1 Tebing Tinggi sebagai sarana informasi dan komunikasi alumni. Website ini merupakan
-                            sarana bagi para alumni SMA Negeri 1 Tebing Tinggi untuk saling
-                            berkomunikasi dan mendapatkan informasi-informasi mengenai berita dan agenda tentang alumni.
-                            Website ini juga
-                            dapat digunakan oleh pihak masyarakat umum untuk mendapat informasi di website ini. </p>
-                        <h4 class="fw-semibold">Martua Sinurat, ST</h4>
+                            Pertama sekali izinkan saya menyampaikan Selamat memasuki bulan suci Ramadhan 1444H untuk
+                            seluruh SAHABAT yang menjalankannya. <br><br>
+
+                            Pada kesempatan ini, Kami yang diamanahkan sebagai Panitia Reuni akbar melaporkan Rencana Reuni
+                            Akbar kita.
+                            Dengan RidhoNya, Insya Allah, kita akan melaksanakan Reuni Akhbar pada hari Senin, tanggal 24
+                            Mei 2023 di Sekolah yang kita,
+                            SMA Negeri 1 Tebing Tinggi yang kita cintai dan penuh kenangan.
+                            Reuni Akbar rencananya akan diawali dengan kegiatan Munas....di... untuk Memilih Ketua Alumni
+                            kita.
+                            Reuni akbar sendiri akan dilaksanakan mulai.....dengan yang acara........ dan pada Pukul 14.00
+                            kita akan menyampaikan Pokok-Pokok Pikiran Alumni kepada
+                            Walikota Tebing Tinggi yang juga merupakan alumni kita.
+                            Acara diramaikan dengan kehadiran UMKM yang menyediakan panganan kenangan dengan harga murah
+                            untuk kita santap bersama, juga souvenir hasil kreasi UMKM.
+                            Acara kita akan berakhir....
+                            Dengan semangat dan kerja keras kita bersama estimasi peserta reuni akhbar akan dihadiri
+                            sebanyak ....orang <br><br>
+
+                            Untuk Informasi terkait kegiatan ini termasuk Pendataan Alumni, peserta Munas serta Pendaftaran
+                            Calon Ketua Alumni dapat diakses melalui portal alumni kita
+                            dengan alamat <a href="https://www.ikasmansatebingtinggi.org/">ikasmansatebingtinggi.org</a>
+                            <br><br>
+
+                            Mari kita dukung Acara ini dengan Doa,Kehadiran kita dan juga dukungan Dana. <br><br>
+
+                            Semoga kita tetap diberi kesehatan untuk tetap bisa bersilaturahim dan berjumpa sama-sama
+                            mengenang masa-masa SMA kita, disekolah kita pada Acara Reuni Akhbar ini.
+                        </p>
+                        <h4 class="fw-semibold">Martua Sinurat, ST <br> (Alumni 92)</h4>
                     </div>
                 </div>
             </div>
