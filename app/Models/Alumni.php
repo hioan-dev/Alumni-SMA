@@ -30,6 +30,7 @@ class Alumni extends Model
         'foto',
         'pekerjaan',
         'approved',
+        'user_id'
     ];
 
     protected $hidden = [];

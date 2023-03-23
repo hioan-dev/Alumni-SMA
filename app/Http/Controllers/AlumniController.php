@@ -10,7 +10,8 @@ class AlumniController extends Controller
 {
     public function index()
     {
-        $alumni = Alumni::all();
+
+        $alumni = Alumni::where('user_id', Auth::user()->id)->first();
         if (Auth::check()) {
             return view('pendaftaran-alumni', compact('alumni'));
         } else {
@@ -56,6 +57,7 @@ class AlumniController extends Controller
             $alumni->foto = '';
         }
 
+        $alumni['user_id'] = Auth::id();
         $alumni = Alumni::create($alumni);
 
         return redirect()->route('pendaftaran.index')->with('success', 'Berita berhasil ditambahkan');
