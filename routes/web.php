@@ -101,9 +101,6 @@ Route::middleware(['auth'])->group(function () {
 
     // Pendaftaran Alumni After Login
     Route::resource('pendaftaran', AlumniController::class);
-
-
-    
 });
 
 Auth::routes();
