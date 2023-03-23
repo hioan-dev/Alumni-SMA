@@ -23,9 +23,9 @@ class CreateTableAlumnis extends Migration
             $table->date('tanggal_lahir');
             $table->string('teman_sebangku');
             $table->string('alamat');
-            $table->enum('jenkel',['male','female']);
-            $table->enum('ukuran_baju',['S','M','L','XL','XXL', 'XXXL']);
-            $table->enum('pendidikan_terakhir',['SMA','D1', 'D2','D3', 'D4','S1','S2','S3']);
+            $table->enum('jenkel', ['male', 'female']);
+            $table->enum('ukuran_baju', ['S', 'M', 'L', 'XL', 'XXL', 'XXXL']);
+            $table->enum('pendidikan_terakhir', ['SMA', 'D1', 'D2', 'D3', 'D4', 'S1', 'S2', 'S3']);
             $table->string('universitas');
             $table->string('jurusan');
             $table->string('pekerjaan');
@@ -33,9 +33,9 @@ class CreateTableAlumnis extends Migration
             $table->string('email');
             $table->string('foto');
             $table->boolean('approved')->default(false);
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes();
-
         });
     }
 
