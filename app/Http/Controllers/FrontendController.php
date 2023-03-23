@@ -171,6 +171,15 @@ class FrontendController extends Controller
         return redirect()->route('pembayaran-iuran')->with('success', 'Pembayaran berhasil dikirim');
     }
 
+    public function pendaftaran_ketua()
+    {
+        if (auth()->user()) {
+            return view('pendaftaran-ketua');
+        } else {
+            return redirect()->route('login');
+        }
+    }
+
     public function store(Request $request)
     {
         $request->validate([
