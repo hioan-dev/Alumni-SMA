@@ -38,7 +38,7 @@ Breadcrumbs::for('kategori-berita', function (BreadcrumbTrail $trail, $categoryN
 
 Breadcrumbs::for('detail-berita', function (BreadcrumbTrail $trail, $news) {
     $trail->parent('home');
-    $trail->push('Kegiatan', route('kegiatan'));
+    $trail->push('berita', route('berita'));
     $trail->push($news->title, route('detail-berita', $news->slug));
 });
 
