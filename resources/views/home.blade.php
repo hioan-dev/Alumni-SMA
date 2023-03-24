@@ -45,29 +45,29 @@
                         <p class="mt-3 mt-md-0">Alumni Smansa Tebing Tinggi Hebat....,SMA 1 Tebing tinggi juga tetap hebat.
                             Alumni smansa menjaga silaturahmi yang erat dan Perduli Sekolahnya
                             Pertama sekali izinkan saya menyampaikan Selamat memasuki bulan suci Ramadhan 1444H untuk
-                            seluruh SAHABAT yang menjalankannya.
+                            seluruh SAHABAT yang menjalankannya.<br>
                             Pada kesempatan ini, Kami yang diamanahkan sebagai Panitia Reuni akbar melaporkan Rencana Reuni
-                            Akbar kita.
+                            Akbar kita. <br><br>
                             Dengan RidhoNya, Insya Allah, kita akan melaksanakan Reuni Akbar pada hari Selasa, tanggal 25
                             April 2023 di Sekolah kita, SMA Negeri 1 Tebing Tinggi yang kita cintai dan penuh kenangan.
                             Reuni Akbar rencananya akan diawali dengan kegiatan Munas pada tanggal 25 April 2023 di gedung
                             Hj. Sawiyah jln Sutomo Kota Tebing Tinggi jam 08.00 sd. 12.30 Wib. untuk Memilih Ketua Alumni
-                            kita.
+                            kita. <br><br>
                             Reuni akbar sendiri akan dilaksanakan mulai jam 10 pagi dengan acara pentas seni dan
                             silaturahmi. Pada Pukul 14.00 Wib kita akan menyerahkan Pokok-Pokok Pikiran Alumni kepada
                             Walikota Tebing Tinggi yang juga merupakan alumni SMA kita.
                             Acara diramaikan dengan kehadiran UMKM yang menyediakan panganan kenangan dengan harga murah
                             untuk kita santap bersama, juga souvenir hasil kreasi UMKM lokal.
                             Acara kita harapkan dapat berjalan dengan lancar dan penuh kehangatan dan direncanakan berakhir
-                            pukul 18.00 Wib.
-                            Dengan semangat dan kerja keras kita bersama estimasi peserta reuni akbar akan dihadiri sebanyak
-                            1000 orang.
+                            pukul 18.00 Wib. Dengan semangat dan kerja keras kita bersama estimasi peserta reuni akbar akan
+                            dihadiri sebanyak
+                            1000 orang. <br><br>
                             Untuk Informasi terkait kegiatan reuni akbar dan munas termasuk Pendataan Alumni, peserta Munas
                             serta Pendaftaran Calon Ketua Alumni dapat diakses melalui portal alumni kita
                             dengan alamat <a href="https://ikasmansatebingtinggi.org/">ikasmansatebingtinggi.org</a>
                             Mari kita dukung Acara ini dengan Doa,Kehadiran kita dan juga dukungan Dana.
                             Semoga kita tetap diberi kesehatan untuk tetap bisa bersilaturahmi dan berjumpa sama-sama
-                            mengenang masa-masa SMA kita, disekolah kita pada Acara Reuni Akbar ini.
+                            mengenang masa-masa SMA kita, disekolah kita pada Acara Reuni Akbar ini. <br><br>
 
                             Demikian sepatah kata dari saya mewakili Panitia Reuni Akbar.Terima kasih
                         </p>
