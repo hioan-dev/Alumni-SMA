@@ -49,7 +49,7 @@
 
 @section('content')
     <div class="container" style="margin-top: 120px">
-        {{ Breadcrumbs::render('detail-berita', $detail) }}
+        {{ Breadcrumbs::render('detail-kegiatan', $detail) }}
 
         <div class="row">
             <div class="col-md-8 mt-2">
