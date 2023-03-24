@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Berita')
+@section('title', $detail->title)
 
 
 @push('styles')
