@@ -27,4 +27,12 @@ class PendaftarController extends Controller
 
         return back();
     }
+
+    public function show($id)
+    {
+        $data_alumni = Alumni::find($id);
+        return view('admin.table-alumni.info-alumni', [
+            'data_alumni' => $data_alumni
+        ]);
+    }
 }
