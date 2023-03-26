@@ -470,6 +470,13 @@ button.profile {
     height: calc(100vh - 52px);
     padding-bottom: 150px;
 }
+
+.site-menu_login {
+    position: absolute;
+    bottom: 40px;
+    left: 20px;
+    right: 20px;
+}
 .site-mobile-menu .site-nav-wrap {
     padding: 0;
     margin: 0;

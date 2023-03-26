@@ -11,7 +11,37 @@
                 <span class="material-symbols-outlined js-menu-toggle">close</span>
             </div>
         </div>
-        <div class="site-mobile-menu-body"></div>
+        <div class="site-mobile-menu-body">
+            @if (Auth::check() && Auth::user()->is_admin == 0)
+                <div class="site-menu_login">
+                    <div class="dropdown">
+                        <button class="profile " type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <img src="https://ui-avatars.com/api/?name={{ Auth::user()->name }}"
+                                alt="{{ Auth::user()->name }}" class="profile_img">
+                            <span class="text-capitalize">{{ Auth::user()->name }}</span>
+                        </button>
+
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="{{ route('user-dashboard') }}">Dashboard</a>
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            @else
+                <div class="site-menu_login">
+                    <a href="/login" class="btn btn-outline-primary rounded-0 btn-sm w-100 py-1 mt-5">Login</a>
+                </div>
+            @endif
+
+        </div>
     </div> <!-- .site-mobile-menu -->
 
 
@@ -101,7 +131,7 @@
                                     </ul>
                                 </div>
                             </nav>
-                            <div class="ms-5 text-black">
+                            <div class="ms-5 text-black d-none d-xl-flex">
                                 @if (Auth::check() && Auth::user()->is_admin == 0)
                                     <div class="dropdown">
                                         <button class="profile " type="button" id="dropdownMenuButton"
