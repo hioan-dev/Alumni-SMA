@@ -61,9 +61,11 @@ $(function () {
 
             if ($("body").hasClass("offcanvas-menu")) {
                 $("body").removeClass("offcanvas-menu");
+                $("body").removeClass("no-scrolling");
                 $this.removeClass("active");
             } else {
                 $("body").addClass("offcanvas-menu");
+                $("body").addClass("no-scrolling");
                 $this.addClass("active");
             }
         });
@@ -77,6 +79,7 @@ $(function () {
             ) {
                 if ($("body").hasClass("offcanvas-menu")) {
                     $("body").removeClass("offcanvas-menu");
+                    $("body").removeClass("no-scrolling");
                 }
             }
         });

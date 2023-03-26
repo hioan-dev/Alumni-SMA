@@ -29,3 +29,8 @@
     object-position: center;
     border-radius: 4px;
 }
+
+.no-scrolling {
+    height: 100% !important;
+    overflow: hidden;
+}
