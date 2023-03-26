@@ -45,13 +45,12 @@ class TabelAlumniController extends Controller
 
         $alumni = $request->all();
         $foto = $request->file('foto');
-        $originalName = $foto->getClientOriginalName();
 
         if ($request->hasFile('foto')) {
-            $foto->storeAs('public/alumni', $originalName);
+            $alumni['foto'] =  $foto->store('public/alumni');
         } else {
             return $request;
-            $alumni->foto = '';
+            $alumni['foto'] = '';
         }
 
         $alumni = Alumni::create($alumni);

@@ -23,12 +23,16 @@ class CreateTableAlumnis extends Migration
             $table->date('tanggal_lahir');
             $table->string('teman_sebangku');
             $table->string('alamat');
+            $table->string('provinsi');
+            $table->string('kota');
             $table->enum('jenkel', ['male', 'female']);
             $table->enum('ukuran_baju', ['S', 'M', 'L', 'XL', 'XXL', 'XXXL']);
             $table->enum('pendidikan_terakhir', ['SMA', 'D1', 'D2', 'D3', 'D4', 'S1', 'S2', 'S3']);
             $table->string('universitas');
             $table->string('jurusan');
             $table->string('pekerjaan');
+            $table->string('perusahaan');
+            $table->string('jabatan');
             $table->string('no_hp');
             $table->string('email');
             $table->string('foto');

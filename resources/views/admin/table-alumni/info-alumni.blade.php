@@ -77,6 +77,16 @@
                                                 class="form-control text-black">{{ $data_alumni->alamat }}</label>
                                         </div>
                                         <div class="form-group col-md-6">
+                                            <label class="form-label" for="cname">Provinsi</label>
+                                            <label type="text"
+                                                class="form-control text-black">{{ $data_alumni->provinsi }}</label>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="form-label" for="cname">Kota</label>
+                                            <label type="text"
+                                                class="form-control text-black">{{ $data_alumni->kota }}</label>
+                                        </div>
+                                        <div class="form-group col-md-6">
                                             <label class="form-label" for="cname">Jenis Kelamin</label>
                                             <label type="text"
                                                 class="form-control text-black">{{ $data_alumni->jenkel }}</label>
@@ -105,6 +115,16 @@
                                             <label class="form-label" for="cname">Pekerjaan</label>
                                             <label type="text"
                                                 class="form-control text-black">{{ $data_alumni->pekerjaan }}</label>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="form-label" for="cname">Nama Perusahaan</label>
+                                            <label type="text"
+                                                class="form-control text-black">{{ $data_alumni->perusahaan }}</label>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="form-label" for="cname">Jabatan</label>
+                                            <label type="text"
+                                                class="form-control text-black">{{ $data_alumni->jabatan }}</label>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label class="form-label" for="cname">No HP</label>

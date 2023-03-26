@@ -34,6 +34,8 @@ class AlumniController extends Controller
             'tanggal_lahir' => 'required',
             'teman_sebangku' => 'required',
             'alamat' => 'required',
+            'provinsi' => 'required',
+            'kota' => 'required',
             'jenkel' => 'required',
             'ukuran_baju' => 'required',
             'pendidikan_terakhir' => 'required',
@@ -48,13 +50,11 @@ class AlumniController extends Controller
         $alumni = $request->all();
 
         $foto = $request->file('foto');
-        $originalName = $foto->getClientOriginalName();
-
         if ($request->hasFile('foto')) {
             $alumni['foto'] = $foto->store('public/alumni');
         } else {
             return $request;
-            $alumni->foto = '';
+            $alumni['foto'] = '';
         }
 
         $alumni['user_id'] = Auth::id();
