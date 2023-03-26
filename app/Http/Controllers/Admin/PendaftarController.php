@@ -18,8 +18,13 @@ class PendaftarController extends Controller
     {
         $alumni = Alumni::find($request->id);
 
-        $alumni->approved = 1;
-        $alumni->save();
+        if ($request->approved == "1") {
+            $alumni->approved = 1;
+            $alumni->save();
+        } else {
+            $alumni->delete();
+        }
+
         return back();
     }
 }

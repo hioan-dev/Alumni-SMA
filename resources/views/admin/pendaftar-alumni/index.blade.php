@@ -35,7 +35,7 @@
                                     </thead>
                                     <tbody>
                                         @forelse ($alumni as $row)
-                                            <td>{{$loop->iteration}}</td>
+                                            <td>{{ $loop->iteration }}</td>
                                             <td>{{ $row->nama_lengkap }}</td>
                                             <td>{{ $row->tahun_lulus }}</td>
                                             <td>
@@ -43,12 +43,11 @@
                                                     enctype="multipart/form-data">
                                                     @csrf
                                                     <input type="hidden" name="id" value="{{ $row->id }}">
-                                                    <input <?php if ($row->approved == 1) {
-                                                        echo 'checked';
-                                                    } ?> type="checkbox" name="approved"
-                                                        value="1" id="approved">
-                                                    <button type="submit"
-                                                        class="btn btn-primary btn-sm gap-2">Approve</button>
+                                                    <input type="hidden" id="approveValue" name="approved" value="1">
+                                                    <button type="sumbit" class="btn btn-primary btn-sm gap-2"
+                                                        id="approve">Approve</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm gap-2"
+                                                        id="reject">Reject</button>
                                                 </form>
                                             </td>
                                             </tr>
@@ -83,3 +82,17 @@
         <!-- Footer Section End -->
     </main>
 @endsection
+
+@push('scripts')
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <script>
+        $('#approve').click((e) => {
+            $('#approveValue').val(1)
+        })
+
+        $('#reject').click((e) => {
+            $('#approveValue').val(0)
+        })
+    </script>
+@endpush
