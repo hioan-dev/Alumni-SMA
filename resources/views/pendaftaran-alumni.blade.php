@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @push('styles')
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <style>
         .divider {
             width: 100%;
@@ -257,7 +258,6 @@
 @push('scripts')
     <script>
         function onChangeSelect(id, name) {
-            console.log(id);
             // send ajax request to get the cities of the selected province and append to the select tag
             $.ajax({
                 url: `http://www.emsifa.com/api-wilayah-indonesia/api/regencies/${id}.json`,
