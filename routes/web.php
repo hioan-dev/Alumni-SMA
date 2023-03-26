@@ -76,6 +76,8 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('kegiatan', KegiatanController::class)->middleware('EnsureUserRole:admin');
     // Pendafatar Alumni
     Route::get('/pendaftar-alumni', [PendaftarController::class, 'index'])->name('pendaftar-alumni')->middleware('EnsureUserRole:admin');
+    Route::get('/pendaftar-alumni/{id}', [PendaftarController::class, 'show'])->name('info-alumni')->middleware('EnsureUserRole:admin');
+
     Route::post('/pendaftar-approve', [PendaftarController::class, 'approval'])->name('pendaftar-approve')->middleware('EnsureUserRole:admin');
     // Tabel Alumni
     Route::resource('table-alumni', TabelAlumniController::class)->middleware('EnsureUserRole:admin');

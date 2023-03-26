@@ -36,7 +36,8 @@
                                     <tbody>
                                         @forelse ($alumni as $row)
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $row->nama_lengkap }}</td>
+                                            <td><a href="{{ route('info-alumni', $row->id) }}">{{ $row->nama_lengkap }}</a>
+                                            </td>
                                             <td>{{ $row->tahun_lulus }}</td>
                                             <td>
                                                 <form action="{{ route('pendaftar-approve') }}" method="POST"

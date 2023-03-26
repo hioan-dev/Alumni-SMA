@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Alumni;
+use Illuminate\Support\Facades\Auth;
 
 class TabelAlumniController extends Controller
 {
@@ -14,11 +15,13 @@ class TabelAlumniController extends Controller
         return view('admin.table-alumni.table-alumni', compact('alumni'));
     }
 
-    public function create(){
+    public function create()
+    {
         return view('admin.table-alumni.tambah-alumni');
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         $request->validate([
             'nama_lengkap' => 'required',
             'tahun_lulus' => 'required',
@@ -37,6 +40,7 @@ class TabelAlumniController extends Controller
             'foto' => 'required|image|mimes:jpeg,png,jpg',
             'pekerjaan' => 'required',
             'approved' => 'required',
+
         ]);
 
         $alumni = $request->all();
@@ -52,5 +56,14 @@ class TabelAlumniController extends Controller
 
         $alumni = Alumni::create($alumni);
         return redirect()->route('table-alumni.index')->with('success', 'Data berhasil ditambahkan');
+    }
+
+
+    public function show($id)
+    {
+        $data_alumni = Alumni::find($id);
+        return view('admin.table-alumni.info-alumni', [
+            'data_alumni' => $data_alumni
+        ]);
     }
 }
