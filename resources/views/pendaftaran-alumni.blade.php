@@ -133,6 +133,26 @@
                                 <textarea class="form-control" id="alamat" name="alamat" rows="3"></textarea>
                             </div>
                             <div class="mb-3">
+                                <label for="provinsi" class="form-label">Provinsi</label>
+                                @php
+                                    $provinces = Http::get('http://www.emsifa.com/api-wilayah-indonesia/api/provinces.json');
+                                    $provinces = $provinces->json();
+                                @endphp
+                                <select class="form-select" aria-label="provinsi select" name="provinsi" id="provinsi">
+                                    <option>Pilih Salah Satu</option>
+                                    @foreach ($provinces as $item)
+                                        <option value="{{ $item['name'] ?? '' }}" id="{{ $item['id'] }}">
+                                            {{ $item['name'] ?? '' }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="kota" class="form-label">Kabupaten / Kota</label>
+                                <select class="form-select" aria-label="kota select" name="kota" id="kota">
+                                    <option>Pilih Salah Satu</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
                                 <label for="jenkel" class="form-label">Jenis Kelamin</label>
                                 <select class="form-select" aria-label="Jenis kelamin select" name="jenkel">
                                     <option selected value="male">Laki-Laki</option>
@@ -176,6 +196,14 @@
                                 <input type="text" class="form-control" id="pekerjaan" name="pekerjaan">
                             </div>
                             <div class="mb-3">
+                                <label for="perusahaan" class="form-label">Nama Perusahaan/Instansi</label>
+                                <input type="text" class="form-control" id="perusahaan" name="perusahaan">
+                            </div>
+                            <div class="mb-3">
+                                <label for="jabatan" class="form-label">Jabatan</label>
+                                <input type="text" class="form-control" id="jabatan" name="jabatan">
+                            </div>
+                            <div class="mb-3">
                                 <label for="no_hp" class="form-label">No HP / WA</label>
                                 <input type="text" class="form-control" id="no_hp" name="no_hp">
                             </div>
@@ -198,6 +226,7 @@
                                 <li>Khusus Tahun lulus harap disi dalam format 4 gigit angka (contoh: 1980)</li>
                                 <li>Untuk informasi kelas silakan isi sesuai dengan format kelas pada angkatan masing masing
                                     (contoh: Fisika, Bio, Bahasa, IPA, Sosial, A1, A2, A3)</li>
+                                <li>Silahkan isi "<b>-</b>" jika ingin mengosongkan field</li>
                             </ol>
                         </div>
 
@@ -224,3 +253,32 @@
     </div>
     </div>
 @endsection
+
+@push('scripts')
+    <script>
+        function onChangeSelect(id, name) {
+            console.log(id);
+            // send ajax request to get the cities of the selected province and append to the select tag
+            $.ajax({
+                url: `http://www.emsifa.com/api-wilayah-indonesia/api/regencies/${id}.json`,
+                type: 'GET',
+                success: function(data) {
+                    $('#' + name).empty();
+                    $('#' + name).append('<option>Pilih Salah Satu</option>');
+
+                    $.each(data, function(key, value) {
+                        $('#' + name).append('<option value="' + value.name + '">' + value.name +
+                            '</option>');
+                    });
+                }
+            });
+        }
+
+        $(function() {
+            $('#provinsi').on('change', function(e) {
+                onChangeSelect($(this).find(':selected').attr('id'), 'kota');
+            });
+
+        });
+    </script>
+@endpush

@@ -19,6 +19,8 @@ class Alumni extends Model
         'jenkel',
         'ukuran_baju',
         'alamat',
+        'provinsi',
+        'kota',
         'tahun_lulus',
         'jurusan',
         'teman_sebangku',
@@ -29,6 +31,8 @@ class Alumni extends Model
         'universitas',
         'foto',
         'pekerjaan',
+        'perusahaan',
+        'jabatan',
         'approved',
         'user_id'
     ];

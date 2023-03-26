@@ -60,6 +60,28 @@
                                                 <label class="form-label" for="rpass">Alamat</label>
                                                 <textarea class="form-control" id="alamat" name="alamat" rows="2"></textarea>
                                             </div>
+                                            <div class="mb-3">
+                                                <label for="provinsi" class="form-label">Provinsi</label>
+                                                @php
+                                                    $provinces = Http::get('http://www.emsifa.com/api-wilayah-indonesia/api/provinces.json');
+                                                    $provinces = $provinces->json();
+                                                @endphp
+                                                <select class="form-select" aria-label="provinsi select" name="provinsi"
+                                                    id="provinsi">
+                                                    <option>Pilih Salah Satu</option>
+                                                    @foreach ($provinces as $item)
+                                                        <option value="{{ $item['name'] ?? '' }}" id="{{ $item['id'] }}">
+                                                            {{ $item['name'] ?? '' }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="kota" class="form-label">Kabupaten / Kota</label>
+                                                <select class="form-select" aria-label="kota select" name="kota"
+                                                    id="kota">
+                                                    <option>Pilih Salah Satu</option>
+                                                </select>
+                                            </div>
                                             <div class="form-group col-md-6">
                                                 <label class="form-label">Jenis Kelamin</label>
                                                 <select class="form-select" aria-label="Jenis kelamin select"
@@ -110,6 +132,17 @@
                                                     name="pekerjaan">
                                             </div>
                                             <div class="form-group col-md-6">
+                                                <label for="perusahaan" class="form-label">Nama
+                                                    Perusahaan/Instansi</label>
+                                                <input type="text" class="form-control" id="perusahaan"
+                                                    name="perusahaan">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="jabatan" class="form-label">Jabatan</label>
+                                                <input type="text" class="form-control" id="jabatan"
+                                                    name="jabatan">
+                                            </div>
+                                            <div class="form-group col-md-6">
                                                 <label class="form-label" for="rpass">No Hp/WA</label>
                                                 <input type="text" class="form-control" id="no_hp"
                                                     name="no_hp">
@@ -158,3 +191,32 @@
         <!-- Footer Section End -->
     </main>
 @endsection
+
+@push('scripts')
+    <script>
+        function onChangeSelect(id, name) {
+            console.log(id);
+            // send ajax request to get the cities of the selected province and append to the select tag
+            $.ajax({
+                url: `http://www.emsifa.com/api-wilayah-indonesia/api/regencies/${id}.json`,
+                type: 'GET',
+                success: function(data) {
+                    $('#' + name).empty();
+                    $('#' + name).append('<option>Pilih Salah Satu</option>');
+
+                    $.each(data, function(key, value) {
+                        $('#' + name).append('<option value="' + value.name + '">' + value.name +
+                            '</option>');
+                    });
+                }
+            });
+        }
+
+        $(function() {
+            $('#provinsi').on('change', function(e) {
+                onChangeSelect($(this).find(':selected').attr('id'), 'kota');
+            });
+
+        });
+    </script>
+@endpush
