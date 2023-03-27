@@ -27,9 +27,7 @@ class CreateTableAlumnis extends Migration
             $table->string('kota');
             $table->enum('jenkel', ['male', 'female']);
             $table->enum('ukuran_baju', ['S', 'M', 'L', 'XL', 'XXL', 'XXXL']);
-            $table->enum('pendidikan_terakhir', ['SMA', 'D1', 'D2', 'D3', 'D4', 'S1', 'S2', 'S3']);
-            $table->string('universitas');
-            $table->string('jurusan');
+            $table->json('pendidikan')->nullable();
             $table->string('pekerjaan');
             $table->string('perusahaan');
             $table->string('jabatan');

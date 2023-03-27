@@ -25,7 +25,6 @@ class AlumniController extends Controller
 
     public function store(Request $request)
     {
-
         $request->validate([
             'nama_lengkap' => 'required',
             'tahun_lulus' => 'required',
@@ -38,16 +37,29 @@ class AlumniController extends Controller
             'kota' => 'required',
             'jenkel' => 'required',
             'ukuran_baju' => 'required',
-            'pendidikan_terakhir' => 'required',
-            'universitas' => 'required',
             'jurusan' => 'required',
             'no_hp' => 'required',
             'email' => 'required',
             'foto' => 'required|image|mimes:jpeg,png,jpg',
             'pekerjaan' => 'required',
         ]);
+        $pendidikan = $request->pendidikan;
+        $universitas = $request->universitas;
+        $jurusan = $request->jurusan;
+
+        $data_pendidikan = [];
+        foreach ($pendidikan as $i => $data) {
+            if ($universitas[$i] && $jurusan[$i]) {
+                array_push($data_pendidikan, [
+                    'pendidikan' => $data,
+                    'universitas' => $universitas[$i],
+                    'jurusan' => $jurusan[$i]
+                ]);
+            }
+        }
 
         $alumni = $request->all();
+        $alumni['pendidikan'] = json_encode($data_pendidikan);
 
         $foto = $request->file('foto');
         if ($request->hasFile('foto')) {
@@ -58,7 +70,10 @@ class AlumniController extends Controller
         }
 
         $alumni['user_id'] = Auth::id();
-        $alumni = Alumni::create($alumni);
+        unset($alumni['universitas']);
+        unset($alumni['jurusan']);
+
+        Alumni::create($alumni);
 
         return redirect()->route('pendaftaran.index')->with('success', 'Berita berhasil ditambahkan');
     }

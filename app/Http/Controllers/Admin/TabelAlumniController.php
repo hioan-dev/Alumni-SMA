@@ -32,9 +32,6 @@ class TabelAlumniController extends Controller
             'alamat' => 'required',
             'jenkel' => 'required',
             'ukuran_baju' => 'required',
-            'pendidikan_terakhir' => 'required',
-            'universitas' => 'required',
-            'jurusan' => 'required',
             'no_hp' => 'required',
             'email' => 'required',
             'foto' => 'required|image|mimes:jpeg,png,jpg',
@@ -43,7 +40,24 @@ class TabelAlumniController extends Controller
 
         ]);
 
+        $pendidikan = $request->pendidikan;
+        $universitas = $request->universitas;
+        $jurusan = $request->jurusan;
+
+        $data_pendidikan = [];
+        foreach ($pendidikan as $i => $data) {
+            if ($universitas[$i] && $jurusan[$i]) {
+                array_push($data_pendidikan, [
+                    'pendidikan' => $data,
+                    'universitas' => $universitas[$i],
+                    'jurusan' => $jurusan[$i]
+                ]);
+            }
+        }
+
         $alumni = $request->all();
+        $alumni['pendidikan'] = json_encode($data_pendidikan);
+
         $foto = $request->file('foto');
 
         if ($request->hasFile('foto')) {
@@ -53,7 +67,12 @@ class TabelAlumniController extends Controller
             $alumni['foto'] = '';
         }
 
-        $alumni = Alumni::create($alumni);
+        $alumni['user_id'] = Auth::id();
+        unset($alumni['universitas']);
+        unset($alumni['jurusan']);
+
+        Alumni::create($alumni);
+
         return redirect()->route('table-alumni.index')->with('success', 'Data berhasil ditambahkan');
     }
 
@@ -61,6 +80,8 @@ class TabelAlumniController extends Controller
     public function show($id)
     {
         $data_alumni = Alumni::find($id);
+        $data_alumni['pendidikan'] = json_decode($data_alumni['pendidikan']);
+
         return view('admin.table-alumni.info-alumni', [
             'data_alumni' => $data_alumni
         ]);
