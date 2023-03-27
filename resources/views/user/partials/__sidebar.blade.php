@@ -50,7 +50,7 @@
                                     fill="currentColor"></path>
                             </svg>
                         </i>
-                        <span class="item-name">Dashboard</span>
+                        <span class="item-name">Data Pribadi</span>
                     </a>
                 </li>
             </ul>

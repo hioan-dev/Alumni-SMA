@@ -96,6 +96,7 @@ Route::middleware(['auth'])->group(function () {
 
     //User Dashboard
     Route::get('/user-dashboard', [UserDashboardController::class, 'index'])->name('user-dashboard')->middleware('EnsureUserRole:user');
+    Route::get('/user-dashboard/{id}', [UserDashboardController::class, 'show'])->name('user-dashboard-show')->middleware('EnsureUserRole:user');
     //Error 403
     Route::get('/403', function () {
         return view('error.error403');
