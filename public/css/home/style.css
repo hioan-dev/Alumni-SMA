@@ -49,6 +49,10 @@
     border-radius: 50%;
 }
 
+.countdown {
+    border-radius: 0.5rem;
+}
+
 .countdown__date {
     font-size: 3.5rem;
     font-weight: bold;
@@ -66,6 +70,31 @@
     margin-bottom: 50px;
 }
 
+.step {
+    background: #cecdcd36;
+    padding: 30px;
+    border-radius: 14px;
+    position: relative;
+    min-height: 233px;
+}
+
+.step a {
+    text-decoration: none;
+}
+
+.step-num {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    background: #0d6efd;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    color: #fff;
+}
+
 @media screen and (max-width: 768px) {
     .hero h2 {
         font-size: 1.3rem;
@@ -75,7 +104,8 @@
         width: 40%;
         margin-bottom: 50px;
     }
-    
+
+    .countdown {
+        border-radius: 0;
+    }
 }
-
-

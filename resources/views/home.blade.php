@@ -215,7 +215,7 @@
 
         <div class="container mt-5">
             <div class="row justify-content-center">
-                <div class="countdown col-md-8 bg-primary text-white rounded-3 p-5 my-md-5">
+                <div class="countdown col-md-8 bg-primary text-white p-5 my-md-5">
                     <div>
                         <h2 class="fw-bold">Musyawarah Nasional</h2>
                         <p>Selasa, 25 April 2023</p>
@@ -240,6 +240,57 @@
                     </div>
                 </div>
 
+            </div>
+        </div>
+
+        <div class="container  mt-5">
+            <h2 class="fw-bold text-primary">Langkah - Langkah Pendaftaran Alumni</h2>
+            <div class="mt-1 mt-md-3 row g-5 p-3 p-md-0">
+                <div class="col-md-4 ">
+                    <div class="step">
+                        <div class="step-num">1</div>
+                        <h4 class="fw-bold">Daftar</h4>
+                        <p class="fs-5 mt-3">
+                            Silahkan <a href="{{ route('register') }}">Buat Akun</a> terlebih dahulu, jika sudah memiliki
+                            akun
+                            dapat langsung <a href="{{ route('login') }}">Login</a> menggunakan email dan password yang
+                            sudah
+                            didaftarkan sebelumnya.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="step">
+                        <div class="step-num">2</div>
+                        <h4 class="fw-bold">Pendaftaran Alumni</h4>
+                        <p class="fs-5 mt-3">
+                            Masuk ke halaman <a href="{{ route('pendaftaran-alumni') }}">Pendaftaran Alumni</a> dan isi
+                            form
+                            yang tersedia.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="step">
+                        <div class="step-num">3</div>
+                        <h4 class="fw-bold">Submit</h4>
+                        <p class="fs-5 mt-3">
+                            Jika telah selesai mengisi data diri, silahkan klik tombol submit untuk mengirimkan data yang
+                            telah
+                            di
+                            isi.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="step">
+                        <div class="step-num">5</div>
+                        <h4 class="fw-bold">Verifikasi</h4>
+                        <p class="fs-5 mt-3">
+                            Silahkan tunggu data anda di verifikasi oleh admin.
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
 
