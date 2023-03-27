@@ -37,6 +37,7 @@ class TabelAlumniController extends Controller
             'foto' => 'required|image|mimes:jpeg,png,jpg',
             'pekerjaan' => 'required',
             'approved' => 'required',
+            'perusahaan' => 'required',
 
         ]);
 
@@ -83,6 +84,16 @@ class TabelAlumniController extends Controller
         $data_alumni['pendidikan'] = json_decode($data_alumni['pendidikan']);
 
         return view('admin.table-alumni.info-alumni', [
+            'data_alumni' => $data_alumni
+        ]);
+    }
+
+    public function edit($id)
+    {
+        $data_alumni = Alumni::find($id);
+        $data_alumni['pendidikan'] = json_decode($data_alumni['pendidikan']);
+
+        return view('admin.table-alumni.edit-alumni', [
             'data_alumni' => $data_alumni
         ]);
     }

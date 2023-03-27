@@ -35,6 +35,13 @@
                             <div class="card-header d-flex justify-content-between">
                                 <div class="header-title">
                                     <h4 class="card-title">Data Alumni</h4>
+
+                                    <!-- Button Edit-->
+                                    <a href="{{route('table-alumni.edit', $data_alumni->id)}}"
+                                        class="btn btn-primary btn-icon mt-lg-0 mt-md-0 mt-3">
+                                        <span>Edit</span>
+                                    </a>
+                                    
                                 </div>
                             </div>
                             <div class="card-body">
@@ -109,7 +116,7 @@
                                         <div class="col-md-12 mb-3">
                                             <h5 class="fw-semibold mb-3">Data Pendidikan</h5>
                                             <div class="row">
-                                                @foreach ($data_alumni->pendidikan as $item)
+                                                @foreach ($data_alumni->pendidikan as $item) 
                                                     <div class="col-md-4">
                                                         <label class="form-label" for="cname">Pendidikan</label>
                                                         <label type="text"
