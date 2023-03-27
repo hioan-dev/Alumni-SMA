@@ -21,11 +21,11 @@
             <div class="grid-item">
                 @foreach ($foto as $item)
                     <div class="gallery-item">
-                        <a href="{{ asset('storage/' .$item->foto) }}" class="lightbox">
-                            <img src="{{ asset('storage/' .$item->foto) }}" alt="">
+                        <a href="{{ asset('storage/' . $item->foto) }}" class="lightbox">
+                            <img src="{{ asset('storage/' . $item->foto) }}" alt="">
                             <div class="title">
-                                <small>17 Maret 2023</small>
-                                <p class="clamp-2">{{$item->deskripsi}} </p>
+                                <small>{{ date('M j, Y', strtotime($item->created_at)) }}</small>
+                                <p class="clamp-2">{{ $item->deskripsi }} </p>
                             </div>
                         </a>
                     </div>

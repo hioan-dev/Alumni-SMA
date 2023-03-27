@@ -98,9 +98,9 @@
                     </div>
                 </div>
                 <div class="row mt-5">
-                    <form action="{{ route('pendaftaran.store') }}" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        <div class="col-md-6">
+                    <div class="col-md-6">
+                        <form action="{{ route('pendaftaran.store') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
                             <div class=" mb-3">
                                 <label for="foto" class="form-label">Foto</label>
                                 <input type="file" class="form-control" id="foto" name="foto">
@@ -215,10 +215,10 @@
                             <div class="float-end">
                                 <button type="submit" class="btn btn-primary">Sumbit</button>
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
 
-                    <div class="col-md-6">
+                    <div class="col-md-6 mt-5 mt-md-0">
                         <div>
                             <h5 class="fw-semibold">Tata cara Pengisian:</h5>
                             <ol>
