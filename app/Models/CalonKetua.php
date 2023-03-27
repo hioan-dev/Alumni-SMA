@@ -22,7 +22,6 @@ class CalonKetua extends Model
         'pekerjaan',
         'visi_misi',
         'rencana_program',
+        'user_id',
     ];
-
-    
 }

@@ -74,7 +74,7 @@
                             </div>
                             <div class="mt-3">
                                 <h5 class="card-title fw-semibold">{{ $row->nama_lengkap }}</h5>
-                                <p class="card-text">{{ $row->email }}</p>
+                                <p class="card-text capitalize">{{ $row->pekerjaan }}</p>
                             </div>
                         </div>
                     </div>

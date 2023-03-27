@@ -97,19 +97,39 @@
                                                 class="form-control text-black">{{ $data_alumni->ukuran_baju }}</label>
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label class="form-label" for="cname">Pendidikan Terakhir</label>
+                                            <label class="form-label" for="cname">No HP / WA</label>
                                             <label type="text"
-                                                class="form-control text-black">{{ $data_alumni->pendidikan_terakhir }}</label>
+                                                class="form-control text-black">{{ $data_alumni->no_hp }}</label>
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label class="form-label" for="cname">Universitas</label>
+                                            <label class="form-label" for="cname">Email</label>
                                             <label type="text"
-                                                class="form-control text-black">{{ $data_alumni->universitas }}</label>
+                                                class="form-control text-black">{{ $data_alumni->email }}</label>
                                         </div>
-                                        <div class="form-group col-md-6">
-                                            <label class="form-label" for="cname">Jurusan</label>
-                                            <label type="text"
-                                                class="form-control text-black">{{ $data_alumni->jurusan }}</label>
+                                        <div class="col-md-12 mb-3">
+                                            <h5 class="fw-semibold mb-3">Data Pendidikan</h5>
+                                            <div class="row">
+                                                @foreach ($data_alumni->pendidikan as $item)
+                                                    <div class="col-md-4">
+                                                        <label class="form-label" for="cname">Pendidikan</label>
+                                                        <label type="text"
+                                                            class="form-control text-black">{{ $item->pendidikan }}</label>
+                                                    </div>
+                                                    <div class="form-group col-md-4">
+                                                        <label class="form-label" for="cname">Universitas</label>
+                                                        <label type="text"
+                                                            class="form-control text-black">{{ $item->universitas }}</label>
+                                                    </div>
+                                                    <div class="form-group col-md-4">
+                                                        <label class="form-label" for="cname">Jurusan</label>
+                                                        <label type="text"
+                                                            class="form-control text-black">{{ $item->jurusan }}</label>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 mb-3">
+                                            <h5 class="fw-semibold ">Data Pekerjaan</h5>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label class="form-label" for="cname">Pekerjaan</label>
@@ -126,16 +146,8 @@
                                             <label type="text"
                                                 class="form-control text-black">{{ $data_alumni->jabatan }}</label>
                                         </div>
-                                        <div class="form-group col-md-6">
-                                            <label class="form-label" for="cname">No HP</label>
-                                            <label type="text"
-                                                class="form-control text-black">{{ $data_alumni->no_hp }}</label>
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <label class="form-label" for="cname">Email</label>
-                                            <label type="text"
-                                                class="form-control text-black">{{ $data_alumni->email }}</label>
-                                        </div>
+
+
                                     </div>
                                 </div>
                             </div>

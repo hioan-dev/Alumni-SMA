@@ -25,6 +25,7 @@ class CreateCalonKetuasTable extends Migration
             $table->string('pekerjaan');
             $table->longText('visi_misi');
             $table->longText('rencana_program');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->boolean('approved')->default(false);
             $table->timestamps();
         });
