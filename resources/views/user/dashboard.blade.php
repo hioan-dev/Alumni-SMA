@@ -10,32 +10,140 @@
         <!--Nav End-->
     </div>
     <div class="conatiner-fluid content-inner mt-n5 py-0">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="card">
-                    <div class="card-header d-flex justify-content-between flex-wrap">
-                        <div class="header-title">
-                            <h4 class="card-title mb-0">Daftarkan Diri Sebagai Alumni</h4>
+        @foreach($data_alumni as $row)            
+        <div>
+            <div class="row">
+                <div class="col-xl-3 col-lg-4">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between">
+                            <div class="header-title">
+                                <h4 class="card-title">Foto</h4>
+                            </div>
                         </div>
-                        <div class="">
-                            <a href="#" class=" text-center btn btn-primary btn-icon mt-lg-0 mt-md-0 mt-3"
-                                data-bs-toggle="modal" data-bs-target="#staticBackdrop-1">
-                                <i class="btn-inner">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                        viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                                    </svg>
-                                </i>
-                                <span>Daftar</span>
-                            </a>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <div class="profile-img-edit position-relative">
+                                    <img class="form-control" width="100" height="250"
+                                        src="{{ asset('storage/' . $row->foto) }}" alt="profile-pic">
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="card-body">
+                </div>
+                <div class="col-xl-9 col-lg-8">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between">
+                            <div class="header-title">
+                                <h4 class="card-title">Data Alumni</h4>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="new-user-info">
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label class="form-label" for="fname">Nama Lengkap</label>
+                                        <label type="text"
+                                            class="form-control text-black">{{ $row->nama_lengkap }}</label>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="form-label" for="lname">Tahun Lulus</label>
+                                        <label type="text"
+                                            class="form-control text-black">{{ $row->tahun_lulus }}</label>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="form-label" for="lname">Kelas</label>
+                                        <label type="text"
+                                            class="form-control text-black">{{ $row->kelas }}</label>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="form-label" for="add1">Tempat Lahir</label>
+                                        <label type="text"
+                                            class="form-control text-black">{{ $row->tempat_lahir }}</label>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="form-label" for="add2">Tanggal Lahir</label>
+                                        <label type="text"
+                                            class="form-control text-black">{{ $row->tanggal_lahir }}</label>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="form-label" for="cname">Teman Sebangku</label>
+                                        <label type="text"
+                                            class="form-control text-black">{{ $row->teman_sebangku }}</label>
+                                    </div>
+                                    <hr>
+                                    <div class="form-group col-md-6">
+                                        <label class="form-label" for="cname">Alamat</label>
+                                        <label type="text"
+                                            class="form-control text-black">{{ $row->alamat }}</label>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="form-label" for="cname">Provinsi</label>
+                                        <label type="text"
+                                            class="form-control text-black">{{ $row->provinsi }}</label>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="form-label" for="cname">Kota</label>
+                                        <label type="text"
+                                            class="form-control text-black">{{ $row->kota }}</label>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="form-label" for="cname">Jenis Kelamin</label>
+                                        <label type="text"
+                                            class="form-control text-black">{{ $row->jenkel }}</label>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="form-label" for="cname">Ukuran Baju</label>
+                                        <label type="text"
+                                            class="form-control text-black">{{ $row->ukuran_baju }}</label>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="form-label" for="cname">Pendidikan Terakhir</label>
+                                        <label type="text"
+                                            class="form-control text-black">{{ $row->pendidikan_terakhir }}</label>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="form-label" for="cname">Universitas</label>
+                                        <label type="text"
+                                            class="form-control text-black">{{ $row->universitas }}</label>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="form-label" for="cname">Jurusan</label>
+                                        <label type="text"
+                                            class="form-control text-black">{{ $row->jurusan }}</label>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="form-label" for="cname">Pekerjaan</label>
+                                        <label type="text"
+                                            class="form-control text-black">{{ $row->pekerjaan }}</label>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="form-label" for="cname">Nama Perusahaan</label>
+                                        <label type="text"
+                                            class="form-control text-black">{{ $row->perusahaan }}</label>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="form-label" for="cname">Jabatan</label>
+                                        <label type="text"
+                                            class="form-control text-black">{{ $row->jabatan }}</label>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="form-label" for="cname">No HP</label>
+                                        <label type="text"
+                                            class="form-control text-black">{{ $row->no_hp }}</label>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="form-label" for="cname">Email</label>
+                                        <label type="text"
+                                            class="form-control text-black">{{ $row->email }}</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        @endforeach
     </div>
 
     <!-- Footer Section Start -->
