@@ -14,9 +14,13 @@ class DashboardController extends Controller
     public function index()
     {
         Auth::id();
-        $alumni = Alumni::where('user_id', Auth::id())->first();
+        $data_alumni = Alumni::where('user_id', Auth::id())->first();
+        if ($data_alumni != null) {
+            $data_alumni['pendidikan'] = json_decode($data_alumni['pendidikan']);
+        }
+
         return view('user.dashboard',[
-            'alumni' => $alumni
+            'data_alumni' => $data_alumni
         ]);
     }
 }
