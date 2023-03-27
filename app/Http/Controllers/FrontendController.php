@@ -7,10 +7,11 @@ use App\Models\Berita;
 use App\Models\Kategori;
 use App\Models\Kegiatan;
 use Illuminate\Http\Request;
-use Illuminate\Database\Query\Builder;
 use App\Models\Iuran;
 use App\Models\Foto;
 use App\Models\CalonKetua;
+use Illuminate\Support\Facades\Auth;
+
 
 class FrontendController extends Controller
 {
@@ -133,7 +134,6 @@ class FrontendController extends Controller
         return view('daftar-iuran', [
             'iuran' => $iuran
         ]);
-    
     }
 
     public function pembayaran()
@@ -151,6 +151,7 @@ class FrontendController extends Controller
             'nama_lengkap' => 'required',
             'tanggal_pembayaran' => 'required',
             'nominal' => 'required',
+            'no_rekening' => 'required',
             'bukti_pembayaran' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
@@ -158,14 +159,15 @@ class FrontendController extends Controller
         $originalName = $bukti_pembayaran->getClientOriginalName();
 
         $pembayaran = $request->all();
-        
+
         if ($request->hasFile('bukti_pembayaran')) {
             $pembayaran['bukti_pembayaran'] = $bukti_pembayaran->store('public/pembayaran');;
         } else {
             return $request;
-            $pembayaran->bukti_pembayaran = '';
+            $pembayaran['bukti_pembayaran'] = '';
         }
 
+        $pembayaran['user_id'] = Auth::id();
         $pembayaran = Iuran::create($pembayaran);
 
         return redirect()->route('pembayaran-iuran')->with('success', 'Pembayaran berhasil dikirim');
@@ -210,23 +212,24 @@ class FrontendController extends Controller
             $calon_ketua['foto_ktp'] = $foto_ktp->store('public/foto_ktp');
         } else {
             return $request;
-            $calon_ketua->foto_ktp = '';
+            $calon_ketua['foto_ktp'] = '';
         }
 
         if ($request->hasFile('pas_foto')) {
             $calon_ketua['pas_foto'] = $pas_foto->store('public/pas_foto');
         } else {
             return $request;
-            $calon_ketua->pas_foto = '';
+            $calon_ketua['pas_foto'] = '';
         }
 
         if ($request->hasFile('ijazah')) {
             $calon_ketua['ijazah'] = $ijazah->store('public/ijazah');
         } else {
             return $request;
-            $calon_ketua->ijazah = '';
+            $calon_ketua['ijazah'] = '';
         }
 
+        $calon_ketua['user_id'] = Auth::id();
         $calon_ketua = CalonKetua::create($calon_ketua);
 
         return redirect()->route('pendaftaran-ketua')->with('success', 'Data berhasil dikirim');

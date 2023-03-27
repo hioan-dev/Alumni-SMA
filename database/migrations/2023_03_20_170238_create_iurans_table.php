@@ -21,6 +21,7 @@ class CreateIuransTable extends Migration
             $table->string('no_rekening');
             $table->string('bukti_pembayaran');
             $table->boolean('approved')->default(false);
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
