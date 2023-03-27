@@ -93,8 +93,65 @@ class TabelAlumniController extends Controller
         $data_alumni = Alumni::find($id);
         $data_alumni['pendidikan'] = json_decode($data_alumni['pendidikan']);
 
-        return view('admin.table-alumni.edit-alumni', [
+        return view('admin.table-alumni.edit', [
             'data_alumni' => $data_alumni
         ]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'nama_lengkap' => 'required',
+            'tahun_lulus' => 'required',
+            'kelas' => 'required',
+            'tempat_lahir' => 'required',
+            'tanggal_lahir' => 'required',
+            'teman_sebangku' => 'required',
+            'alamat' => 'required',
+            'jenkel' => 'required',
+            'ukuran_baju' => 'required',
+            'no_hp' => 'required',
+            'email' => 'required',
+            'foto' => 'image|mimes:jpeg,png,jpg',
+            'pekerjaan' => 'required',
+            'approved' => 'required',
+            'perusahaan' => 'required',
+
+        ]);
+
+        $pendidikan = $request->pendidikan;
+        $universitas = $request->universitas;
+        $jurusan = $request->jurusan;
+
+        $data_pendidikan = [];
+        foreach ($pendidikan as $i => $data) {
+            if ($universitas[$i] && $jurusan[$i]) {
+                array_push($data_pendidikan, [
+                    'pendidikan' => $data,
+                    'universitas' => $universitas[$i],
+                    'jurusan' => $jurusan[$i]
+                ]);
+            }
+        }
+
+        $alumni = $request->all();
+        $alumni['pendidikan'] = json_encode($data_pendidikan);
+
+        $foto = $request->file('foto');
+
+        if ($request->hasFile('foto')) {
+            $alumni['foto'] =  $foto->store('public/alumni');
+        } else {
+            return $request;
+            $alumni['foto'] = '';
+        }
+
+        $alumni['user_id'] = Auth::id();
+        unset($alumni['universitas']);
+        unset($alumni['jurusan']);
+
+        Alumni::find($id)->update($alumni);
+
+        return redirect()->route('table-alumni.index')->with('success', 'Data berhasil diubah');
     }
 }
