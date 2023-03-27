@@ -298,6 +298,9 @@
 
         // add pendidikan
         const formInput = `<div class="mt-5">
+                                <button class="btn float-end delete" type="button"><span class="material-symbols-outlined ">
+                                            delete
+                                        </span></button>
                                 <div class="mb-3">
                                     <label for="pendidikan" class="form-label">Pendidikan</label>
                                     <select class="form-select" aria-label="Pendidikan select" name="pendidikan[]">
@@ -324,6 +327,11 @@
         $('#tambah').on('click', function(e) {
             e.preventDefault();
             $('#form-pendidikan').append(formInput);
+        });
+
+        // delete pendidikan
+        $(document).on('click', '.delete', function() {
+            $(this).parent().remove();
         });
     </script>
 @endpush
