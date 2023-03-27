@@ -105,6 +105,9 @@
                                 <label for="foto" class="form-label">Foto</label>
                                 <input type="file" class="form-control" id="foto" name="foto">
                             </div>
+                            <div class="mb-3 mt-5">
+                                <h5 class="fw-semibold">Data Pribadi</h5>
+                            </div>
                             <div class="mb-3">
                                 <label for="nama_lengkap" class="form-label">Nama Lengkap</label>
                                 <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap">
@@ -172,25 +175,45 @@
                                 </select>
                             </div>
                             <div class="mb-3">
-                                <label for="pendidikan_terakhir" class="form-label">Pendidikan Terakhir</label>
-                                <select class="form-select" aria-label="Pendidikan select" name="pendidikan_terakhir">
-                                    <option selected value="SMA">SMA</option>
-                                    <option value="D1">D1</option>
-                                    <option value="D2">D2</option>
-                                    <option value="D3">D3</option>
-                                    <option value="D4">D4</option>
-                                    <option value="S1">S1</option>
-                                    <option value="S2">S2</option>
-                                    <option value="S3">S3</option>
-                                </select>
+                                <label for="no_hp" class="form-label">No HP / WA</label>
+                                <input type="text" class="form-control" id="no_hp" name="no_hp">
                             </div>
                             <div class="mb-3">
-                                <label for="universitas" class="form-label">Universitas</label>
-                                <input type="text" class="form-control" id="universitas" name="universitas">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" name="email">
                             </div>
-                            <div class="mb-3">
-                                <label for="jurusan" class="form-label">Program Studi / Jurusan</label>
-                                <input type="text" class="form-control" id="jurusan" name="jurusan">
+                            <div class="mb-3 mt-5">
+                                <h5 class="fw-semibold">Data Pendidikan</h5>
+                            </div>
+                            <div>
+                                <div id="form-pendidikan">
+                                    <div class="mb-3">
+                                        <label for="pendidikan" class="form-label">Pendidikan</label>
+                                        <select class="form-select" aria-label="Pendidikan select" name="pendidikan[]">
+                                            <option selected value="SMA">SMA</option>
+                                            <option value="D1">D1</option>
+                                            <option value="D2">D2</option>
+                                            <option value="D3">D3</option>
+                                            <option value="D4">D4</option>
+                                            <option value="S1">S1</option>
+                                            <option value="S2">S2</option>
+                                            <option value="S3">S3</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="universitas" class="form-label">Universitas</label>
+                                        <input type="text" class="form-control" id="universitas"
+                                            name="universitas[]">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="jurusan" class="form-label">Jurusan</label>
+                                        <input type="text" class="form-control" id="jurusan" name="jurusan[]">
+                                    </div>
+                                </div>
+                                <button class="btn btn-outline-primary" id="tambah">+ Tambahkan Pendidikan</button>
+                            </div>
+                            <div class="mb-3 mt-5">
+                                <h5 class="fw-semibold">Data Pekerjaan</h5>
                             </div>
                             <div class="mb-3">
                                 <label for="pekerjaan" class="form-label">Pekerjaan</label>
@@ -203,14 +226,6 @@
                             <div class="mb-3">
                                 <label for="jabatan" class="form-label">Jabatan</label>
                                 <input type="text" class="form-control" id="jabatan" name="jabatan">
-                            </div>
-                            <div class="mb-3">
-                                <label for="no_hp" class="form-label">No HP / WA</label>
-                                <input type="text" class="form-control" id="no_hp" name="no_hp">
-                            </div>
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="email" name="email">
                             </div>
                             <div class="float-end">
                                 <button type="submit" class="btn btn-primary">Sumbit</button>
@@ -279,6 +294,36 @@
                 onChangeSelect($(this).find(':selected').attr('id'), 'kota');
             });
 
+        });
+
+        // add pendidikan
+        const formInput = `<div class="mt-5">
+                                <div class="mb-3">
+                                    <label for="pendidikan" class="form-label">Pendidikan</label>
+                                    <select class="form-select" aria-label="Pendidikan select" name="pendidikan[]">
+                                        <option selected value="SMA">SMA</option>
+                                        <option value="D1">D1</option>
+                                        <option value="D2">D2</option>
+                                        <option value="D3">D3</option>
+                                        <option value="D4">D4</option>
+                                        <option value="S1">S1</option>
+                                        <option value="S2">S2</option>
+                                        <option value="S3">S3</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="universitas" class="form-label">Universitas</label>
+                                    <input type="text" class="form-control" id="universitas"
+                                        name="universitas[]">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="jurusan" class="form-label">Jurusan</label>
+                                    <input type="text" class="form-control" id="jurusan" name="jurusan[]">
+                                </div>
+                            </div>`
+        $('#tambah').on('click', function(e) {
+            e.preventDefault();
+            $('#form-pendidikan').append(formInput);
         });
     </script>
 @endpush
