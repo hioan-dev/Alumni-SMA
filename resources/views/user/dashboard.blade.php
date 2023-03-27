@@ -9,10 +9,10 @@
         @include('admin.partials._navbar')
         <!--Nav End-->
     </div>
-    <div class="conatiner-fluid content-inner mt-n5 py-0">
-        @foreach($data_alumni as $row)            
+    <div class="conatiner-fluid content-inner mt-n5 py-0">        
         <div>
             <div class="row">
+                @foreach ($alumni as $alumni)
                 <div class="col-xl-3 col-lg-4">
                     <div class="card">
                         <div class="card-header d-flex justify-content-between">
@@ -24,7 +24,7 @@
                             <div class="form-group">
                                 <div class="profile-img-edit position-relative">
                                     <img class="form-control" width="100" height="250"
-                                        src="{{ asset('storage/' . $row->foto) }}" alt="profile-pic">
+                                        src="{{ asset('storage/' .$alumni->foto) }}" alt="profile-pic">
                                 </div>
                             </div>
                         </div>
@@ -35,6 +35,7 @@
                         <div class="card-header d-flex justify-content-between">
                             <div class="header-title">
                                 <h4 class="card-title">Data Alumni</h4>
+
                             </div>
                         </div>
                         <div class="card-body">
@@ -43,107 +44,107 @@
                                     <div class="form-group col-md-6">
                                         <label class="form-label" for="fname">Nama Lengkap</label>
                                         <label type="text"
-                                            class="form-control text-black">{{ $row->nama_lengkap }}</label>
+                                            class="form-control text-black">{{ $alumni->nama_lengkap }}</label>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label class="form-label" for="lname">Tahun Lulus</label>
                                         <label type="text"
-                                            class="form-control text-black">{{ $row->tahun_lulus }}</label>
+                                            class="form-control text-black">{{ $alumni->tahun_lulus }}</label>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label class="form-label" for="lname">Kelas</label>
                                         <label type="text"
-                                            class="form-control text-black">{{ $row->kelas }}</label>
+                                            class="form-control text-black">{{ $alumni->kelas }}</label>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label class="form-label" for="add1">Tempat Lahir</label>
                                         <label type="text"
-                                            class="form-control text-black">{{ $row->tempat_lahir }}</label>
+                                            class="form-control text-black">{{ $alumni->tempat_lahir }}</label>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label class="form-label" for="add2">Tanggal Lahir</label>
                                         <label type="text"
-                                            class="form-control text-black">{{ $row->tanggal_lahir }}</label>
+                                            class="form-control text-black">{{ $alumni->tanggal_lahir }}</label>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label class="form-label" for="cname">Teman Sebangku</label>
                                         <label type="text"
-                                            class="form-control text-black">{{ $row->teman_sebangku }}</label>
+                                            class="form-control text-black">{{ $alumni->teman_sebangku }}</label>
                                     </div>
                                     <hr>
                                     <div class="form-group col-md-6">
                                         <label class="form-label" for="cname">Alamat</label>
                                         <label type="text"
-                                            class="form-control text-black">{{ $row->alamat }}</label>
+                                            class="form-control text-black">{{ $alumni->alamat }}</label>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label class="form-label" for="cname">Provinsi</label>
                                         <label type="text"
-                                            class="form-control text-black">{{ $row->provinsi }}</label>
+                                            class="form-control text-black">{{ $alumni->provinsi }}</label>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label class="form-label" for="cname">Kota</label>
                                         <label type="text"
-                                            class="form-control text-black">{{ $row->kota }}</label>
+                                            class="form-control text-black">{{ $alumni->kota }}</label>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label class="form-label" for="cname">Jenis Kelamin</label>
                                         <label type="text"
-                                            class="form-control text-black">{{ $row->jenkel }}</label>
+                                            class="form-control text-black">{{ $alumni->jenkel }}</label>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label class="form-label" for="cname">Ukuran Baju</label>
                                         <label type="text"
-                                            class="form-control text-black">{{ $row->ukuran_baju }}</label>
+                                            class="form-control text-black">{{ $alumni->ukuran_baju }}</label>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label class="form-label" for="cname">Pendidikan Terakhir</label>
                                         <label type="text"
-                                            class="form-control text-black">{{ $row->pendidikan_terakhir }}</label>
+                                            class="form-control text-black">{{ $alumni->pendidikan_terakhir }}</label>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label class="form-label" for="cname">Universitas</label>
                                         <label type="text"
-                                            class="form-control text-black">{{ $row->universitas }}</label>
+                                            class="form-control text-black">{{ $alumni->universitas }}</label>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label class="form-label" for="cname">Jurusan</label>
                                         <label type="text"
-                                            class="form-control text-black">{{ $row->jurusan }}</label>
+                                            class="form-control text-black">{{ $alumni->jurusan }}</label>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label class="form-label" for="cname">Pekerjaan</label>
                                         <label type="text"
-                                            class="form-control text-black">{{ $row->pekerjaan }}</label>
+                                            class="form-control text-black">{{ $alumni->pekerjaan }}</label>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label class="form-label" for="cname">Nama Perusahaan</label>
                                         <label type="text"
-                                            class="form-control text-black">{{ $row->perusahaan }}</label>
+                                            class="form-control text-black">{{ $alumni->perusahaan }}</label>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label class="form-label" for="cname">Jabatan</label>
                                         <label type="text"
-                                            class="form-control text-black">{{ $row->jabatan }}</label>
+                                            class="form-control text-black">{{ $alumni->jabatan }}</label>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label class="form-label" for="cname">No HP</label>
                                         <label type="text"
-                                            class="form-control text-black">{{ $row->no_hp }}</label>
+                                            class="form-control text-black">{{ $alumni->no_hp }}</label>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label class="form-label" for="cname">Email</label>
                                         <label type="text"
-                                            class="form-control text-black">{{ $row->email }}</label>
+                                            class="form-control text-black">{{ $alumni->email }}</label>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                @endforeach
             </div>
         </div>
-        @endforeach
     </div>
 
     <!-- Footer Section Start -->

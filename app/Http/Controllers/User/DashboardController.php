@@ -13,8 +13,10 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $data_alumni = Alumni::where('approved', 1,'user_id')->get();
-
-        return view('user.dashboard', compact('data_alumni'));
+        Auth::id();
+        $alumni = Alumni::where('user_id', Auth::id())->first();
+        return view('user.dashboard',[
+            'alumni' => $alumni
+        ]);
     }
 }
