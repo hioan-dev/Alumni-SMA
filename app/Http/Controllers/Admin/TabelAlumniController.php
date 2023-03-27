@@ -154,4 +154,10 @@ class TabelAlumniController extends Controller
 
         return redirect()->route('table-alumni.index')->with('success', 'Data berhasil diubah');
     }
+
+    public function destroy($id)
+    {
+        Alumni::find($id)->delete();
+        return redirect()->route('table-alumni.index')->with('success', 'Data berhasil dihapus');
+    }
 }

@@ -34,6 +34,7 @@
                                             <th>Tahun Lulus</th>
                                             <th>Kelas</th>
                                             <th>Alamat</th>
+                                            <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -46,6 +47,17 @@
                                                 <td>{{ $row->tahun_lulus }}</td>
                                                 <td>{{ $row->kelas }}</td>
                                                 <td>{{ $row->alamat }}</td>
+                                                <td>
+                                                    <a href="{{ route('table-alumni.edit', $row->id) }}"
+                                                        class="btn btn-primary btn-sm"><i class="bi bi-pencil"></i></a>
+                                                    <form action="{{ route('table-alumni.destroy', $row->id) }}"
+                                                        method="POST" class="d-inline">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-danger btn-sm"><i
+                                                                class="bi bi-trash"></i></button>
+                                                    </form>
+                                                </td>
                                             </tr>
                                         @empty
                                             <tr>
