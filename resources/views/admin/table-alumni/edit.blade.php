@@ -44,15 +44,20 @@
                                         @csrf
                                         @method('PUT')
                                         <div class="row">
+                                            <div class="form-group col-md-12">
+                                                <label class="form-label" for="rpass">Foto</label>
+                                                <input type="file" class="form-control" id="foto" placeholder=""
+                                                    name="foto">
+                                            </div>
                                             <div class="form-group col-md-6">
                                                 <label class="form-label" for="nama_lengkap">Nama Lengkap</label>
-                                                <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap"
-                                                    value="{{ $data_alumni->nama_lengkap }}">
+                                                <input type="text" class="form-control" id="nama_lengkap"
+                                                    name="nama_lengkap" value="{{ $data_alumni->nama_lengkap }}">
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label class="form-label" for="lname">Tahun Lulus</label>
-                                                <input type="text" class="form-control" id="tahun_lulus" name="tahun_lulus"
-                                                    value="{{ $data_alumni->tahun_lulus }}">
+                                                <input type="text" class="form-control" id="tahun_lulus"
+                                                    name="tahun_lulus" value="{{ $data_alumni->tahun_lulus }}">
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label class="form-label" for="lname">Kelas</label>
@@ -61,13 +66,13 @@
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label class="form-label" for="add1">Tempat Lahir</label>
-                                                <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir"
-                                                    value="{{ $data_alumni->tempat_lahir }}">
+                                                <input type="text" class="form-control" id="tempat_lahir"
+                                                    name="tempat_lahir" value="{{ $data_alumni->tempat_lahir }}">
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label class="form-label" for="add2">Tanggal Lahir</label>
-                                                <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir"
-                                                    value="{{ $data_alumni->tanggal_lahir }}">
+                                                <input type="date" class="form-control" id="tanggal_lahir"
+                                                    name="tanggal_lahir" value="{{ $data_alumni->tanggal_lahir }}">
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label class="form-label" for="cname">Teman Sebangku</label>
@@ -83,32 +88,34 @@
                                             <div class="form-group col-md-6">
                                                 <label class="form-label" for="cname">Provinsi</label>
                                                 @php
-                                                $provinces = Http::get('http://www.emsifa.com/api-wilayah-indonesia/api/provinces.json');
-                                                $provinces = $provinces->json();
-                                            @endphp
-                                            <select class="form-select" aria-label="provinsi select" name="provinsi"
-                                                id="provinsi">
-                                                <option>Pilih Salah Satu</option>
-                                                @foreach ($provinces as $item)
-                                                    <option value="{{ $item['name'] ?? '' }}" id="{{ $item['id'] }}">
-                                                        {{ $item['name'] ?? '' }}</option>
-                                                @endforeach
-                                            </select>
+                                                    $provinces = Http::get('http://www.emsifa.com/api-wilayah-indonesia/api/provinces.json');
+                                                    $provinces = $provinces->json();
+                                                @endphp
+                                                <select class="form-select" aria-label="provinsi select" name="provinsi"
+                                                    id="provinsi">
+                                                    <option>Pilih Salah Satu</option>
+                                                    @foreach ($provinces as $item)
+                                                        <option
+                                                            {{ $data_alumni->provinsi === $item['name'] ? 'selected' : '' }}
+                                                            value="{{ $item['name'] ?? '' }}" id="{{ $item['id'] }}">
+                                                            {{ $item['name'] ?? '' }}</option>
+                                                    @endforeach
+                                                </select>
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label class="form-label" for="cname">Kota</label>
                                                 <select class="form-select" aria-label="kota select" name="kota"
-                                                id="kota">
-                                                <option>Pilih Salah Satu</option>
-                                            </select>
+                                                    id="kota">
+                                                    <option>Pilih Salah Satu</option>
+                                                </select>
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label class="form-label" for="cname">Jenis Kelamin</label>
                                                 <select class="form-select" aria-label="Jenis kelamin select"
-                                                name="jenkel">
-                                                <option selected value="male">Laki-Laki</option>
-                                                <option value="female">Perempuan</option>
-                                            </select>
+                                                    name="jenkel">
+                                                    <option selected value="male">Laki-Laki</option>
+                                                    <option value="female">Perempuan</option>
+                                                </select>
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label class="form-label" for="cname">Ukuran Baju</label>
@@ -135,30 +142,28 @@
                                             <div class="col-md-12 mb-3">
                                                 <h5 class="fw-semibold mb-3">Data Pendidikan</h5>
                                                 <div class="row">
-                                                    @foreach ($data_alumni->pendidikan as $item) 
+                                                    @foreach ($data_alumni->pendidikan as $item)
                                                         <div class="col-md-4">
                                                             <label class="form-label" for="cname">Pendidikan</label>
                                                             <select class="form-select" aria-label="Pendidikan select"
-                                                            name="pendidikan[]">
-                                                            <option selected value="SMA">SMA</option>
-                                                            <option value="D1">D1</option>
-                                                            <option value="D2">D2</option>
-                                                            <option value="D3">D3</option>
-                                                            <option value="D4">D4</option>
-                                                            <option value="S1">S1</option>
-                                                            <option value="S2">S2</option>
-                                                            <option value="S3">S3</option>
-                                                        </select>
+                                                                name="pendidikan[]">
+                                                                @foreach ($values = ['SMA', 'D1', 'D2', 'D3', 'D4', 'S1', 'S2', 'S3'] as $value)
+                                                                    <option
+                                                                        {{ $item->pendidikan === $value ? 'selected' : '' }}
+                                                                        value="{{ $value }}">
+                                                                        {{ $value }}</option>
+                                                                @endforeach
+                                                            </select>
                                                         </div>
                                                         <div class="form-group col-md-4">
                                                             <label class="form-label" for="cname">Universitas</label>
                                                             <input type="text" class="form-control" id="universitas"
-                                                                name="universitas" value="{{ $item->universitas }}">
+                                                                name="universitas[]" value="{{ $item->universitas }}">
                                                         </div>
                                                         <div class="form-group col-md-4">
                                                             <label class="form-label" for="cname">Jurusan</label>
                                                             <input type="text" class="form-control" id="jurusan"
-                                                                name="jurusan" value="{{ $item->jurusan }}">
+                                                                name="jurusan[]" value="{{ $item->jurusan }}">
                                                         </div>
                                                     @endforeach
                                                 </div>
@@ -168,13 +173,13 @@
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label class="form-label" for="cname">Pekerjaan</label>
-                                                <input type="text" class="form-control" id="pekerjaan" name="pekerjaan"
-                                                    value="{{ $data_alumni->pekerjaan }}">
+                                                <input type="text" class="form-control" id="pekerjaan"
+                                                    name="pekerjaan" value="{{ $data_alumni->pekerjaan }}">
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label class="form-label" for="cname">Nama Perusahaan</label>
                                                 <input type="text" class="form-control" id="nama_perusahaan"
-                                                    name="nama_perusahaan" value="{{ $data_alumni->nama_perusahaan }}">
+                                                    name="perusahaan" value="{{ $data_alumni->perusahaan }}">
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label class="form-label" for="cname">Jabatan</label>
@@ -212,8 +217,9 @@
 
 @push('scripts')
     <script>
+        const selectedKota = '{{ $data_alumni->kota }}'
+
         function onChangeSelect(id, name) {
-            console.log(id);
             // send ajax request to get the cities of the selected province and append to the select tag
             $.ajax({
                 url: `http://www.emsifa.com/api-wilayah-indonesia/api/regencies/${id}.json`,
@@ -223,17 +229,16 @@
                     $('#' + name).append('<option>Pilih Salah Satu</option>');
 
                     $.each(data, function(key, value) {
-                        $('#' + name).append('<option value="' + value.name + '">' + value.name +
-                            '</option>');
+                        $('#' + name).append(`<option ${value.name === selectedKota ? 'selected' : ''} value="${value.name}">
+                            ${value.name}
+                            </option>`);
                     });
                 }
             });
         }
 
         $(function() {
-            $('#provinsi').on('change', function(e) {
-                onChangeSelect($(this).find(':selected').attr('id'), 'kota');
-            });
+            onChangeSelect($('#provinsi').find(':selected').attr('id'), 'kota');
 
         });
 
@@ -268,4 +273,3 @@
         });
     </script>
 @endpush
-
