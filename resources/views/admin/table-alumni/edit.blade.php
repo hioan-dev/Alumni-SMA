@@ -12,6 +12,10 @@
 
         <div class="conatiner-fluid content-inner mt-n5 py-0">
             <div>
+                <form action="{{ route('table-alumni.update', $data_alumni->id) }}" method="POST"
+                    enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
                 <div class="row">
                     <div class="col-xl-3 col-lg-4">
                         <div class="card">
@@ -24,7 +28,9 @@
                                 <div class="form-group">
                                     <div class="profile-img-edit position-relative">
                                         <img class="form-control" width="100" height="250"
-                                            src="{{ asset('storage/' . $data_alumni->foto) }}" alt="profile-pic">
+                                        src="{{ asset('storage/' . $data_alumni->foto) }}" alt="profile-pic">
+                                            <input class="file-upload" type="file" id="foto" placeholder=""
+                                            name="foto">
                                     </div>
                                 </div>
                             </div>
@@ -39,10 +45,6 @@
                             </div>
                             <div class="card-body">
                                 <div class="new-user-info">
-                                    <form action="{{ route('table-alumni.update', $data_alumni->id) }}" method="POST"
-                                        enctype="multipart/form-data">
-                                        @csrf
-                                        @method('PUT')
                                         <div class="row">
                                             <div class="form-group col-md-6">
                                                 <label class="form-label" for="nama_lengkap">Nama Lengkap</label>
@@ -187,12 +189,12 @@
                                         <div class="col-md-12">
                                             <button type="submit" class="btn btn-primary">Simpan</button>
                                         </div>
-                                    </form>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </form>
             </div>
 
             <!-- Footer Section Start -->
