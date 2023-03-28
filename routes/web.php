@@ -17,6 +17,7 @@ use App\Http\Controllers\FotoController;
 use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\Admin\IuranController;
 use App\Http\Controllers\CalonKetuaController;
+use App\Http\Controllers\VidioController;
 
 
 
@@ -90,6 +91,8 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('panitia-munas', PanitiaController::class)->middleware('EnsureUserRole:admin');
     //Gallery Foto
     Route::resource('gallery-foto', FotoController::class)->middleware('EnsureUserRole:admin');
+    // Gallery Video
+    Route::resource('gallery-vidio', VidioController::class)->middleware('EnsureUserRole:admin');
     // Iuran
     Route::get('/iuran-konfirmasi', [IuranController::class, 'index'])->name('iuran-konfirmasi')->middleware('EnsureUserRole:admin');
     Route::post('/iuran-approve', [IuranController::class, 'approval'])->name('iuran-approve')->middleware('EnsureUserRole:admin');
