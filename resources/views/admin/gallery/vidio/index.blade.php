@@ -57,7 +57,7 @@
                                     <tr>
                                         <td></td>
                                         <td></td>
-                                        <td class="text-center">Belum Ada Data Foto</td>
+                                        <td class="text-center">Belum Ada Data Vidio</td>
                                         <td></td>
                                     </tr>
                                     @endforelse

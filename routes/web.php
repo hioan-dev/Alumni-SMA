@@ -96,6 +96,9 @@ Route::middleware(['auth'])->group(function () {
     // Iuran
     Route::get('/iuran-konfirmasi', [IuranController::class, 'index'])->name('iuran-konfirmasi')->middleware('EnsureUserRole:admin');
     Route::post('/iuran-approve', [IuranController::class, 'approval'])->name('iuran-approve')->middleware('EnsureUserRole:admin');
+    Route::get('/daftar-iuran', [IuranController::class, 'daftar'])->name('daftar-iuran')->middleware('EnsureUserRole:admin');
+    Route::delete('/iuran-delete/{id}', [IuranController::class, 'destroy'])->name('iuran-delete')->middleware('EnsureUserRole:admin');
+
 
     //User Dashboard
     Route::get('/user-dashboard', [UserDashboardController::class, 'index'])->name('user-dashboard')->middleware('EnsureUserRole:user');
