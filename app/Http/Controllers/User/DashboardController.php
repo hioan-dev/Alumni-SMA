@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Alumni;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 
 
@@ -35,6 +36,16 @@ class DashboardController extends Controller
 
     public function update(Request $request, $id)
     {
+        $oldAlumni = Alumni::find($id);
+        $alumni = $request->all();
+        $fotoName = $oldAlumni->foto;
+
+        if (request()->hasFile('foto')) {
+            $fileCheck = 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048';
+        } else {
+            $fileCheck = 'max:2048|image|mimes:jpeg,png,jpg,gif,svg';
+        }
+
         $request->validate([
             'nama_lengkap' => 'required',
             'tahun_lulus' => 'required',
@@ -47,12 +58,19 @@ class DashboardController extends Controller
             'ukuran_baju' => 'required',
             'no_hp' => 'required',
             'email' => 'required',
-            'foto' => 'image|mimes:jpeg,png,jpg',
+            'foto' => $fileCheck,
             'pekerjaan' => 'required',
-            'approved' => 'required',
             'perusahaan' => 'required',
-
         ]);
+
+        if (request()->hasFile('foto')) {
+            if (Storage::exists('public/alumni/' . $oldAlumni->foto)) {
+                Storage::delete('public/alumni/' . $oldAlumni->foto);
+            }
+            $foto = $request->file('foto');
+            $fileName = time() . '.' . $foto->getClientOriginalExtension();
+            $fotoName = $foto->storeAs('public/alumni', $fileName);
+        }
 
         $pendidikan = $request->pendidikan;
         $universitas = $request->universitas;
@@ -69,18 +87,12 @@ class DashboardController extends Controller
             }
         }
 
-        $alumni = $request->all();
         $alumni['pendidikan'] = json_encode($data_pendidikan);
+        $alumni['foto'] = $fotoName;
+        unset($alumni['universitas']);
+        unset($alumni['jurusan']);
 
-        if ($request->hasFile('foto')) {
-            $file = $request->file('foto');
-            $nama_file = time() . "_" . $file->getClientOriginalName();
-            $tujuan_upload = 'foto';
-            $file->move($tujuan_upload, $nama_file);
-            $alumni['foto'] = $nama_file;
-        }
-
-        Alumni::find($id)->update($alumni);
-        return redirect()->route('user.dashboard');
+        $oldAlumni->update($alumni);
+        return redirect()->route('user-dashboard')->with('success', 'Data berhasil diubah');
     }
 }
