@@ -88,3 +88,7 @@ Breadcrumbs::for('galeri-foto', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
     $trail->push('Galeri Foto', route('galeri-foto'));
 });
+Breadcrumbs::for('galeri-video', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push('Galeri video', route('galeri-video'));
+});
