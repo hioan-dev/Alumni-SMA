@@ -19,7 +19,7 @@
                     <div class="card">
                         <div class="card-header d-flex justify-content-between">
                             <div class="header-title">
-                                <h4 class="card-title">Data Konfirmasi Iuran</h4>
+                                <h4 class="card-title">Data Iuran</h4>
                             </div>
                         </div>
                         <div class="card-body">
@@ -49,16 +49,12 @@
                                                         alt="Bukti Pembayaran" width="100px">
                                                 </td>
                                                 <td>
-                                                    <form action="{{ route('iuran-approve') }}" method="POST"
-                                                        enctype="multipart/form-data">
+                                                    <form action="{{ route('iuran-delete', $row->id) }}" method="POST"
+                                                        class="d-inline">
                                                         @csrf
-                                                        <input type="hidden" name="id" value="{{ $row->id }}">
-                                                        <input <?php if ($row->approved == 1) {
-                                                            echo 'checked';
-                                                        } ?> type="checkbox" name="approved"
-                                                            value="1" id="approved">
-                                                        <button type="submit"
-                                                            class="btn btn-primary btn-sm gap-2">Approve</button>
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-sm btn-danger"><i
+                                                                class="bi bi-trash"></i></button>
                                                     </form>
                                                 </td>
                                             </tr>

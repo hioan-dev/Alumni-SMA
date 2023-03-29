@@ -22,4 +22,17 @@ class IuranController extends Controller
         $iuran->save();
         return back();
     }
+
+    public function daftar()
+    {
+        $iuran = Iuran::where('approved', 1)->get();
+        return view('admin.iuran.index', compact('iuran'));
+    }
+
+    public function destroy($id)
+    {
+        $iuran = Iuran::find($id);
+        $iuran->delete();
+        return back();
+    }
 }
