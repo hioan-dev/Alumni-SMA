@@ -185,7 +185,11 @@ class FrontendController extends Controller
     public function pendaftaran_ketua()
     {
         if (auth()->user()) {
-            return view('pendaftaran-ketua');
+            $ketua = CalonKetua::where('user_id', Auth::id())->first();
+
+            return view('pendaftaran-ketua', [
+                'ketua' => $ketua
+            ]);
         } else {
             return redirect()->route('login');
         }
