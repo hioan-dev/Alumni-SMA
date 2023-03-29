@@ -23,6 +23,7 @@
         {{ Breadcrumbs::render('pendaftaran-alumni') }}
 
         @if (empty($alumni))
+            {{ $errors }}
             <div class="mt-5">
                 <div class="row">
                     <h3 class="text-center fw-semibold">Pendaftaran Alumni</h3>
@@ -99,42 +100,69 @@
                 </div>
                 <div class="row mt-5">
                     <div class="col-md-6">
-                        <form action="{{ route('pendaftaran.store') }}" method="POST" enctype="multipart/form-data">
+                        <form class="needs-validation" action="{{ route('pendaftaran.store') }}" method="POST"
+                            enctype="multipart/form-data" novalidate>
                             @csrf
                             <div class=" mb-3">
                                 <label for="foto" class="form-label">Foto</label>
-                                <input type="file" class="form-control" id="foto" name="foto">
+                                <input required type="file" class="form-control" id="foto" name="foto">
+                                <div class="invalid-feedback">
+                                    Pas foto belum di isi
+                                </div>
                             </div>
                             <div class="mb-3 mt-5">
                                 <h5 class="fw-semibold">Data Pribadi</h5>
                             </div>
-                            <div class="mb-3">
+                            <div class="mb-3 has-validation">
                                 <label for="nama_lengkap" class="form-label">Nama Lengkap</label>
-                                <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap">
+                                <input required type="text" class="form-control" id="nama_lengkap" name="nama_lengkap"
+                                    aria-describedby="nama_lengkap">
+                                <div class="invalid-feedback">
+                                    Nama lengkap belum di isi
+                                </div>
                             </div>
                             <div class="mb-3">
                                 <label for="tahun_lulus" class="form-label">Tahun Lulus</label>
-                                <input type="text" class="form-control" id="tahun_lulus" name="tahun_lulus">
+                                <input required type="text" class="form-control" id="tahun_lulus" name="tahun_lulus">
+                                <div class="invalid-feedback">
+                                    Tahun lulus belum di isi
+                                </div>
                             </div>
                             <div class="mb-3">
                                 <label for="kelas" class="form-label">Kelas</label>
-                                <input type="text" class="form-control" id="kelas" name="kelas">
+                                <input required type="text" class="form-control" id="kelas" name="kelas">
+                                <div class="invalid-feedback">
+                                    Kelas belum di isi
+                                </div>
                             </div>
                             <div class="mb-3">
                                 <label for="tempat_lahir" class="form-label">Tempat Lahir</label>
-                                <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir">
+                                <input required type="text" class="form-control" id="tempat_lahir" name="tempat_lahir">
+                                <div class="invalid-feedback">
+                                    Tempat lahir belum di isi
+                                </div>
                             </div>
                             <div class="mb-3">
                                 <label for="tanggal_lahir" class="form-label">Tanggal Lahir</label>
-                                <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir">
+                                <input required type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir">
+                                <div class="invalid-feedback">
+                                    Tanggal lahir belum di isi
+                                </div>
                             </div>
                             <div class="mb-3">
                                 <label for="teman_sebangku" class="form-label">Nama Teman Sebangku</label>
-                                <input type="text" class="form-control" id="teman_sebangku" name="teman_sebangku">
+                                <input required type="text" class="form-control" id="teman_sebangku"
+                                    name="teman_sebangku">
+                                <div class="invalid-feedback">
+                                    Nama teman sebangku belum di isi
+                                </div>
                             </div>
                             <div class="mb-3">
                                 <label for="alamat" class="form-label">Alamat</label>
-                                <textarea class="form-control" id="alamat" name="alamat" rows="3"></textarea>
+                                <textarea required class="form-control" id="alamat" name="alamat" rows="3"></textarea>
+                                <div class="invalid-feedback">
+                                    Alamat belum di isi
+                                </div>
                             </div>
                             <div class="mb-3">
                                 <label for="provinsi" class="form-label">Provinsi</label>
@@ -142,19 +170,27 @@
                                     $provinces = Http::get('http://www.emsifa.com/api-wilayah-indonesia/api/provinces.json');
                                     $provinces = $provinces->json();
                                 @endphp
-                                <select class="form-select" aria-label="provinsi select" name="provinsi" id="provinsi">
+                                <select required class="form-select" aria-label="provinsi select" name="provinsi"
+                                    id="provinsi">
                                     <option>Pilih Salah Satu</option>
                                     @foreach ($provinces as $item)
                                         <option value="{{ $item['name'] ?? '' }}" id="{{ $item['id'] }}">
                                             {{ $item['name'] ?? '' }}</option>
                                     @endforeach
                                 </select>
+                                <div class="invalid-feedback">
+                                    Provinsi belum di isi
+                                </div>
                             </div>
                             <div class="mb-3">
                                 <label for="kota" class="form-label">Kabupaten / Kota</label>
-                                <select class="form-select" aria-label="kota select" name="kota" id="kota">
+                                <select required class="form-select" aria-label="kota select" name="kota"
+                                    id="kota">
                                     <option>Pilih Salah Satu</option>
                                 </select>
+                                <div class="invalid-feedback">
+                                    Kota belum di isi
+                                </div>
                             </div>
                             <div class="mb-3">
                                 <label for="jenkel" class="form-label">Jenis Kelamin</label>
@@ -176,11 +212,17 @@
                             </div>
                             <div class="mb-3">
                                 <label for="no_hp" class="form-label">No HP / WA</label>
-                                <input type="text" class="form-control" id="no_hp" name="no_hp">
+                                <input required type="text" class="form-control" id="no_hp" name="no_hp">
+                                <div class="invalid-feedback">
+                                    No HP / WA belum di isi
+                                </div>
                             </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="email" name="email">
+                                <input required type="email" class="form-control" id="email" name="email">
+                                <div class="invalid-feedback">
+                                    Email belum di isi
+                                </div>
                             </div>
                             <div class="mb-3 mt-5">
                                 <h5 class="fw-semibold">Data Pendidikan</h5>
@@ -202,12 +244,19 @@
                                     </div>
                                     <div class="mb-3">
                                         <label for="universitas" class="form-label">Universitas</label>
-                                        <input type="text" class="form-control" id="universitas"
+                                        <input required type="text" class="form-control" id="universitas"
                                             name="universitas[]">
+                                        <div class="invalid-feedback">
+                                            Universitas belum di isi
+                                        </div>
                                     </div>
                                     <div class="mb-3">
                                         <label for="jurusan" class="form-label">Jurusan</label>
-                                        <input type="text" class="form-control" id="jurusan" name="jurusan[]">
+                                        <input required type="text" class="form-control" id="jurusan"
+                                            name="jurusan[]">
+                                        <div class="invalid-feedback">
+                                            Jurusan belum di isi
+                                        </div>
                                     </div>
                                 </div>
                                 <button class="btn btn-outline-primary" id="tambah">+ Tambahkan Pendidikan</button>
@@ -217,15 +266,24 @@
                             </div>
                             <div class="mb-3">
                                 <label for="pekerjaan" class="form-label">Pekerjaan</label>
-                                <input type="text" class="form-control" id="pekerjaan" name="pekerjaan">
+                                <input required type="text" class="form-control" id="pekerjaan" name="pekerjaan">
+                                <div class="invalid-feedback">
+                                    Pekerjaan belum di isi
+                                </div>
                             </div>
                             <div class="mb-3">
                                 <label for="perusahaan" class="form-label">Nama Perusahaan/Instansi</label>
-                                <input type="text" class="form-control" id="perusahaan" name="perusahaan">
+                                <input required type="text" class="form-control" id="perusahaan" name="perusahaan">
+                                <div class="invalid-feedback">
+                                    Nama Perusahaan belum di isi
+                                </div>
                             </div>
                             <div class="mb-3">
                                 <label for="jabatan" class="form-label">Jabatan</label>
-                                <input type="text" class="form-control" id="jabatan" name="jabatan">
+                                <input required type="text" class="form-control" id="jabatan" name="jabatan">
+                                <div class="invalid-feedback">
+                                    Jabatan belum di isi
+                                </div>
                             </div>
                             <div class="float-end">
                                 <button type="submit" class="btn btn-primary">Sumbit</button>
@@ -272,6 +330,26 @@
 
 @push('scripts')
     <script>
+        (function() {
+            'use strict'
+
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.querySelectorAll('.needs-validation')
+
+            // Loop over them and prevent submission
+            Array.prototype.slice.call(forms)
+                .forEach(function(form) {
+                    form.addEventListener('submit', function(event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })()
+
         function onChangeSelect(id, name) {
             // send ajax request to get the cities of the selected province and append to the select tag
             $.ajax({
