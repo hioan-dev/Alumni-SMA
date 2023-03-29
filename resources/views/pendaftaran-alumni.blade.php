@@ -23,7 +23,6 @@
         {{ Breadcrumbs::render('pendaftaran-alumni') }}
 
         @if (empty($alumni))
-            {{ $errors }}
             <div class="mt-5">
                 <div class="row">
                     <h3 class="text-center fw-semibold">Pendaftaran Alumni</h3>
@@ -105,7 +104,8 @@
                             @csrf
                             <div class=" mb-3">
                                 <label for="foto" class="form-label">Foto</label>
-                                <input required type="file" class="form-control" id="foto" name="foto">
+                                <input accept="image/png, image/jpeg" required type="file" class="form-control"
+                                    id="foto" name="foto">
                                 <div class="invalid-feedback">
                                     Pas foto belum di isi
                                 </div>
