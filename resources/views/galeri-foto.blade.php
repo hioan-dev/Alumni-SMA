@@ -18,8 +18,8 @@
         {{ Breadcrumbs::render('galeri-foto') }}
         <h1 class="text-center my-5 ffw-bold">Galeri Foto</h1>
         <div class="grid tz-gallery">
-            <div class="grid-item">
-                @foreach ($foto as $item)
+            @foreach ($foto as $item)
+                <div class="grid-item">
                     <div class="gallery-item">
                         <a href="{{ asset('storage/' . $item->foto) }}" class="lightbox">
                             <img src="{{ asset('storage/' . $item->foto) }}" alt="">
@@ -29,8 +29,8 @@
                             </div>
                         </a>
                     </div>
-                @endforeach
-            </div>
+                </div>
+            @endforeach
 
         </div>
     </div>
