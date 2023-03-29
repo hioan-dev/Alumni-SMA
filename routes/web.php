@@ -48,6 +48,7 @@ Route::post('/pembayaran-iuran-store', [FrontendController::class, 'storei'])->n
 Route::get('/tentang-sekolah/visi-misi', [FrontendController::class, 'visimisi_sekolah'])->name('visimisi-sekolah');
 Route::get('/tentang-sekolah/sejarah', [FrontendController::class, 'sejarah_sekolah'])->name('sejarah-sekolah');
 Route::get('/galeri-foto', [FrontendController::class, 'galeri_foto'])->name('galeri-foto');
+Route::get('/galeri-video', [FrontendController::class, 'galeri_video'])->name('galeri-video');
 Route::view('tentang-alumni/anggaran-rumah-tangga', 'art-alumni')->name('anggaran-rumah-tangga');
 
 // Pendaftaran Calon Ketua Alumni

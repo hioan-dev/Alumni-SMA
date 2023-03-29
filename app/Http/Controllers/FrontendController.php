@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Foto;
+use App\Models\Iuran;
+use App\Models\Vidio;
 use App\Models\Alumni;
 use App\Models\Berita;
 use App\Models\Kategori;
 use App\Models\Kegiatan;
-use Illuminate\Http\Request;
-use App\Models\Iuran;
-use App\Models\Foto;
 use App\Models\CalonKetua;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -97,6 +98,14 @@ class FrontendController extends Controller
         $foto = Foto::all();
         return view('galeri-foto', [
             'foto' => $foto
+        ]);
+    }
+
+    public function galeri_video()
+    {
+        $vidio = Vidio::all();
+        return view('galeri-video', [
+            'vidio' => $vidio
         ]);
     }
 

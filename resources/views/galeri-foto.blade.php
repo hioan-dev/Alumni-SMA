@@ -17,22 +17,29 @@
     <div class="container" style="margin-top: 120px">
         {{ Breadcrumbs::render('galeri-foto') }}
         <h1 class="text-center my-5 ffw-bold">Galeri Foto</h1>
-        <div class="grid tz-gallery">
-            <div class="grid-item">
+        @if ($foto->count() == 0)
+            <div class="col-md-12">
+                <div class="alert alert-info text-center" role="alert">
+                    Foto belum ditambahkan
+                </div>
+            </div>
+        @else
+            <div class="grid tz-gallery">
                 @foreach ($foto as $item)
-                    <div class="gallery-item">
-                        <a href="{{ asset('storage/' . $item->foto) }}" class="lightbox">
-                            <img src="{{ asset('storage/' . $item->foto) }}" alt="">
-                            <div class="title">
-                                <small>{{ date('M j, Y', strtotime($item->created_at)) }}</small>
-                                <p class="clamp-2">{{ $item->deskripsi }} </p>
-                            </div>
-                        </a>
+                    <div class="grid-item">
+                        <div class="gallery-item">
+                            <a href="{{ asset('storage/' . $item->foto) }}" class="lightbox">
+                                <img src="{{ asset('storage/' . $item->foto) }}" alt="">
+                                <div class="title">
+                                    <small>{{ date('M j, Y', strtotime($item->created_at)) }}</small>
+                                    <p class="clamp-2">{{ $item->deskripsi }} </p>
+                                </div>
+                            </a>
+                        </div>
                     </div>
                 @endforeach
             </div>
-
-        </div>
+        @endif
     </div>
 @endsection
 

@@ -103,7 +103,7 @@
                                             <a href="#" class="nav-link">Galeri</a>
                                             <ul class="dropdown arrow-top">
                                                 <li><a href="{{ route('galeri-foto') }}" class="nav-link">Foto</a></li>
-                                                <li><a href="#" class="nav-link">Video</a></li>
+                                                <li><a href="{{ route('galeri-video') }}" class="nav-link">Video</a></li>
                                             </ul>
                                         </li>
 
