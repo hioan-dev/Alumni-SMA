@@ -46,7 +46,7 @@
                                                 </td>
                                                 <td>{{ $row->tahun_lulus }}</td>
                                                 <td>{{ $row->kelas }}</td>
-                                                <td>{{ $row->alamat }}</td>
+                                                <td>{{ Str::limit($row->alamat, 50) }}</td>
                                                 <td>
                                                     <a href="{{ route('table-alumni.edit', $row->id) }}"
                                                         class="btn btn-primary btn-sm"><i class="bi bi-pencil"></i></a>
@@ -61,6 +61,7 @@
                                             </tr>
                                         @empty
                                             <tr>
+                                                <td></td>
                                                 <td></td>
                                                 <td></td>
                                                 <td class="text-center">Belum Ada Data Alumni</td>
