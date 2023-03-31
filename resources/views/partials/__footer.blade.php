@@ -16,9 +16,7 @@
                         <hr class="mb-4 mt-0 d-inline-block mx-auto"
                             style="width: 60px; background-color: #7c4dff; height: 2px" />
                         <p>
-                            Here you can use rows and columns to organize your footer
-                            content. Lorem ipsum dolor sit amet, consectetur adipisicing
-                            elit.
+                            Portal resmi Ikatan Keluarga Alumni SMAN 1 Tebing Tinggi
                         </p>
                     </div>
                     <!-- Grid column -->
@@ -71,10 +69,8 @@
                         <h6 class="text-uppercase fw-bold">Contact</h6>
                         <hr class="mb-4 mt-0 d-inline-block mx-auto"
                             style="width: 60px; background-color: #7c4dff; height: 2px" />
-                        <p><i class="fas fa-home mr-3"></i> New York, NY 10012, US</p>
-                        <p><i class="fas fa-envelope mr-3"></i> info@example.com</p>
-                        <p><i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
-                        <p><i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
+                        <p><i class="fas fa-home mr-3"></i> Tebing Tinggi, 20613, Indonesia</p>
+                        <p><i class="fas fa-envelope mr-3"></i> info@ikasmansatebingtinggi.org</p>
                     </div>
                     <!-- Grid column -->
                 </div>
