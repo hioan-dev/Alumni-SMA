@@ -12,7 +12,7 @@ use App\Models\Kegiatan;
 use App\Models\CalonKetua;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\DB;
 
 class FrontendController extends Controller
 {
@@ -199,7 +199,10 @@ class FrontendController extends Controller
 
     public function calonKetua()
     {
-        $ketua = CalonKetua::where('approved', 1)->get();
+        $ketua = DB::table('calon_ketuas')->join('alumnis', 'calon_ketuas.user_id', '=', 'alumnis.user_id')->select('calon_ketuas.*', 'alumnis.kelas', 'alumnis.tahun_lulus', 'alumnis.pekerjaan')->get()->filter(function ($ketua) {
+            return $ketua->approved == 1;
+        });
+
         return view('data-calon-ketua', [
             'ketua' => $ketua
         ]);

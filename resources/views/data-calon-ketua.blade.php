@@ -48,7 +48,7 @@
                         </div>
                         <div class="card-body">
                             <div class="student-img">
-                                <img src="{{ asset('storage/' . $row->foto) }}" alt="" class="img-fluid">
+                                <img src="{{ asset('storage/' . $row->pas_foto) }}" alt="" class="img-fluid">
                             </div>
                             <div class="mt-3">
                                 <h5 class="card-title fw-semibold">{{ $row->nama_lengkap }}</h5>
@@ -65,13 +65,7 @@
                     </div>
                 </div>
             @endforelse
-            @if (count($ketua) > 0)
-                <div class="mt-5">
-                    <div class="d-flex justify-content-center ">
-                        {!! $alumni->links() !!}
-                    </div>
-                </div>
-            @endif
+
         </div>
     </div>
 @endsection
