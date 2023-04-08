@@ -1,6 +1,6 @@
 <nav class="nav navbar navbar-expand-lg navbar-light iq-navbar">
     <div class="container-fluid navbar-inner">
-        <a href="" class="navbar-brand">
+        <a href="{{ route('home') }}" class="navbar-brand">
             <div class="logo-main">
                 <div class="logo-normal">
                     <img src="{{ asset('images/logofix.svg') }}" alt="Logo Alumni">
@@ -57,8 +57,11 @@
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="{{ route('user-dashboard') }}">Profile</a>
                         </li>
-                        <li><a class="dropdown-item" href="{{ route('user-pendaftaran-ketua') }}">Pendaftaran Ketua</a>
-                        </li>
+                        @if ($calon_ketua)
+                            <li><a class="dropdown-item" href="{{ route('user-pendaftaran-ketua') }}">Pendaftaran
+                                    Ketua</a>
+                            </li>
+                        @endif
 
                         <hr class="dropdown-divider">
                 </li>
