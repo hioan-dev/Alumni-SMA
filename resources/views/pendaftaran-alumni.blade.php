@@ -106,6 +106,10 @@
                                 <label for="foto" class="form-label">Foto</label>
                                 <input accept="image/png, image/jpeg" required type="file" class="form-control"
                                     id="foto" name="foto">
+                                @error('foto')
+                                    <div class="text-danger">Ukuran file terlalu besar. Maximum file 4MB
+                                    </div>
+                                @enderror
                                 <div class="invalid-feedback">
                                     Pas foto belum di isi
                                 </div>

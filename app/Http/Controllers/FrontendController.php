@@ -12,7 +12,7 @@ use App\Models\Kegiatan;
 use App\Models\CalonKetua;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\DB;
 
 class FrontendController extends Controller
 {
@@ -186,25 +186,38 @@ class FrontendController extends Controller
     {
         if (auth()->user()) {
             $ketua = CalonKetua::where('user_id', Auth::id())->first();
+            $alumni = Alumni::where('user_id', Auth::id())->where('approved', '1')->first();
 
             return view('pendaftaran-ketua', [
-                'ketua' => $ketua
+                'ketua' => $ketua,
+                'alumni' => $alumni
             ]);
         } else {
             return redirect()->route('login');
         }
     }
 
+    public function calonKetua()
+    {
+        $ketua = DB::table('calon_ketuas')->join('alumnis', 'calon_ketuas.user_id', '=', 'alumnis.user_id')->select('calon_ketuas.*', 'alumnis.kelas', 'alumnis.tahun_lulus', 'alumnis.pekerjaan')->get()->filter(function ($ketua) {
+            return $ketua->approved == 1;
+        });
+
+        return view('data-calon-ketua', [
+            'ketua' => $ketua
+        ]);
+    }
+
     public function store(Request $request)
     {
         $request->validate([
             'nama_lengkap' => 'required',
-            'foto_ktp' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'pas_foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'foto_ktp' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:4096',
+            'pas_foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:4096',
             'nik' => 'required',
             'alamat' => 'required',
             'no_ijazah' => 'required',
-            'ijazah' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'ijazah' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:4096',
             'pekerjaan' => 'required',
             'visi_misi' => 'required',
             'rencana_program' => 'required',

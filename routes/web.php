@@ -34,6 +34,7 @@ use App\Http\Controllers\VidioController;
 
 Route::get('/', [FrontendController::class, 'index'])->name('home');
 Route::get('/data-alumni', [FrontendController::class, 'alumni'])->name('data-alumni');
+Route::get('/data-calon-ketua', [FrontendController::class, 'calonKetua'])->name('data-calon-ketua');
 Route::get('/info-berita', [FrontendController::class, 'berita'])->name('berita');
 Route::get('/info-berita/{slug}', [FrontendController::class, 'detail_berita'])->name('detail-berita');
 Route::get('/info-kegiatan', [FrontendController::class, 'kegiatan'])->name('kegiatan');
