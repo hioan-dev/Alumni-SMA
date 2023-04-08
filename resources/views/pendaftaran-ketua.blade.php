@@ -53,6 +53,7 @@
                     </div>
                     <div class="row mt-5 justify-content-center ">
                         <div class="col-md-6">
+
                             <form action="{{ route('pendaftaran-ketua-store') }}" method="POST"
                                 enctype="multipart/form-data">
                                 @csrf
@@ -65,11 +66,19 @@
                                     <label for="foto_ktp" class="form-label">Foto KTP</label>
                                     <input type="file" class="form-control" id="foto_ktp" name="foto_ktp"
                                         accept="image/png, image/jpeg" required>
+                                    @error('foto_ktp')
+                                        <div class="text-danger">Ukuran file terlalu besar. Maximum file 4MB
+                                        </div>
+                                    @enderror
                                 </div>
                                 <div class=" mb-3">
                                     <label for="pas_foto" class="form-label">Pas Foto Warna</label>
                                     <input type="file" class="form-control" id="pas_foto" accept="image/png, image/jpeg"
                                         name="pas_foto" required>
+                                    @error('pas_foto')
+                                        <div class="text-danger">Ukuran file terlalu besar. Maximum file 4MB
+                                        </div>
+                                    @enderror
                                 </div>
                                 <div class="mb-3">
                                     <label for="nik" class="form-label">NIK</label>
@@ -84,9 +93,13 @@
                                     <input type="text" class="form-control" id="no_ijazah" name="no_ijazah" required>
                                 </div>
                                 <div class=" mb-3">
-                                    <label for="ijazah" class="form-label">Ijazah</label>
+                                    <label for="ijazah" class="form-label">Foto Ijazah</label>
                                     <input type="file" class="form-control" id="ijazah" name="ijazah" required
                                         accept="image/png, image/jpeg">
+                                    @error('ijazah')
+                                        <div class="text-danger">Ukuran file terlalu besar. Maximum file 4MB
+                                        </div>
+                                    @enderror
                                 </div>
                                 <div class="mb-3">
                                     <label for="pekerjaan" class="form-label">Pekerjaan</label>

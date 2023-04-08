@@ -186,7 +186,7 @@ class FrontendController extends Controller
     {
         if (auth()->user()) {
             $ketua = CalonKetua::where('user_id', Auth::id())->first();
-            $alumni = Alumni::where('user_id', Auth::id())->first();
+            $alumni = Alumni::where('user_id', Auth::id())->where('approved', '1')->first();
 
             return view('pendaftaran-ketua', [
                 'ketua' => $ketua,
@@ -209,12 +209,12 @@ class FrontendController extends Controller
     {
         $request->validate([
             'nama_lengkap' => 'required',
-            'foto_ktp' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'pas_foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'foto_ktp' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:4096',
+            'pas_foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:4096',
             'nik' => 'required',
             'alamat' => 'required',
             'no_ijazah' => 'required',
-            'ijazah' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'ijazah' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:4096',
             'pekerjaan' => 'required',
             'visi_misi' => 'required',
             'rencana_program' => 'required',
