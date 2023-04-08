@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Alumni;
+use App\Models\CalonKetua;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
@@ -20,7 +21,7 @@ class DashboardController extends Controller
             $data_alumni['pendidikan'] = json_decode($data_alumni['pendidikan']);
         }
 
-        return view('user.dashboard',[
+        return view('user.dashboard', [
             'data_alumni' => $data_alumni
         ]);
     }
@@ -29,7 +30,7 @@ class DashboardController extends Controller
     {
         $data_alumni = Alumni::find($id);
         $data_alumni['pendidikan'] = json_decode($data_alumni['pendidikan']);
-        return view('user.edit',[
+        return view('user.edit', [
             'data_alumni' => $data_alumni
         ]);
     }
@@ -94,5 +95,18 @@ class DashboardController extends Controller
 
         $oldAlumni->update($alumni);
         return redirect()->route('user-dashboard')->with('success', 'Data berhasil diubah');
+    }
+
+    public function pendaftaran()
+    {
+        $calon_ketua = CalonKetua::where('user_id', Auth::id())->first();
+
+        if (empty($calon_ketua)) {
+            return redirect()->route('user-dashboard')->with('error', 'Anda belum mengisi data diri');
+        }
+
+        return view('user.pendaftaran-ketua.index', [
+            'calon_ketua' => $calon_ketua
+        ]);
     }
 }
