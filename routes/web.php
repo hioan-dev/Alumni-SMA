@@ -57,11 +57,10 @@ Route::get('pendaftaran-calon-ketua-alumni', [FrontendController::class, 'pendaf
 Route::post('/pendaftaran-calon-ketua-alumni', [FrontendController::class, 'store'])->name('pendaftaran-ketua-store');
 
 
-
 // Pendaftaran Alumni Before Login
-Route::get('/pendaftaran-alumni', function () {
-    return view('pendaftaran-alumni');
-})->name('pendaftaran-alumni');
+// Route::get('/pendaftaran-alumni', function () {
+//     return view('pendaftaran-alumni');
+// })->name('pendaftaran-alumni');
 
 Route::middleware(['auth'])->group(function () {
     //Admin Dashboard
@@ -112,7 +111,7 @@ Route::middleware(['auth'])->group(function () {
     })->name('error403');
 
     // Pendaftaran Alumni After Login
-    Route::resource('pendaftaran', AlumniController::class);
+    Route::resource('pendaftaran-alumni', AlumniController::class);
 });
 
 Auth::routes();

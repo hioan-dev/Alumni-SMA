@@ -99,7 +99,7 @@
                 </div>
                 <div class="row mt-5">
                     <div class="col-md-6">
-                        <form class="needs-validation" action="{{ route('pendaftaran.store') }}" method="POST"
+                        <form class="needs-validation" action="{{ route('pendaftaran-alumni.store') }}" method="POST"
                             enctype="multipart/form-data" novalidate>
                             @csrf
                             <div class=" mb-3">
