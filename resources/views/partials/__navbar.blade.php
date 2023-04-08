@@ -120,7 +120,8 @@
                                         <li class="has-children">
                                             <a href="#" class="nav-link">Alumni</a>
                                             <ul class="dropdown arrow-top">
-                                                <li><a href="{{ route('pendaftaran.index') }}" class="nav-link">Pendaftaran
+                                                <li><a href="{{ route('pendaftaran-alumni.index') }}"
+                                                        class="nav-link">Pendaftaran
                                                         Alumni</a></li>
 
                                                 <li><a href="{{ route('data-alumni') }}" class="nav-link">Data Alumni</a>

@@ -264,7 +264,8 @@
                         <div class="step-num">2</div>
                         <h4 class="fw-bold">Pendaftaran Alumni</h4>
                         <p class="fs-5 mt-3">
-                            Masuk ke halaman <a href="{{ route('pendaftaran-alumni') }}">Pendaftaran Alumni</a> dan isi
+                            Masuk ke halaman <a href="{{ route('pendaftaran-alumni.index') }}">Pendaftaran Alumni</a> dan
+                            isi
                             form
                             yang tersedia.
                         </p>
