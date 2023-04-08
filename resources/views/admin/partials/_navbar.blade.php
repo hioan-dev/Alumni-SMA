@@ -55,9 +55,9 @@
                         </div>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Profile</a>
+                        <li><a class="dropdown-item" href="{{ route('user-dashboard') }}">Profile</a>
                         </li>
-                        <li><a class="dropdown-item" href="#">Pendaftaran Ketua</a>
+                        <li><a class="dropdown-item" href="{{ route('user-pendaftaran-ketua') }}">Pendaftaran Ketua</a>
                         </li>
 
                         <hr class="dropdown-divider">
