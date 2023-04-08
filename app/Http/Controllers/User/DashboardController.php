@@ -2,16 +2,31 @@
 
 namespace App\Http\Controllers\User;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Alumni;
+use View;
 use App\Models\CalonKetua;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 
+class BaseController extends Controller
+{
 
-class DashboardController extends Controller
+    public function __construct()
+    {
+        $this->middleware(function ($request, $next) {
+            $calon_ketua = CalonKetua::where('user_id', Auth::id())->first();
+            View::share('calon_ketua', $calon_ketua);
+
+            return $next($request);
+        });
+    }
+}
+
+
+class DashboardController extends BaseController
 {
     public function index()
     {
