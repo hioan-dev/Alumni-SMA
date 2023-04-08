@@ -124,9 +124,15 @@
         @else
             <div class="row justify-content-center mt-5 text-center">
                 <div class="col-md-6">
-                    <div class="alert alert-info" role="alert">
-                        Anda sudah terdaftar sebagai calon ketua alumni
-                    </div>
+                    @if ($ketua->approved == 0)
+                        <div class="alert alert-info" role="alert">
+                            Pendaftaran anda sedang dalam proses verifikasi
+                        </div>
+                    @else
+                        <div class="alert alert-info" role="alert">
+                            Anda telah terdaftar sebagai calon ketua alumni
+                        </div>
+                    @endif
                 </div>
             </div>
         @endif
