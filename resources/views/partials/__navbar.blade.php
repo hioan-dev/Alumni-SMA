@@ -125,6 +125,13 @@
 
                                                 <li><a href="{{ route('data-alumni') }}" class="nav-link">Data Alumni</a>
                                                 </li>
+                                                <li><a href="{{ route('pendaftaran-ketua') }}"
+                                                        class="nav-link">Pendaftaran
+                                                        Calon Ketua Alumni</a>
+                                                </li>
+                                                <li><a href="{{ route('data-calon-ketua') }}" class="nav-link">Data Calon
+                                                        Ketua Alumni</a>
+                                                </li>
                                             </ul>
                                         </li>
 

@@ -186,13 +186,23 @@ class FrontendController extends Controller
     {
         if (auth()->user()) {
             $ketua = CalonKetua::where('user_id', Auth::id())->first();
+            $alumni = Alumni::where('user_id', Auth::id())->first();
 
             return view('pendaftaran-ketua', [
-                'ketua' => $ketua
+                'ketua' => $ketua,
+                'alumni' => $alumni
             ]);
         } else {
             return redirect()->route('login');
         }
+    }
+
+    public function calonKetua()
+    {
+        $ketua = CalonKetua::where('approved', 1)->get();
+        return view('data-calon-ketua', [
+            'ketua' => $ketua
+        ]);
     }
 
     public function store(Request $request)
