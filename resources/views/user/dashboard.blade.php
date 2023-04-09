@@ -13,7 +13,7 @@
     <main class="main-content">
         <div class="position-relative iq-banner">
             <!--Nav Start-->
-            @include('admin.partials._navbar')
+            @include('user.partials.__navbar')
             <!--Nav End-->
         </div>
         <div class="conatiner-fluid content-inner mt-n5 py-0">

@@ -75,6 +75,6 @@ class AlumniController extends Controller
 
         Alumni::create($alumni);
 
-        return redirect()->route('pendaftaran.index')->with('success', 'Berita berhasil ditambahkan');
+        return redirect()->route('pendaftaran-alumni.index')->with('success', 'Berita berhasil ditambahkan');
     }
 }

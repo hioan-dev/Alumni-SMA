@@ -57,6 +57,10 @@
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="{{ route('user-dashboard') }}">Profile</a>
                         </li>
+                        @isset($calon_ketua)
+                            <li><a class="dropdown-item" href="{{ route('user-pendaftaran-ketua') }}">Pendaftaran Ketua</a>
+                            </li>
+                        @endisset
                         <hr class="dropdown-divider">
                 </li>
                 <li> <a class="dropdown-item" href="{{ route('logout') }}"
