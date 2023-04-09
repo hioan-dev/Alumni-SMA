@@ -55,13 +55,8 @@
                         </div>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="{{ route('dashboard') }}">Profile</a>
+                        <li><a class="dropdown-item" href="{{ route('user-dashboard') }}">Profile</a>
                         </li>
-                        @if ($calon_ketua)
-                            <li><a class="dropdown-item" href="{{ route('user-pendaftaran-ketua') }}">Pendaftaran
-                                    Ketua</a>
-                            </li>
-                        @endif
                         <hr class="dropdown-divider">
                 </li>
                 <li> <a class="dropdown-item" href="{{ route('logout') }}"
