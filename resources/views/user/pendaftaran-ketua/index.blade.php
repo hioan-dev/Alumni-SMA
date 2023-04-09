@@ -2,6 +2,12 @@
 
 @section('title', 'Pendafataran Ketua')
 
+@push('styles')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.9.0/baguetteBox.min.css"
+        integrity="sha512-tbjZFdjHyHckTfeqkgVFcQ3GJWVfdsNYFvl+rEWmofjj9JpWaohlZgq0Vb6Hav5rqIL019LFpLsE+sTNSfNVXA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+@endpush
+
 @section('content')
     <main class="main-content">
         <div class="position-relative iq-banner">
@@ -32,8 +38,11 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <div class="profile-img-edit position-relative">
-                                    <img class="form-control" width="100" height="250"
-                                        src="{{ asset('storage/' . $calon_ketua->pas_foto) }}" alt="profile-pic">
+                                    <div class="baguettebox"> <a href="{{ asset('storage/' . $calon_ketua->pas_foto) }}"
+                                            class="cursor-zoom lightbox"> <img class="form-control" width="100"
+                                                height="250" src="{{ asset('storage/' . $calon_ketua->pas_foto) }}"
+                                                alt="profile-pic"></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -45,8 +54,12 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <div class="profile-img-edit position-relative">
-                                    <img class="form-control" width="100" height="250"
-                                        src="{{ asset('storage/' . $calon_ketua->foto_ktp) }}" alt="profile-pic">
+                                    <div class="baguettebox"> <a href="{{ asset('storage/' . $calon_ketua->foto_ktp) }}"
+                                            class="cursor-zoom lightbox"> <img class="form-control" width="100"
+                                                height="250" src="{{ asset('storage/' . $calon_ketua->foto_ktp) }}"
+                                                alt="profile-pic"></a>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -58,9 +71,11 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <div class="profile-img-edit position-relative">
-                                    <img class="form-control" width="100" height="250"
-                                        src="{{ asset('storage/' . $calon_ketua->ijazah) }}" alt="profile-pic">
-
+                                    <div class="baguettebox"> <a href="{{ asset('storage/' . $calon_ketua->ijazah) }}"
+                                            class="cursor-zoom lightbox"><img class="form-control" width="100"
+                                                height="250" src="{{ asset('storage/' . $calon_ketua->ijazah) }}"
+                                                alt="profile-pic"></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -134,3 +149,12 @@
             <!-- Footer Section End -->
     </main>
 @endsection
+
+@push('scripts')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.9.0/baguetteBox.min.js"
+        integrity="sha512-+8LoWbC6Y9Vy85wapJUYlRvabpzAIGhgiL6vZWNHn0F8EFJ43a1BCSzXo7b7OeY6bczJ3Q+ifRweZpW1iPAARg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        baguetteBox.run('.baguettebox');
+    </script>
+@endpush

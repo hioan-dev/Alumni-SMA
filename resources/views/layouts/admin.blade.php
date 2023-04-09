@@ -29,6 +29,7 @@
 
     <!-- RTL Css -->
     <link rel="stylesheet" href="{{ asset('admin/assets/css/rtl.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
     @stack('styles')
 
