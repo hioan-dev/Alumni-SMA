@@ -187,7 +187,8 @@
                         <div class="alert alert-info text-center" role="alert">
                             <p class="fs-5">Anda belum terdaftar sebagai alumni, silakan mendaftar sebagai alumni
                                 terlebih dahulu. </p>
-                            <a href="{{ route('pendaftaran-alumni') }}" class="btn btn-primary">Pendaftaran Alumni</a>
+                            <a href="{{ route('pendaftaran-alumni.index') }}" class="btn btn-primary">Pendaftaran
+                                Alumni</a>
                         </div>
                     </div>
                 @endif

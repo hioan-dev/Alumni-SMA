@@ -41,7 +41,7 @@
                     <div class="col-md-6">
                         <div class="alert alert-info" role="alert">
                             <p> Silahkan mendaftar sebagai alumni terlebih dahulu</p>
-                            <a href="{{ route('pendaftaran-alumni') }}" class="btn btn-primary">Daftar</a>
+                            <a href="{{ route('pendaftaran-alumni.index') }}" class="btn btn-primary">Daftar</a>
                         </div>
                     </div>
                 </div>
