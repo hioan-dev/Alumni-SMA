@@ -40,7 +40,7 @@ class AlumniController extends Controller
             'jurusan' => 'required',
             'no_hp' => 'required',
             'email' => 'required',
-            'foto' => 'required|image|mimes:jpeg,png,jpg',
+            'foto' => 'required|image|mimes:jpeg,png,jpg|max:4096',
             'pekerjaan' => 'required',
         ]);
         $pendidikan = $request->pendidikan;
@@ -75,6 +75,6 @@ class AlumniController extends Controller
 
         Alumni::create($alumni);
 
-        return redirect()->route('pendaftaran.index')->with('success', 'Berita berhasil ditambahkan');
+        return redirect()->route('pendaftaran-alumni.index')->with('success', 'Berita berhasil ditambahkan');
     }
 }

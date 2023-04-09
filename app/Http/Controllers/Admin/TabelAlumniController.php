@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Alumni;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class TabelAlumniController extends Controller
 {
@@ -100,6 +101,16 @@ class TabelAlumniController extends Controller
 
     public function update(Request $request, $id)
     {
+        $oldAlumni = Alumni::find($id);
+        $alumni = $request->all();
+        $fotoName = $oldAlumni->foto;
+
+        if (request()->hasFile('foto')) {
+            $fileCheck = 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048';
+        } else {
+            $fileCheck = 'max:2048|image|mimes:jpeg,png,jpg,gif,svg';
+        }
+
         $request->validate([
             'nama_lengkap' => 'required',
             'tahun_lulus' => 'required',
@@ -112,12 +123,19 @@ class TabelAlumniController extends Controller
             'ukuran_baju' => 'required',
             'no_hp' => 'required',
             'email' => 'required',
-            'foto' => 'image|mimes:jpeg,png,jpg',
+            'foto' => $fileCheck,
             'pekerjaan' => 'required',
-            'approved' => 'required',
             'perusahaan' => 'required',
-
         ]);
+
+        if (request()->hasFile('foto')) {
+            if (Storage::exists('public/alumni/' . $oldAlumni->foto)) {
+                Storage::delete('public/alumni/' . $oldAlumni->foto);
+            }
+            $foto = $request->file('foto');
+            $fileName = time() . '.' . $foto->getClientOriginalExtension();
+            $fotoName = $foto->storeAs('public/alumni', $fileName);
+        }
 
         $pendidikan = $request->pendidikan;
         $universitas = $request->universitas;
@@ -134,24 +152,12 @@ class TabelAlumniController extends Controller
             }
         }
 
-        $alumni = $request->all();
         $alumni['pendidikan'] = json_encode($data_pendidikan);
-
-        $foto = $request->file('foto');
-
-        if ($request->hasFile('foto')) {
-            $alumni['foto'] =  $foto->store('public/alumni');
-        } else {
-            return $request;
-            $alumni['foto'] = '';
-        }
-
-        $alumni['user_id'] = Auth::id();
+        $alumni['foto'] = $fotoName;
         unset($alumni['universitas']);
         unset($alumni['jurusan']);
 
-        Alumni::find($id)->update($alumni);
-
+        $oldAlumni->update($alumni);
         return redirect()->route('table-alumni.index')->with('success', 'Data berhasil diubah');
     }
 

@@ -2,14 +2,31 @@
 
 namespace App\Http\Controllers\User;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Alumni;
+use View;
+use App\Models\CalonKetua;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 
+class BaseController extends Controller
+{
 
-class DashboardController extends Controller
+    public function __construct()
+    {
+        $this->middleware(function ($request, $next) {
+            $calon_ketua = CalonKetua::where('user_id', Auth::id())->first();
+            View::share('calon_ketua', $calon_ketua);
+
+            return $next($request);
+        });
+    }
+}
+
+
+class DashboardController extends BaseController
 {
     public function index()
     {
@@ -19,7 +36,7 @@ class DashboardController extends Controller
             $data_alumni['pendidikan'] = json_decode($data_alumni['pendidikan']);
         }
 
-        return view('user.dashboard',[
+        return view('user.dashboard', [
             'data_alumni' => $data_alumni
         ]);
     }
@@ -28,13 +45,23 @@ class DashboardController extends Controller
     {
         $data_alumni = Alumni::find($id);
         $data_alumni['pendidikan'] = json_decode($data_alumni['pendidikan']);
-        return view('user.edit',[
+        return view('user.edit', [
             'data_alumni' => $data_alumni
         ]);
     }
 
     public function update(Request $request, $id)
     {
+        $oldAlumni = Alumni::find($id);
+        $alumni = $request->all();
+        $fotoName = $oldAlumni->foto;
+
+        if (request()->hasFile('foto')) {
+            $fileCheck = 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048';
+        } else {
+            $fileCheck = 'max:2048|image|mimes:jpeg,png,jpg,gif,svg';
+        }
+
         $request->validate([
             'nama_lengkap' => 'required',
             'tahun_lulus' => 'required',
@@ -47,12 +74,19 @@ class DashboardController extends Controller
             'ukuran_baju' => 'required',
             'no_hp' => 'required',
             'email' => 'required',
-            'foto' => 'image|mimes:jpeg,png,jpg',
+            'foto' => $fileCheck,
             'pekerjaan' => 'required',
-            'approved' => 'required',
             'perusahaan' => 'required',
-
         ]);
+
+        if (request()->hasFile('foto')) {
+            if (Storage::exists('public/alumni/' . $oldAlumni->foto)) {
+                Storage::delete('public/alumni/' . $oldAlumni->foto);
+            }
+            $foto = $request->file('foto');
+            $fileName = time() . '.' . $foto->getClientOriginalExtension();
+            $fotoName = $foto->storeAs('public/alumni', $fileName);
+        }
 
         $pendidikan = $request->pendidikan;
         $universitas = $request->universitas;
@@ -69,18 +103,25 @@ class DashboardController extends Controller
             }
         }
 
-        $alumni = $request->all();
         $alumni['pendidikan'] = json_encode($data_pendidikan);
+        $alumni['foto'] = $fotoName;
+        unset($alumni['universitas']);
+        unset($alumni['jurusan']);
 
-        if ($request->hasFile('foto')) {
-            $file = $request->file('foto');
-            $nama_file = time() . "_" . $file->getClientOriginalName();
-            $tujuan_upload = 'foto';
-            $file->move($tujuan_upload, $nama_file);
-            $alumni['foto'] = $nama_file;
+        $oldAlumni->update($alumni);
+        return redirect()->route('user-dashboard')->with('success', 'Data berhasil diubah');
+    }
+
+    public function pendaftaran()
+    {
+        $calon_ketua = CalonKetua::where('user_id', Auth::id())->first();
+
+        if (empty($calon_ketua)) {
+            return redirect()->route('user-dashboard')->with('error', 'Anda belum mengisi data diri');
         }
 
-        Alumni::find($id)->update($alumni);
-        return redirect()->route('user.dashboard');
+        return view('user.pendaftaran-ketua.index', [
+            'calon_ketua' => $calon_ketua
+        ]);
     }
 }

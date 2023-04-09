@@ -103,7 +103,7 @@
                                             <a href="#" class="nav-link">Galeri</a>
                                             <ul class="dropdown arrow-top">
                                                 <li><a href="{{ route('galeri-foto') }}" class="nav-link">Foto</a></li>
-                                                <li><a href="#" class="nav-link">Video</a></li>
+                                                <li><a href="{{ route('galeri-video') }}" class="nav-link">Video</a></li>
                                             </ul>
                                         </li>
 
@@ -120,10 +120,18 @@
                                         <li class="has-children">
                                             <a href="#" class="nav-link">Alumni</a>
                                             <ul class="dropdown arrow-top">
-                                                <li><a href="{{ route('pendaftaran.index') }}" class="nav-link">Pendaftaran
+                                                <li><a href="{{ route('pendaftaran-alumni.index') }}"
+                                                        class="nav-link">Pendaftaran
                                                         Alumni</a></li>
 
                                                 <li><a href="{{ route('data-alumni') }}" class="nav-link">Data Alumni</a>
+                                                </li>
+                                                <li><a href="{{ route('pendaftaran-ketua') }}"
+                                                        class="nav-link">Pendaftaran
+                                                        Calon Ketua Alumni</a>
+                                                </li>
+                                                <li><a href="{{ route('data-calon-ketua') }}" class="nav-link">Data Calon
+                                                        Ketua Alumni</a>
                                                 </li>
                                             </ul>
                                         </li>

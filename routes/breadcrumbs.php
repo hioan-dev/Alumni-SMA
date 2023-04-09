@@ -81,10 +81,14 @@ Breadcrumbs::for('anggaran-rumah-tangga', function (BreadcrumbTrail $trail) {
 
 Breadcrumbs::for('pendaftaran-alumni', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
-    $trail->push('Pendaftaran Alumni', route('pendaftaran-alumni'));
+    $trail->push('Pendaftaran Alumni', route('pendaftaran-alumni.index'));
 });
 
 Breadcrumbs::for('galeri-foto', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
     $trail->push('Galeri Foto', route('galeri-foto'));
+});
+Breadcrumbs::for('galeri-video', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push('Galeri video', route('galeri-video'));
 });
