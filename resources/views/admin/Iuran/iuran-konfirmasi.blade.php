@@ -4,6 +4,9 @@
 
 @push('styles')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.9.0/baguetteBox.min.css"
+        integrity="sha512-tbjZFdjHyHckTfeqkgVFcQ3GJWVfdsNYFvl+rEWmofjj9JpWaohlZgq0Vb6Hav5rqIL019LFpLsE+sTNSfNVXA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 @endpush
 
 @section('content')
@@ -39,14 +42,16 @@
                                     <tbody>
                                         @forelse ($iuran as $row)
                                             <tr>
-                                                <td>{{$loop->iteration}}</td>
+                                                <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $row->nama_lengkap }}</td>
                                                 <td>{{ $row->tanggal_pembayaran }}</td>
                                                 <td>{{ $row->nominal }}</td>
                                                 <td>{{ $row->no_rekening }}</td>
-                                                <td>
-                                                    <img src="{{ asset('storage/' . $row->bukti_pembayaran) }}"
-                                                        alt="Bukti Pembayaran" width="100px">
+                                                <td class="baguettebox">
+                                                    <a href="{{ asset('storage/' . $row->bukti_pembayaran) }}"
+                                                        class="lightbox cursor-zoom"><img
+                                                            src="{{ asset('storage/' . $row->bukti_pembayaran) }}"
+                                                            alt="Bukti Pembayaran" width="100px"></a>
                                                 </td>
                                                 <td>
                                                     <form action="{{ route('iuran-approve') }}" method="POST"
@@ -96,3 +101,12 @@
         <!-- Footer Section End -->
     </main>
 @endsection
+
+@push('scripts')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.9.0/baguetteBox.min.js"
+        integrity="sha512-+8LoWbC6Y9Vy85wapJUYlRvabpzAIGhgiL6vZWNHn0F8EFJ43a1BCSzXo7b7OeY6bczJ3Q+ifRweZpW1iPAARg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        baguetteBox.run('.baguettebox');
+    </script>
+@endpush
