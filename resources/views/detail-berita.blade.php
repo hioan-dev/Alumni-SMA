@@ -71,8 +71,40 @@
                         {!! $detail->description !!}
                     </div>
             </div>
-            @include('partials.__category')
+            <div class="col-md-4 mt-5 mt-md-0 ">
+                <div>
+                    @include('partials.__category')
+                </div>
+                <div class="mt-5">
+                    <div>
+                        <h5 class="fw-bold">Berita Terkait</h5>
+                        <div class="divider"></div>
+                    </div>
+
+                    <div class="row mt-3 gy-3 gx-3">
+                        @foreach ($berita_terkait as $row)
+                            <div class="col-md-4">
+                                <a href="{{ $row->url }}" target="_blank" class="card-news__img">
+                                    <img src="{{ asset('storage/' . $row->banner) }}" alt="" class="img-fluid">
+                                </a>
+
+                            </div>
+                            <div class="col-md-8">
+                                <div><small>{{ date('M j, Y', strtotime($detail->created_at)) }}</small></div>
+                                <a href="{{ $row->url }}" class="text-decoration-none">{{ $row->title }}</a>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mt-5 mt-md-0 ">
+        <div>
 
         </div>
+
+    </div>
     </div>
 @endsection

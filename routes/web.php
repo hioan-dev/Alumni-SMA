@@ -37,6 +37,7 @@ Route::get('/', [FrontendController::class, 'index'])->name('home');
 Route::get('/data-alumni', [FrontendController::class, 'alumni'])->name('data-alumni');
 Route::get('/data-calon-ketua', [FrontendController::class, 'calonKetua'])->name('data-calon-ketua');
 Route::get('/info-berita', [FrontendController::class, 'berita'])->name('berita');
+Route::get('/info-berita-terkait', [FrontendController::class, 'beritaTerkait'])->name('berita-terkait');
 Route::get('/info-berita/{slug}', [FrontendController::class, 'detail_berita'])->name('detail-berita');
 Route::get('/info-kegiatan', [FrontendController::class, 'kegiatan'])->name('kegiatan');
 Route::get('/info-kegiatan/{slug}', [FrontendController::class, 'detail_kegiatan'])->name('detail-kegiatan');

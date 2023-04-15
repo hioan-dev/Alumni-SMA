@@ -42,19 +42,17 @@
 
 @section('content')
     <div class="container" style="margin-top: 120px">
-        {{ Breadcrumbs::render('kategori-berita', $category->nama_kategori) }}
+        {{ Breadcrumbs::render('berita') }}
 
         <div class="row">
-
-
             @if ($news->count() > 0)
                 <div class="col-md-8">
                     <div class="row gy-3 gx-3 mt-2">
                         @foreach ($news as $row)
                             <div class="col-md-4">
-                                <div class="card shadow-sm" style="height:400px">
+                                <div class="card shadow-sm h-100">
                                     <div class="card-news__img">
-                                        <a href="{{ route('detail-berita', $row->slug) }}">
+                                        <a href="{{ $row->url }}" target="_blank">
                                             <img src="{{ asset('storage/' . $row->banner) }}" class="card-img-top"
                                                 alt="">
                                         </a>
@@ -68,23 +66,11 @@
                                                 <div class="px-1" style="font-size:12px;">
                                                     {{ date('M j, Y', strtotime($row->created_at)) }}</div>
                                             </div>
-                                            <div class="d-flex align-content-center">
-                                                <span class="material-symbols-outlined fs-5 mr-3">
-                                                    folder
-                                                </span>
-                                                <a href="{{ route('kategori-berita', $row->kategori->slug) }}"
-                                                    class="px-1 text-decoration-none"
-                                                    style="font-size:12px;">{{ $row->kategori->nama_kategori }}</a>
-                                            </div>
                                         </div>
-                                        <h5 class="card-title fw-semibold clamp-2">{{ $row->title }}</h5>
-                                        <p class="card-text clamp-2">{{ strip_tags($row->description) }}</p>
-                                        <a href="{{ route('detail-berita', $row->slug) }}"
-                                            class="card-link text-decoration-none d-flex align-items-center">Read
-                                            More
-                                            <span class="material-symbols-outlined px-1 fs-5">
-                                                east
-                                            </span></a>
+                                        <a href="{{ $row->url }}" target="_blank">
+                                            <h5 class="card-title fw-semibold clamp-2">{{ $row->title }}</h5>
+                                        </a>
+
                                     </div>
                                 </div>
                             </div>

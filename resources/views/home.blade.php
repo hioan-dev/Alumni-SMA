@@ -131,7 +131,7 @@
                     <div class="row gy-3 gx-3 mt-2">
                         @foreach ($kegiatan as $row)
                             <div class="col-md-4">
-                                <div class="card shadow-sm">
+                                <div class="card shadow-sm h-100">
                                     <div class="card-news__img">
                                         <a href="{{ route('detail-kegiatan', $row->slug) }}">
                                             <img src="{{ asset('storage/' . $row->thumbnail) }}" class="card-img-top"
@@ -178,7 +178,7 @@
                     <div class="row gy-3 gx-3 mt-2">
                         @foreach ($news as $row)
                             <div class="col-md-4">
-                                <div class="card shadow-sm">
+                                <div class="card shadow-sm h-100">
                                     <a href="{{ route('detail-berita', $row->slug) }}" class="card-news__img">
                                         <img src="{{ asset('storage/' . $row->banner) }}" alt="">
                                     </a>
@@ -211,16 +211,54 @@
                     </div>
                 </div>
             @endif
+
+            {{-- Berita Terkait --}}
+            @if ($berita_terkait->count() > 0)
+                <div class="container">
+                    <div class="row mt-5">
+                        <div class="d-flex justify-content-between">
+                            <h3 class="fw-bold text-center">Berita Terkait</h3>
+                            <a href="{{ route('berita-terkait') }}" class="btn btn-outline-primary">See all</a>
+                        </div>
+                    </div>
+                    <div class="row gy-3 gx-3 mt-2">
+                        @foreach ($berita_terkait as $row)
+                            <div class="col-md-4">
+                                <div class="card shadow-sm h-100">
+                                    <a href="{{ $row->url }}" target="_blank" class="card-news__img">
+                                        <img src="{{ asset('storage/' . $row->banner) }}" alt="">
+                                    </a>
+                                    <div class="card-body">
+                                        <div class="fs-6 mb-2 text-muted d-flex align-content-center">
+                                            <div class="d-flex align-content-center">
+                                                <span class="material-symbols-outlined fs-6 mr-3">
+                                                    calendar_month
+                                                </span>
+                                                <div class="px-1" style="font-size:12px;">
+                                                    {{ date('M j, Y', strtotime($row->created_at)) }}</div>
+                                            </div>
+                                        </div>
+                                        <a href="{{ $row->url }}" target="_blank"
+                                            class="card-link text-decoration-none d-flex align-items-center">
+                                            <h5 class="card-title fw-semibold clamp-2">{{ $row->title }}</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            @endif
         </div>
 
-        <div class="container mt-5">
+        <div class="container mt-5" id="countdown__timer">
             <div class="row justify-content-center">
                 <div class="countdown col-md-8 bg-primary text-white p-5 my-md-5">
                     <div>
                         <h2 class="fw-bold">Musyawarah Nasional</h2>
                         <p>Selasa, 25 April 2023</p>
                     </div>
-                    <div class="mt-3 row justify-content-center gx-5 " id="countdown__timer">
+                    <div class="mt-3 row justify-content-center gx-5 ">
                         <div class="col-auto text-center">
                             <h3 class="countdown__date" id="day">00</h3>
                             <p class="countdown__desc">Hari</p>
@@ -332,7 +370,7 @@
             if (distance < 0) {
                 clearInterval(x);
                 document.getElementById("countdown__timer").innerHTML =
-                    "<h2 class='text-center'>Acara Berakhir</h2>";
+                    "";
             }
         }, 1000);
     </script>

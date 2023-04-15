@@ -7,6 +7,7 @@ use App\Models\Iuran;
 use App\Models\Vidio;
 use App\Models\Alumni;
 use App\Models\Berita;
+use App\Models\BeritaTerkait;
 use App\Models\Kategori;
 use App\Models\Kegiatan;
 use App\Models\CalonKetua;
@@ -19,11 +20,13 @@ class FrontendController extends Controller
     public function index()
     {
         $news = Berita::orderBy('created_at', 'DESC')->limit('3')->get();
+        $berita_terkait = BeritaTerkait::orderBy('created_at', 'DESC')->limit('3')->get();
         $kegiatan = Kegiatan::orderBy('created_at', 'DESC')->limit('3')->get();
 
         return view('home', [
             'news' => $news,
-            'kegiatan' => $kegiatan
+            'kegiatan' => $kegiatan,
+            'berita_terkait' => $berita_terkait
         ]);
     }
 
@@ -56,6 +59,17 @@ class FrontendController extends Controller
         ]);
     }
 
+    public function beritaTerkait()
+    {
+        $news = BeritaTerkait::paginate(5)->fragment('news');
+        $categories = Kategori::all();
+
+        return view('berita-terkait', [
+            'news' => $news,
+            'categories' => $categories
+        ]);
+    }
+
     public function kegiatan()
     {
         $kegiatan = Kegiatan::paginate(5)->fragment('kegiatan');
@@ -81,6 +95,7 @@ class FrontendController extends Controller
     public function detail_berita($slug)
     {
         $detail = Berita::where('slug', $slug)->first();
+        $berita_terkait = BeritaTerkait::orderBy('created_at', 'DESC')->limit('5')->get();
         $categories = Kategori::all();
 
         if (!$detail) {
@@ -89,7 +104,8 @@ class FrontendController extends Controller
 
         return view('detail-berita', [
             'detail' => $detail,
-            'categories' => $categories
+            'categories' => $categories,
+            'berita_terkait' => $berita_terkait
         ]);
     }
 
