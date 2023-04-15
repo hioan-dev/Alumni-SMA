@@ -59,7 +59,6 @@ class BeritaController extends Controller
         if ($request->hasFile('banner')) {
             $berita['banner'] = $banner->store('public/berita');;
         } else {
-            return $request;
             $berita->banner = '';
         }
 
@@ -135,7 +134,7 @@ class BeritaController extends Controller
         } else {
             $fileCheck = 'max:2048|image|mimes:jpeg,png,jpg,gif,svg';
         }
-        
+
         $request->validate([
             'title' => 'required',
             'author' => 'required',

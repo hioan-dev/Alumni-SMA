@@ -89,7 +89,9 @@
                         @endforeach
                     </div>
                 </div>
-                @include('partials.__category')
+                <div class="col-md-4 mt-5 mt-md-0 ">
+                    @include('partials.__category')
+                </div>
             @else
                 <div class="col-12">
                     <div class="alert alert-info text-center" role="alert">

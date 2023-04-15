@@ -151,6 +151,22 @@
                                 <span class="item-name">Berita</span>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ Request::is('berita-terkait') ? 'active' : '' }}"
+                                href="{{ route('berita-terkait.index') }}">
+                                <i class="icon">
+                                    <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
+                                        viewBox="0 0 24 24" fill="currentColor">
+                                        <g>
+                                            <circle cx="12" cy="12" r="8"
+                                                fill="currentColor"></circle>
+                                        </g>
+                                    </svg>
+                                </i>
+                                <i class="sidenav-mini-icon"> B </i>
+                                <span class="item-name">Berita Terkait</span>
+                            </a>
+                        </li>
                     </ul>
                 </li>
 
@@ -366,7 +382,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ Request::is('daftar-iuran') ? 'active' : '' }}"
-                        href="{{route('daftar-iuran')}}">
+                        href="{{ route('daftar-iuran') }}">
                         <i class="icon">
                             <svg class="icon-20" width="20" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -384,7 +400,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ Request::is('iuran-konfirmasi') ? 'active' : '' }}"
-                        href="{{route('iuran-konfirmasi')}}">
+                        href="{{ route('iuran-konfirmasi') }}">
                         <i class="icon">
                             <svg class="icon-20" width="20" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
