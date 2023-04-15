@@ -16,6 +16,7 @@ use App\Http\Controllers\PanitiaController;
 use App\Http\Controllers\FotoController;
 use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\Admin\IuranController;
+use App\Http\Controllers\BeritaTerkaitController;
 use App\Http\Controllers\CalonKetuaController;
 use App\Http\Controllers\VidioController;
 
@@ -74,6 +75,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('kategori-berita', KategoriBeritaController::class)->middleware('EnsureUserRole:admin');
     // Berita
     Route::resource('berita', BeritaController::class)->middleware('EnsureUserRole:admin');
+    Route::resource('berita-terkait', BeritaTerkaitController::class)->middleware('EnsureUserRole:admin');
     // Kegiatan
     Route::resource('kegiatan', KegiatanController::class)->middleware('EnsureUserRole:admin');
     // Pendafatar Alumni
