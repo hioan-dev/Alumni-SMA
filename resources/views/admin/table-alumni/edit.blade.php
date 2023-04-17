@@ -2,6 +2,11 @@
 
 @section('title', 'Edit Alumni')
 
+@push('styles')
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+@endpush
+
+
 @section('content')
     <main class="main-content">
         <div class="position-relative iq-banner">
