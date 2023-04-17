@@ -16,35 +16,35 @@
                     enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
-                <div class="row">
-                    <div class="col-xl-3 col-lg-4">
-                        <div class="card">
-                            <div class="card-header d-flex justify-content-between">
-                                <div class="header-title">
-                                    <h4 class="card-title">Foto</h4>
+                    <div class="row">
+                        <div class="col-xl-3 col-lg-4">
+                            <div class="card">
+                                <div class="card-header d-flex justify-content-between">
+                                    <div class="header-title">
+                                        <h4 class="card-title">Foto</h4>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="form-group">
-                                    <div class="profile-img-edit position-relative">
-                                        <img class="form-control" width="100" height="250"
-                                        src="{{ asset('storage/' . $data_alumni->foto) }}" alt="profile-pic">
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <div class="profile-img-edit position-relative">
+                                            <img class="form-control" width="100" height="250"
+                                                src="{{ asset('storage/' . $data_alumni->foto) }}" alt="profile-pic">
                                             <input class="file-upload" type="file" id="foto" placeholder=""
-                                            name="foto">
+                                                name="foto">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-xl-9 col-lg-8">
-                        <div class="card">
-                            <div class="card-header d-flex justify-content-between">
-                                <div class="header-title">
-                                    <h4 class="card-title">Edit Data</h4>
+                        <div class="col-xl-9 col-lg-8">
+                            <div class="card">
+                                <div class="card-header d-flex justify-content-between">
+                                    <div class="header-title">
+                                        <h4 class="card-title">Edit Data</h4>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="new-user-info">
+                                <div class="card-body">
+                                    <div class="new-user-info">
                                         <div class="row">
                                             <div class="form-group col-md-12">
                                                 <label class="form-label" for="rpass">Foto</label>
@@ -89,10 +89,6 @@
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label class="form-label" for="cname">Provinsi</label>
-                                                @php
-                                                    $provinces = Http::get('http://www.emsifa.com/api-wilayah-indonesia/api/provinces.json');
-                                                    $provinces = $provinces->json();
-                                                @endphp
                                                 <select class="form-select" aria-label="provinsi select" name="provinsi"
                                                     id="provinsi">
                                                     <option>Pilih Salah Satu</option>
@@ -194,12 +190,12 @@
                                         <div class="col-md-12">
                                             <button type="submit" class="btn btn-primary">Simpan</button>
                                         </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </form>
+                </form>
             </div>
 
             <!-- Footer Section Start -->
@@ -240,9 +236,34 @@
         }
 
         $(function() {
-            onChangeSelect($('#provinsi').find(':selected').attr('id'), 'kota');
+            onChangeSelect($(this).find(':selected').attr('id'), 'kota');
 
+            $('#provinsi').on('change', function(e) {
+                onChangeSelect($(this).find(':selected').attr('id'), 'kota');
+            });
         });
+
+        // Pilih elemen yang akan dipantau perubahannya
+        const targetNode = document.getElementById('provinsi');
+
+        // Buat instance dari MutationObserver
+        const observer = new MutationObserver((mutationsList, observer) => {
+            // Loop melalui setiap mutasi yang terjadi
+            for (let mutation of mutationsList) {
+                // Jika terjadi penambahan elemen, tampilkan pesan
+                if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+                    console.log('Elemen baru telah ditambahkan ke dalam DOM');
+                }
+            }
+        });
+
+        // Konfigurasi observer untuk memantau perubahan pada elemen target
+        const config = {
+            childList: true
+        };
+
+        // Mulai memantau perubahan pada elemen target
+        observer.observe(targetNode, config);
 
         // add pendidikan
         const formInput = `<div class="mt-5">

@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Alumni;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
 
 class TabelAlumniController extends Controller
@@ -93,9 +94,12 @@ class TabelAlumniController extends Controller
     {
         $data_alumni = Alumni::find($id);
         $data_alumni['pendidikan'] = json_decode($data_alumni['pendidikan']);
+        $provinces = Http::get('http://www.emsifa.com/api-wilayah-indonesia/api/provinces.json');
+        $provinces = $provinces->json();
 
         return view('admin.table-alumni.edit', [
-            'data_alumni' => $data_alumni
+            'data_alumni' => $data_alumni,
+            'provinces' => $provinces
         ]);
     }
 
