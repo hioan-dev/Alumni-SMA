@@ -39,7 +39,7 @@ class FrontendController extends Controller
                 $query->where('tahun_lulus', 'LIKE', "%$keyword%")->orWhere('nama_lengkap', 'LIKE', "%$keyword%")->orWhere('kelas', 'LIKE', "%$keyword%");
             })->paginate(10);
         } else {
-            $alumni = Alumni::where('approved', 1)->paginate(10);
+            $alumni = Alumni::where('approved', 1)->paginate(12);
         }
 
         return view('data-alumni', [
