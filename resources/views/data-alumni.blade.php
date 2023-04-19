@@ -90,7 +90,7 @@
             @if (count($alumni) > 0)
                 <div class="mt-5">
                     <div class="d-flex justify-content-center ">
-                        {!! $alumni->links() !!}
+                        {!! $alumni->withQueryString()->links() !!}
                     </div>
                 </div>
             @endif
