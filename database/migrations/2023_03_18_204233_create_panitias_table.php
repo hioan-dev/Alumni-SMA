@@ -18,6 +18,8 @@ class CreatePanitiasTable extends Migration
             $table->string('nama');
             $table->string('jabatan');
             $table->string('foto');
+            $table->string('pekerjaan');
+            $table->string('angkatan');
             $table->timestamps();
         });
     }
