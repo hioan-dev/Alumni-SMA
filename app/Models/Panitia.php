@@ -15,5 +15,7 @@ class Panitia extends Model
         'nama',
         'jabatan',
         'foto',
+        'angkatan',
+        'pekerjaan'
     ];
 }
