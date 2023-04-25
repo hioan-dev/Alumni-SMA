@@ -62,8 +62,8 @@
         @endif
         <div class="row mt-5 gy-3">
             @forelse ($alumni as $row)
-                <div class=" col-md-6 col-lg-3">
-                    <div class="card text-center shadow-sm">
+                <div class="col-md-6 col-lg-3">
+                    <div class="card text-center shadow-sm h-100">
                         <div class="card-header">
                             <h5 class="fw-semibold">{{ $row->kelas }}</h5>
                             <h6>{{ $row->tahun_lulus }}</h6>

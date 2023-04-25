@@ -37,9 +37,9 @@ class FrontendController extends Controller
         if ($keyword) {
             $alumni = Alumni::where('approved', 1)->where(function ($query) use ($keyword) {
                 $query->where('tahun_lulus', 'LIKE', "%$keyword%")->orWhere('nama_lengkap', 'LIKE', "%$keyword%")->orWhere('kelas', 'LIKE', "%$keyword%");
-            })->paginate(12)->withQueryString();
+            })->orderBy('tahun_lulus', 'asc')->paginate(12)->withQueryString();
         } else {
-            $alumni = Alumni::where('approved', 1)->paginate(12)->withQueryString();
+            $alumni = Alumni::where('approved', 1)->orderBy('tahun_lulus', 'asc')->paginate(12)->withQueryString();
         }
 
         return view('data-alumni', [
