@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Foto;
-use App\Models\Iuran;
-use App\Models\Vidio;
 use App\Models\Alumni;
 use App\Models\Berita;
 use App\Models\BeritaTerkait;
+use App\Models\CalonKetua;
+use App\Models\Foto;
+use App\Models\Iuran;
 use App\Models\Kategori;
 use App\Models\Kegiatan;
-use App\Models\CalonKetua;
+use App\Models\Sambutan;
+use App\Models\Vidio;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -19,6 +20,7 @@ class FrontendController extends Controller
 {
     public function index()
     {
+        $sambutan = Sambutan::orderBy('created_at', 'DESC')->limit(1)->get();
         $news = Berita::orderBy('created_at', 'DESC')->limit('3')->get();
         $berita_terkait = BeritaTerkait::orderBy('created_at', 'DESC')->limit('3')->get();
         $kegiatan = Kegiatan::orderBy('created_at', 'DESC')->limit('3')->get();
@@ -26,7 +28,8 @@ class FrontendController extends Controller
         return view('home', [
             'news' => $news,
             'kegiatan' => $kegiatan,
-            'berita_terkait' => $berita_terkait
+            'berita_terkait' => $berita_terkait,
+            'sambutan' => $sambutan,
         ]);
     }
 
@@ -44,7 +47,7 @@ class FrontendController extends Controller
 
         return view('data-alumni', [
             'alumni' => $alumni,
-            'keyword' => $keyword
+            'keyword' => $keyword,
         ]);
     }
 
@@ -55,7 +58,7 @@ class FrontendController extends Controller
 
         return view('berita', [
             'news' => $news,
-            'categories' => $categories
+            'categories' => $categories,
         ]);
     }
 
@@ -66,7 +69,7 @@ class FrontendController extends Controller
 
         return view('berita-terkait', [
             'news' => $news,
-            'categories' => $categories
+            'categories' => $categories,
         ]);
     }
 
@@ -105,7 +108,7 @@ class FrontendController extends Controller
         return view('detail-berita', [
             'detail' => $detail,
             'categories' => $categories,
-            'berita_terkait' => $berita_terkait
+            'berita_terkait' => $berita_terkait,
         ]);
     }
 
@@ -113,7 +116,7 @@ class FrontendController extends Controller
     {
         $foto = Foto::all();
         return view('galeri-foto', [
-            'foto' => $foto
+            'foto' => $foto,
         ]);
     }
 
@@ -121,7 +124,7 @@ class FrontendController extends Controller
     {
         $vidio = Vidio::all();
         return view('galeri-video', [
-            'vidio' => $vidio
+            'vidio' => $vidio,
         ]);
     }
 
@@ -149,7 +152,7 @@ class FrontendController extends Controller
         return view('kategori-berita', [
             'news' => $newsByCategory,
             'categories' => $categories,
-            'category' => $category
+            'category' => $category,
         ]);
     }
 
@@ -157,7 +160,7 @@ class FrontendController extends Controller
     {
         $iuran = Iuran::where('approved', 1)->get();
         return view('daftar-iuran', [
-            'iuran' => $iuran
+            'iuran' => $iuran,
         ]);
     }
 
@@ -186,7 +189,7 @@ class FrontendController extends Controller
         $pembayaran = $request->all();
 
         if ($request->hasFile('bukti_pembayaran')) {
-            $pembayaran['bukti_pembayaran'] = $bukti_pembayaran->store('public/pembayaran');;
+            $pembayaran['bukti_pembayaran'] = $bukti_pembayaran->store('public/pembayaran');
         } else {
             return $request;
             $pembayaran['bukti_pembayaran'] = '';
@@ -206,7 +209,7 @@ class FrontendController extends Controller
 
             return view('pendaftaran-ketua', [
                 'ketua' => $ketua,
-                'alumni' => $alumni
+                'alumni' => $alumni,
             ]);
         } else {
             return redirect()->route('login');
@@ -220,11 +223,11 @@ class FrontendController extends Controller
             ->select('calon_ketuas.*', 'alumnis.kelas', 'alumnis.tahun_lulus', 'alumnis.pekerjaan')
             ->distinct()
             ->get()->filter(function ($ketua) {
-                return $ketua->approved == 1;
-            });
+            return $ketua->approved == 1;
+        });
 
         return view('data-calon-ketua', [
-            'ketua' => $ketua
+            'ketua' => $ketua,
         ]);
     }
 

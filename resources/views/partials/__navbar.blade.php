@@ -2,6 +2,7 @@
 
 @push('styles')
     <link rel="stylesheet" href="{{ asset('css/navbar/style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 @endpush
 
 @section('navbar')

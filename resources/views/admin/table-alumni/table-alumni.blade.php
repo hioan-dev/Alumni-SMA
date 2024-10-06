@@ -21,8 +21,17 @@
                             <div class="header-title">
                                 <h4 class="card-title">Data Alumni</h4>
                             </div>
-                            <a href="{{ route('table-alumni.create') }}" class="btn btn-primary btn-sm gap-2"><i
-                                    class="bi bi-plus"></i> &nbsp; Tambah</a>
+                            <div class="">
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-success btn-sm" data-toggle="modal"
+                                    data-target="#exampleModal">
+                                    <i class="bi bi-file-earmark-arrow-up-fill me-2"></i>import
+                                </button>
+                                <a href="{{ route('table-alumni.create') }}" class="btn btn-primary btn-sm"><i
+                                        class="bi bi-plus me-2"></i>Tambah</a>
+                                <a href="{{ route('export') }}" class="btn btn-info btn-sm ml-2"><i
+                                        class="bi bi-file-earmark-excel me-2"></i>Export</a>
+                            </div>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -77,6 +86,33 @@
                 </div>
             </div>
         </div>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Import File Excel</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form action="{{ route('import') }}" method="post" enctype="multipart/form-data">
+                        @csrf
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <input type="file" name="file" class="form-control-file" accept=".xls,.xlsx,.csv">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
+                            <button type="submit" class="btn btn-primary">Upload</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
 
         <!-- Footer Section Start -->
         <footer class="footer">

@@ -1,26 +1,26 @@
 <?php
 
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AlumniController;
-use App\Http\Controllers\BeritaController;
-use App\Http\Controllers\FrontendController;
-use App\Http\Controllers\KategoriBeritaController;
-use App\Http\Controllers\Admin\PendaftarController;
-use App\Http\Controllers\Admin\TabelAlumniController;
-use App\Http\Controllers\User\DashboardController as UserDashboardController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
-use App\Http\Controllers\AnggotaMunasController;
-use App\Http\Controllers\Admin\PendaftarMunasController;
-use App\Http\Controllers\PanitiaController;
-use App\Http\Controllers\FotoController;
-use App\Http\Controllers\KegiatanController;
+use App\Http\Controllers\Admin\ExcelController;
 use App\Http\Controllers\Admin\IuranController;
+use App\Http\Controllers\Admin\PendaftarController;
+use App\Http\Controllers\Admin\PendaftarMunasController;
+use App\Http\Controllers\Admin\TabelAlumniController;
+use App\Http\Controllers\AlumniController;
+use App\Http\Controllers\AnggotaMunasController;
+use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\BeritaTerkaitController;
 use App\Http\Controllers\CalonKetuaController;
+use App\Http\Controllers\FotoController;
+use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\KategoriBeritaController;
+use App\Http\Controllers\KegiatanController;
+use App\Http\Controllers\PanitiaController;
+use App\Http\Controllers\SambutanController;
+use App\Http\Controllers\User\DashboardController as UserDashboardController;
 use App\Http\Controllers\VidioController;
-
-
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,7 +31,7 @@ use App\Http\Controllers\VidioController;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
 Route::get('/', [FrontendController::class, 'index'])->name('home');
 Route::get('/data-alumni', [FrontendController::class, 'alumni'])->name('data-alumni');
@@ -57,7 +57,6 @@ Route::view('tentang-alumni/anggaran-rumah-tangga', 'art-alumni')->name('anggara
 // Pendaftaran Calon Ketua Alumni
 Route::get('pendaftaran-calon-ketua-alumni', [FrontendController::class, 'pendaftaran_ketua'])->name('pendaftaran-ketua');
 Route::post('/pendaftaran-calon-ketua-alumni', [FrontendController::class, 'store'])->name('pendaftaran-ketua-store');
-
 
 // Pendaftaran Alumni Before Login
 // Route::get('/pendaftaran-alumni', function () {
@@ -102,7 +101,9 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/iuran-approve', [IuranController::class, 'approval'])->name('iuran-approve')->middleware('EnsureUserRole:admin');
     Route::get('/daftar-iuran', [IuranController::class, 'daftar'])->name('daftar-iuran')->middleware('EnsureUserRole:admin');
     Route::delete('/iuran-delete/{id}', [IuranController::class, 'destroy'])->name('iuran-delete')->middleware('EnsureUserRole:admin');
-
+    Route::resource('sambutan', SambutanController::class)->middleware('EnsureUserRole:admin');
+    Route::post('import', [ExcelController::class, 'import'])->name('import')->middleware('EnsureUserRole:admin');
+    Route::get('export', [ExcelController::class, 'export'])->name('export')->middleware('EnsureUserRole:admin');
 
     //User Dashboard
     Route::get('/user-dashboard', [UserDashboardController::class, 'index'])->name('user-dashboard')->middleware('EnsureUserRole:user');

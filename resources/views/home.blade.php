@@ -32,48 +32,24 @@
         <div class="container">
             <div class="text-center mt-5 ">
                 <h4 class="fw-bold fs-5 text-primary">KATA SAMBUTAN</h4>
-                <h4 class="fw-bold  fs-2">KETUA REUNI AKBAR</h4>
             </div>
             <div class="row  mt-5">
-                <div class="col-lg-4 col-md-6 ">
-                    <div class="img-container">
-                        <img class="" src="{{ asset('images/ketua-reuni.jpeg') }}" alt="Ketua Umum">
+                @forelse ($sambutan as $sambutans)
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="img-container">
+                            <img class="" src="{{ asset('sambutan_image/' . $sambutans->banner) }}" alt="Ketua Umum">
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-8 col-md-6">
-                    <div class="d-flex flex-column justify-content-between h-100 ">
-                        <p class="mt-3 mt-md-0">Alumni Smansa Tebing Tinggi Hebat....,SMA 1 Tebing tinggi juga tetap hebat.
-                            Alumni smansa menjaga silaturahmi yang erat dan Perduli Sekolahnya
-                            Pertama sekali izinkan saya menyampaikan Selamat memasuki bulan suci Ramadhan 1444H untuk
-                            seluruh SAHABAT yang menjalankannya.<br>
-                            Pada kesempatan ini, Kami yang diamanahkan sebagai Panitia Reuni akbar melaporkan Rencana Reuni
-                            Akbar kita. <br><br>
-                            Dengan RidhoNya, Insya Allah, kita akan melaksanakan Reuni Akbar pada hari Selasa, tanggal 25
-                            April 2023 di Sekolah kita, SMA Negeri 1 Tebing Tinggi yang kita cintai dan penuh kenangan.
-                            Reuni Akbar rencananya akan diawali dengan kegiatan Munas pada tanggal 25 April 2023 di gedung
-                            Hj. Sawiyah jln Sutomo Kota Tebing Tinggi jam 08.00 sd. 12.30 Wib. untuk Memilih Ketua Alumni
-                            kita. <br><br>
-                            Reuni akbar sendiri akan dilaksanakan mulai jam 10 pagi dengan acara pentas seni dan
-                            silaturahmi. Pada Pukul 14.00 Wib kita akan menyerahkan Pokok-Pokok Pikiran Alumni kepada
-                            Walikota Tebing Tinggi yang juga merupakan alumni SMA kita.
-                            Acara diramaikan dengan kehadiran UMKM yang menyediakan panganan kenangan dengan harga murah
-                            untuk kita santap bersama, juga souvenir hasil kreasi UMKM lokal.
-                            Acara kita harapkan dapat berjalan dengan lancar dan penuh kehangatan dan direncanakan berakhir
-                            pukul 18.00 Wib. Dengan semangat dan kerja keras kita bersama estimasi peserta reuni akbar akan
-                            dihadiri sebanyak
-                            1000 orang. <br><br>
-                            Untuk Informasi terkait kegiatan reuni akbar dan munas termasuk Pendataan Alumni, peserta Munas
-                            serta Pendaftaran Calon Ketua Alumni dapat diakses melalui portal alumni kita
-                            dengan alamat <a href="https://ikasmansatebingtinggi.org/">ikasmansatebingtinggi.org</a>
-                            Mari kita dukung Acara ini dengan Doa,Kehadiran kita dan juga dukungan Dana.
-                            Semoga kita tetap diberi kesehatan untuk tetap bisa bersilaturahmi dan berjumpa sama-sama
-                            mengenang masa-masa SMA kita, disekolah kita pada Acara Reuni Akbar ini. <br><br>
-
-                            Demikian sepatah kata dari saya mewakili Panitia Reuni Akbar.Terima kasih
-                        </p>
-                        <h4 class="fw-semibold">Martua Sinurat, ST <br> (Alumni 92)</h4>
+                    <div class="col-lg-8 col-md-6">
+                        <div class="d-flex flex-column justify-content-between h-100 ">
+                            {!! $sambutans->sambutan !!}
+                        </div>
                     </div>
-                </div>
+                @empty
+                    <div class="alert alert-primary" role="alert">
+                        Kata Sambutan ketua Alumni Belum Tersedia
+                    </div>
+                @endforelse
             </div>
         </div>
         {{-- <div class="w-100 bg-gray mt-5 py-4">
@@ -366,7 +342,7 @@
             secondElement.innerHTML = seconds;
 
 
-            // If the count down is over, write some text 
+            // If the count down is over, write some text
             if (distance < 0) {
                 clearInterval(x);
                 document.getElementById("countdown__timer").innerHTML =
