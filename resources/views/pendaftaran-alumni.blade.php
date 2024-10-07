@@ -171,7 +171,9 @@
                             <div class="mb-3">
                                 <label for="provinsi" class="form-label">Provinsi</label>
                                 @php
-                                    $provinces = Http::get('http://www.emsifa.com/api-wilayah-indonesia/api/provinces.json');
+                                    $provinces = Http::get(
+                                        'http://www.emsifa.com/api-wilayah-indonesia/api/provinces.json',
+                                    );
                                     $provinces = $provinces->json();
                                 @endphp
                                 <select required class="form-select" aria-label="provinsi select" name="provinsi"
@@ -187,10 +189,19 @@
                                 </div>
                             </div>
                             <div class="mb-3">
+                                @php
+                                    $regency = Http::get(
+                                        'https://www.emsifa.com/api-wilayah-indonesia/api/regencies/12.json',
+                                    );
+                                    $regency = $regency->json();
+                                @endphp
                                 <label for="kota" class="form-label">Kabupaten / Kota</label>
                                 <select required class="form-select" aria-label="kota select" name="kota"
                                     id="kota">
                                     <option>Pilih Salah Satu</option>
+                                    @foreach ($regency as $item)
+                                        <option value="{{ $item['name'] }}">{{ $item['name'] }}</option>
+                                    @endforeach
                                 </select>
                                 <div class="invalid-feedback">
                                     Kota belum di isi

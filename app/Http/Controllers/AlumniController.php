@@ -2,15 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Alumni;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class AlumniController extends Controller
 {
     public function index()
     {
-
         $alumni = Alumni::where('user_id', Auth::user()->id)->first();
         if (Auth::check()) {
             return view('pendaftaran-alumni', compact('alumni'));
@@ -53,7 +52,7 @@ class AlumniController extends Controller
                 array_push($data_pendidikan, [
                     'pendidikan' => $data,
                     'universitas' => $universitas[$i],
-                    'jurusan' => $jurusan[$i]
+                    'jurusan' => $jurusan[$i],
                 ]);
             }
         }

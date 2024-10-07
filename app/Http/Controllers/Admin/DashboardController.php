@@ -3,10 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\Kategori;
-use App\Models\Berita;
 use App\Models\Alumni;
+use App\Models\Berita;
+use App\Models\Kategori;
 use App\Models\User;
 
 class DashboardController extends Controller
@@ -17,11 +16,23 @@ class DashboardController extends Controller
         $berita = Berita::all();
         $alumni = Alumni::where('approved', '1')->get();
         $user = User::all();
-        return view('admin.dashboard',[
+
+        // Group alumni by graduation year and count each group
+        $alumniByYear = Alumni::selectRaw('tahun_lulus, COUNT(*) as jumlah')
+            ->groupBy('tahun_lulus')
+            ->pluck('jumlah', 'tahun_lulus');
+        $alumniByCity = Alumni::selectRaw('kota, COUNT(*) as total')
+            ->groupBy('kota')
+            ->pluck('total', 'kota');
+
+        return view('admin.dashboard', [
             'kategori' => $kategori,
             'berita' => $berita,
             'alumni' => $alumni,
             'user' => $user,
+            'alumniByYear' => $alumniByYear,
+            'alumniByCity' => $alumniByCity,
         ]);
     }
+
 }

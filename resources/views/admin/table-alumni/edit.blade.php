@@ -92,6 +92,12 @@
                                                 <input type="text" class="form-control" id="alamat" name="alamat"
                                                     value="{{ $data_alumni->alamat }}">
                                             </div>
+                                            @php
+                                                $provinces = Http::get(
+                                                    'http://www.emsifa.com/api-wilayah-indonesia/api/provinces.json',
+                                                );
+                                                $provinces = $provinces->json();
+                                            @endphp
                                             <div class="form-group col-md-6">
                                                 <label class="form-label" for="cname">Provinsi</label>
                                                 <select class="form-select" aria-label="provinsi select" name="provinsi"
@@ -105,11 +111,22 @@
                                                     @endforeach
                                                 </select>
                                             </div>
+                                            @php
+                                                $regency = Http::get(
+                                                    'https://www.emsifa.com/api-wilayah-indonesia/api/regencies/12.json',
+                                                );
+                                                $regency = $regency->json();
+                                            @endphp
                                             <div class="form-group col-md-6">
                                                 <label class="form-label" for="cname">Kota</label>
                                                 <select class="form-select" aria-label="kota select" name="kota"
                                                     id="kota">
                                                     <option>Pilih Salah Satu</option>
+                                                    @foreach ($regency as $item)
+                                                        <option
+                                                            value="{{ $item['name'] }}"{{ $data_alumni->kota == $item['name'] ? 'selected' : '' }}>
+                                                            {{ $item['name'] }}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                             <div class="form-group col-md-6">
