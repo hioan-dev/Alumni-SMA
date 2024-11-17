@@ -22,7 +22,7 @@
         <div class="conatiner-fluid content-inner mt-n5 py-0">
             <div>
                 <div class="row">
-                    <div class="col-xl-9 col-lg-8">
+                    <div class="col-xl-12 col-lg-8">
                         <div class="card">
                             <div class="card-header d-flex justify-content-between">
                                 <div class="header-title">

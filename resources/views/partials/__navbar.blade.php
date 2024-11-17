@@ -85,6 +85,8 @@
                                                     <ul class="">
                                                         <li class="nav-link"><a href="#">Visi & Misi</a></li>
                                                         <li class="nav-link"><a href="#">Struktur Organisasi</a></li>
+                                                        <li class="nav-link"><a href="{{ route('mars-alumni') }}">Mars
+                                                                Alumni</a></li>
                                                         <li class="nav-link"><a
                                                                 href="{{ route('anggaran-rumah-tangga') }}">Anggaran Rumah
                                                                 Tangga</a></li>

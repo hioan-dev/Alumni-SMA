@@ -141,6 +141,7 @@
                                                 <label class="form-label" for="cname">Ukuran Baju</label>
                                                 <select class="form-select" aria-label="Ukuran Baju select"
                                                     name="ukuran_baju">
+
                                                     <option selected value="S">S</option>
                                                     <option value="M">M</option>
                                                     <option value="L">L</option>

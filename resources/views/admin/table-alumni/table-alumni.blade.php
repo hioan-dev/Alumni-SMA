@@ -35,7 +35,8 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table id="datatable" class="table table-striped" data-toggle="data-table">
+                                <table class="table table-bordered" data-toggle="data-table" id="example"
+                                    style="width: 100%">
                                     <thead>
                                         <tr>
                                             <th>No</th>
@@ -72,8 +73,8 @@
                                             <tr>
                                                 <td></td>
                                                 <td></td>
+                                                <td colspan="6" class="text-center">Belum Ada Data Alumni</td>
                                                 <td></td>
-                                                <td class="text-center">Belum Ada Data Alumni</td>
                                                 <td></td>
                                                 <td></td>
                                             </tr>

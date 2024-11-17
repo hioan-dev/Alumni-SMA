@@ -24,7 +24,8 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table id="datatable" class="table table-striped" data-toggle="data-table">
+                                <table id="example" class="table table-bordered" data-toggle="data-table"
+                                    style="width: 100%">
                                     <thead>
                                         <tr>
                                             <th>No</th>
@@ -55,8 +56,8 @@
                                         @empty
                                             <tr>
                                                 <td></td>
-                                                <td class="text-center">Belum Ada Pendaftar</td>
                                                 <td></td>
+                                                <td colspan="4">Belum Ada Pendaftar</td>
                                                 <td></td>
                                             </tr>
                                         @endforelse

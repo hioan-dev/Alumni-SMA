@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\ExcelController;
 use App\Http\Controllers\Admin\IuranController;
+use App\Http\Controllers\Admin\LirikController;
 use App\Http\Controllers\Admin\PendaftarController;
 use App\Http\Controllers\Admin\PendaftarMunasController;
 use App\Http\Controllers\Admin\TabelAlumniController;
@@ -15,6 +16,7 @@ use App\Http\Controllers\FotoController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\KategoriBeritaController;
 use App\Http\Controllers\KegiatanController;
+use App\Http\Controllers\MarsAlumniController;
 use App\Http\Controllers\PanitiaController;
 use App\Http\Controllers\SambutanController;
 use App\Http\Controllers\User\DashboardController as UserDashboardController;
@@ -43,6 +45,7 @@ Route::get('/info-kegiatan', [FrontendController::class, 'kegiatan'])->name('keg
 Route::get('/info-kegiatan/{slug}', [FrontendController::class, 'detail_kegiatan'])->name('detail-kegiatan');
 Route::get('/kategori/{slug}', [FrontendController::class, 'category'])->name('kategori-berita');
 Route::get('/iuran', [FrontendController::class, 'iuran'])->name('iuran');
+Route::get('mars-alumni', [MarsAlumniController::class, 'index'])->name('mars-alumni');
 
 // Pembayaran Iuran by User
 Route::get('/pembayaran-iuran', [FrontendController::class, 'pembayaran'])->name('pembayaran-iuran');
@@ -104,6 +107,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('sambutan', SambutanController::class)->middleware('EnsureUserRole:admin');
     Route::post('import', [ExcelController::class, 'import'])->name('import')->middleware('EnsureUserRole:admin');
     Route::get('export', [ExcelController::class, 'export'])->name('export')->middleware('EnsureUserRole:admin');
+    Route::resource('mars', LirikController::class)->middleware('EnsureUserRole:admin');
 
     //User Dashboard
     Route::get('/user-dashboard', [UserDashboardController::class, 'index'])->name('user-dashboard')->middleware('EnsureUserRole:user');

@@ -22,6 +22,13 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     @stack('styles')
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdn.datatables.net/2.0.2/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/2.0.2/js/dataTables.bootstrap5.js"></script>
+    <script src="https://cdn.datatables.net/responsive/3.0.0/js/dataTables.responsive.js"></script>
+    <script src="https://cdn.datatables.net/responsive/3.0.0/js/responsive.bootstrap5.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.2/css/dataTables.bootstrap5.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/3.0.0/css/responsive.bootstrap5.css">
 </head>
 
 <body>

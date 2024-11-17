@@ -59,7 +59,7 @@
 @endsection
 
 @section('content')
-    <div class="container" style="margin-top: 120px">
+    <div class="container min-vh-100" style="margin-top: 120px">
         {{ Breadcrumbs::render('visimisi-sekolah') }}
 
         <div class="row">
