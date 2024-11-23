@@ -20,8 +20,10 @@
                             <div class="header-title">
                                 <h4 class="card-title">Kata Sambutan</h4>
                             </div>
-                            <a href="{{ route('sambutan.create') }}" class="btn btn-primary btn-sm gap-2"><i
-                                    class="bi bi-plus"></i> &nbsp; Tambah</a>
+                            @if ($data->isEmpty())
+                                <a href="{{ route('sambutan.create') }}" class="btn btn-primary btn-sm gap-2"><i
+                                        class="bi bi-plus"></i> &nbsp; Tambah</a>
+                            @endif
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">

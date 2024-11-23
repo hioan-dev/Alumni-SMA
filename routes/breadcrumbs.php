@@ -48,7 +48,6 @@ Breadcrumbs::for('detail-kegiatan', function (BreadcrumbTrail $trail, $kegiatan)
     $trail->push($kegiatan->title, route('detail-kegiatan', $kegiatan->slug));
 });
 
-
 Breadcrumbs::for('iuran', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
     $trail->push('Iuran', route('iuran'));
@@ -91,4 +90,8 @@ Breadcrumbs::for('galeri-foto', function (BreadcrumbTrail $trail) {
 Breadcrumbs::for('galeri-video', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
     $trail->push('Galeri video', route('galeri-video'));
+});
+Breadcrumbs::for('mars', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push('Mars Alumni', route('mars-alumni'));
 });

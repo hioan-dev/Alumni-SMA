@@ -32,7 +32,7 @@
 @endsection
 
 @section('content')
-    <div class="container" style="margin-top: 120px">
+    <div class="container min-vh-100" style="margin-top: 120px">
         {{ Breadcrumbs::render('data-alumni') }}
 
         <div class="row mt-5 gx-0">

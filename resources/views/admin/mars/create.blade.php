@@ -1,21 +1,12 @@
 @extends('layouts.admin')
 
-@section('title', 'Tambah Berita Terkait')
+@section('title', 'Tambah Mars')
 @push('styles')
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-lite.min.css"
-        integrity="sha512-ZbehZMIlGA8CTIOtdE+M81uj3mrcgyrh6ZFeG33A4FHECakGrOsTPlPQ8ijjLkxgImrdmSVUHn1j+ApjodYZow=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.8/dist/trix.css">
+    <script type="text/javascript" src="https://unpkg.com/trix@2.0.8/dist/trix.umd.min.js"></script>
     <style>
-        .note-editor .dropdown-toggle::after {
-            all: unset;
-        }
-
-        .note-editor .note-dropdown-menu {
-            box-sizing: content-box;
-        }
-
-        .note-editor .note-modal-footer {
-            box-sizing: content-box;
+        trix-toolbar [data-trix-button-group="file-tools"] {
+            display: none;
         }
     </style>
 @endpush
@@ -35,30 +26,23 @@
                         <div class="card">
                             <div class="card-header d-flex justify-content-between">
                                 <div class="header-title">
-                                    <h4 class="card-title">Tambah Berita Terkait</h4>
+                                    <h4 class="card-title">Tambah Mars Alumni</h4>
                                 </div>
-                                <a href="{{ route('berita-terkait.index') }}"
-                                    class="btn btn-warning btn-sm ml-auto">Kembali</a>
+                                <a href="{{ route('sambutan.index') }}" class="btn btn-warning btn-sm ml-auto">Kembali</a>
                             </div>
                             <div class="card-body">
                                 <div class="new-user-info">
-                                    <form action="{{ route('berita-terkait.store') }}" method="POST"
-                                        enctype="multipart/form-data">
+                                    <form action="{{ route('mars.store') }}" method="POST">
                                         @csrf
                                         <div class="row">
                                             <div class="form-group col-md-12">
-                                                <label class="form-label" for="title">Judul</label>
-                                                <input type="text" class="form-control" id="title" name="title"
-                                                    placeholder="Enter Judul Berita">
+                                                <label class="form-label" for="title">Judul Mars</label>
+                                                <input type="text" class="form-control" id="title" name="title">
                                             </div>
                                             <div class="form-group col-md-12">
-                                                <label class="form-label" for="author">Url</label>
-                                                <input type="text" class="form-control" id="author" name="url"
-                                                    placeholder="Enter Url Berita">
-                                            </div>
-                                            <div class="form-group col-md-12">
-                                                <label class="form-label" for="banner">Banner</label>
-                                                <input type="file" class="form-control" id="banner" name="banner">
+                                                <label class="form-label" for="summernote">Lirik</label>
+                                                <input id="x" type="hidden" name="lirik">
+                                                <trix-editor input="x"></trix-editor>
                                             </div>
                                         </div>
                                         <button type="submit" class="btn btn-primary btn-sm">Kirim</button>

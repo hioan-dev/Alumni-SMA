@@ -95,9 +95,10 @@
                         <span class="mini-icon">-</span>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="collapse" href="#sidebar-widget" role="button"
-                        aria-expanded="false" aria-controls="sidebar-widget">
+                <li
+                    class="nav-item {{ request()->routeIs('kategori-berita.index', 'kategori-berita.create', 'kategori-berita.edit') || request()->routeIs('berita.index', 'berita.create', 'berita.edit') || request()->routeIs('berita-terkait.index', 'berita-terkait.create', 'berita-terkait.edit') ? 'active' : '' }}">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#berita-widget" role="button"
+                        aria-expanded="false" aria-controls="berita-widget">
                         <i class="icon">
                             <svg class="icon-20" width="20" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -118,9 +119,9 @@
                             </svg>
                         </i>
                     </a>
-                    <ul class="sub-nav collapse" id="sidebar-widget" data-bs-parent="#sidebar-menu">
+                    <ul class="sub-nav collapse" id="berita-widget" data-bs-parent="#sidebar-menu">
                         <li class="nav-item">
-                            <a class="nav-link {{ Request::is('kategori-berita') ? 'active' : '' }}"
+                            <a class="nav-link {{ request()->routeIs('kategori-berita.index', 'kategori-berita.create', 'kategori-berita.edit') ? 'active' : '' }}"
                                 href="{{ route('kategori-berita.index') }}">
                                 <i class="icon">
                                     <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
@@ -130,12 +131,12 @@
                                         </g>
                                     </svg>
                                 </i>
-                                <i class="sidenav-mini-icon"> K </i>
+                                <i class="sidenav-mini-icon"> KB </i>
                                 <span class="item-name">Kategori Berita</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{ Request::is('berita') ? 'active' : '' }}"
+                            <a class="nav-link {{ request()->routeIs('berita.index', 'berita.create', 'berita.edit') ? 'active' : '' }}"
                                 href="{{ route('berita.index') }}">
                                 <i class="icon">
                                     <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
@@ -150,7 +151,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{ Request::is('berita-terkait') ? 'active' : '' }}"
+                            <a class="nav-link {{ request()->routeIs('berita-terkait.index', 'berita-terkait.create', 'berita-terkait.edit') ? 'active' : '' }}"
                                 href="{{ route('berita-terkait.index') }}">
                                 <i class="icon">
                                     <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
@@ -160,16 +161,17 @@
                                         </g>
                                     </svg>
                                 </i>
-                                <i class="sidenav-mini-icon"> B </i>
+                                <i class="sidenav-mini-icon"> BT </i>
                                 <span class="item-name">Berita Terkait</span>
                             </a>
                         </li>
                     </ul>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="collapse" href="#sidebar-widget" role="button"
-                        aria-expanded="false" aria-controls="sidebar-widget">
+                <li
+                    class="nav-item {{ request()->routeIs('kegiatan.index', 'kegiatan.create', 'kegiatan.edit') ? 'active' : '' }}">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#kegiatan-widget" role="button"
+                        aria-expanded="false" aria-controls="kegiatan-widget">
                         <i class="icon">
                             <svg class="icon-20" width="20" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -190,9 +192,9 @@
                             </svg>
                         </i>
                     </a>
-                    <ul class="sub-nav collapse" id="sidebar-widget" data-bs-parent="#sidebar-menu">
+                    <ul class="sub-nav collapse" id="kegiatan-widget" data-bs-parent="#sidebar-menu">
                         <li class="nav-item">
-                            <a class="nav-link {{ Request::is('kegiatan') ? 'active' : '' }}"
+                            <a class="nav-link {{ request()->routeIs('kegiatan.index', 'kegiatan.create', 'kegiatan.edit') ? 'active' : '' }}"
                                 href="{{ route('kegiatan.index') }}">
                                 <i class="icon">
                                     <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
@@ -202,7 +204,7 @@
                                         </g>
                                     </svg>
                                 </i>
-                                <i class="sidenav-mini-icon"> B </i>
+                                <i class="sidenav-mini-icon"> K </i>
                                 <span class="item-name">Kegiatan</span>
                             </a>
                         </li>
@@ -210,8 +212,8 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="collapse" href="#sidebar-widget" role="button"
-                        aria-expanded="false" aria-controls="sidebar-widget">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#alumni-widget" role="button"
+                        aria-expanded="false" aria-controls="alumni-widget">
                         <i class="icon">
                             <svg class="icon-20" width="20" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -232,10 +234,11 @@
                             </svg>
                         </i>
                     </a>
-                    <ul class="sub-nav collapse" id="sidebar-widget" data-bs-parent="#sidebar-menu">
+                    <ul class="sub-nav collapse {{ request()->routeIs('pendaftar-alumni') ? 'active' : '' }}"
+                        id="alumni-widget" data-bs-parent="#sidebar-menu">
                         <li class="nav-item">
-                            <a class="nav-link {{ Request::is('table-alumni') ? 'active' : '' }}" aria-current="page"
-                                href="{{ route('table-alumni.index') }}">
+                            <a class="nav-link {{ request()->routeIs('table-alumni.index', 'table-alumni.create', 'table-alumni.edit') ? 'active' : '' }}"
+                                aria-current="page" href="{{ route('table-alumni.index') }}">
                                 <i class="icon">
                                     <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
                                         viewBox="0 0 24 24" fill="currentColor">
@@ -244,12 +247,12 @@
                                         </g>
                                     </svg>
                                 </i>
-                                <i class="sidenav-mini-icon"> T </i>
+                                <i class="sidenav-mini-icon"> TA </i>
                                 <span class="item-name">Tabel Alumni</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{ Request::is('pendaftar-alumni') ? 'active' : '' }}"
+                            <a class="nav-link {{ request()->routeIs('pendaftar-alumni') ? 'active' : '' }}"
                                 href="{{ route('pendaftar-alumni') }}">
                                 <i class="icon">
                                     <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
@@ -259,16 +262,17 @@
                                         </g>
                                     </svg>
                                 </i>
-                                <i class="sidenav-mini-icon"> P </i>
+                                <i class="sidenav-mini-icon"> PA </i>
                                 <span class="item-name">Pendaftar Alumni</span>
                             </a>
                         </li>
                     </ul>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link " data-bs-toggle="collapse" href="#sidebar-widget" role="button"
-                        aria-expanded="false" aria-controls="sidebar-widget">
+                <li
+                    class="nav-item {{ request()->routeIs('anggota-munas.index', 'anggota-munas.create', 'anggota-munas.edit') || request()->routeIs('anggota-pendaftar', 'anggota-approve') ? 'active' : '' }}">
+                    <a class="nav-link " data-bs-toggle="collapse" href="#anggota-widget" role="button"
+                        aria-expanded="false" aria-controls="anggota-widget">
                         <i class="icon">
                             <svg class="icon-20" width="20" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -289,9 +293,9 @@
                             </svg>
                         </i>
                     </a>
-                    <ul class="sub-nav collapse" id="sidebar-widget" data-bs-parent="#sidebar-menu">
+                    <ul class="sub-nav collapse" id="anggota-widget" data-bs-parent="#sidebar-menu">
                         <li class="nav-item">
-                            <a class="nav-link {{ Request::is('anggota-munas') ? 'active' : '' }}"
+                            <a class="nav-link {{ request()->routeIs('anggota-munas.index', 'anggota-munas.create', 'anggota-munas.edit') ? 'active' : '' }}"
                                 aria-current="page" href="{{ route('anggota-munas.index') }}">
                                 <i class="icon">
                                     <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
@@ -301,12 +305,12 @@
                                         </g>
                                     </svg>
                                 </i>
-                                <i class="sidenav-mini-icon"> T </i>
+                                <i class="sidenav-mini-icon"> DA </i>
                                 <span class="item-name">Data Anggota</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link  {{ Request::is('anggota-pendaftar') ? 'active' : '' }}"
+                            <a class="nav-link  {{ request()->routeIs('anggota-pendaftar', 'anggota-approve') ? 'active' : '' }}"
                                 href="{{ route('anggota-pendaftar') }}">
                                 <i class="icon">
                                     <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
@@ -316,15 +320,15 @@
                                         </g>
                                     </svg>
                                 </i>
-                                <i class="sidenav-mini-icon"> P </i>
+                                <i class="sidenav-mini-icon"> PA </i>
                                 <span class="item-name">Pendaftar Anggota</span>
                             </a>
                         </li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " data-bs-toggle="collapse" href="#sidebar-widget" role="button"
-                        aria-expanded="false" aria-controls="sidebar-widget">
+                    <a class="nav-link " data-bs-toggle="collapse" href="#setting-widget" role="button"
+                        aria-expanded="false" aria-controls="setting-widget">
                         <i class="icon">
                             <svg class="icon-20" width="20" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -345,10 +349,10 @@
                             </svg>
                         </i>
                     </a>
-                    <ul class="sub-nav collapse" id="sidebar-widget" data-bs-parent="#sidebar-menu">
+                    <ul class="sub-nav collapse " id="setting-widget" data-bs-parent="#sidebar-menu">
                         <li class="nav-item">
-                            <a class="nav-link {{ Request::is('sambutan') ? 'active' : '' }}" aria-current="page"
-                                href="{{ route('sambutan.index') }}">
+                            <a class="nav-link {{ request()->routeIs('sambutan.index', 'sambutan.create', 'sambutan.edit') ? 'active' : '' }}"
+                                aria-current="page" href="{{ route('sambutan.index') }}">
                                 <i class="icon">
                                     <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
                                         viewBox="0 0 24 24" fill="currentColor">
@@ -357,13 +361,13 @@
                                         </g>
                                     </svg>
                                 </i>
-                                <i class="sidenav-mini-icon"> T </i>
+                                <i class="sidenav-mini-icon"> KS </i>
                                 <span class="item-name">Kata Sambutan</span>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link  {{ Request::is('anggota-pendaftar') ? 'active' : '' }}"
-                                href="{{ route('anggota-pendaftar') }}">
+                        <li class="nav-item ">
+                            <a class="nav-link {{ request()->routeIs('mars.create', 'mars.index', 'mars.edit') ? 'active' : '' }}"
+                                href="{{ route('mars.index') }}">
                                 <i class="icon">
                                     <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
                                         viewBox="0 0 24 24" fill="currentColor">
@@ -372,7 +376,7 @@
                                         </g>
                                     </svg>
                                 </i>
-                                <i class="sidenav-mini-icon"> P </i>
+                                <i class="sidenav-mini-icon"> MA </i>
                                 <span class="item-name">Mars Alumni</span>
                             </a>
                         </li>
@@ -386,7 +390,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  {{ Request::is('gallery-foto') ? 'active' : '' }}"
+                    <a class="nav-link  {{ request()->routeIs('gallery-foto.index', 'gallery-foto.create', 'gallery-foto.edit') ? 'active' : '' }}"
                         href="{{ route('gallery-foto.index') }}">
                         <i class="icon">
                             <svg class="icon-20" width="20" viewBox="0 0 24 24" fill="none"
@@ -404,7 +408,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  {{ Request::is('gallery-vidio') ? 'active' : '' }}"
+                    <a class="nav-link  {{ request()->routeIs('gallery-vidio.create', 'gallery-vidio.index', 'gallery-vidio.edit') ? 'active' : '' }}"
                         href="{{ route('gallery-vidio.index') }}">
                         <i class="icon">
                             <svg class="icon-20" width="20" viewBox="0 0 24 24" fill="none"
@@ -429,7 +433,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('daftar-iuran') ? 'active' : '' }}"
+                    <a class="nav-link {{ request()->routeIs('daftar-iuran') ? 'active' : '' }}"
                         href="{{ route('daftar-iuran') }}">
                         <i class="icon">
                             <svg class="icon-20" width="20" viewBox="0 0 24 24" fill="none"
@@ -446,8 +450,8 @@
                         <span class="item-name">Tabel Iuran</span>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link {{ Request::is('iuran-konfirmasi') ? 'active' : '' }}"
+                <li class="nav-item" style="margin-bottom: 250px">
+                    <a class="nav-link {{ request()->routeIs('iuran-konfirmasi') ? 'active' : '' }}"
                         href="{{ route('iuran-konfirmasi') }}">
                         <i class="icon">
                             <svg class="icon-20" width="20" viewBox="0 0 24 24" fill="none"

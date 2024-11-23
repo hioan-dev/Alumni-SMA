@@ -14,7 +14,7 @@
 @endsection
 
 @section('content')
-    <div class="container" style="margin-top: 120px">
+    <div class="container min-vh-100" style="margin-top: 120px">
         {{ Breadcrumbs::render('galeri-foto') }}
         <h1 class="text-center my-5 ffw-bold">Galeri Foto</h1>
         @if ($foto->count() == 0)

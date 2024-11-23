@@ -55,7 +55,7 @@ class DataAlumni implements ToCollection, WithHeadingRow
                     'no_hp' => $row['no_hp'],
                     'email' => $row['email'],
                     'user_id' => $user->id,
-                    'approved' => true,
+                    'approved' => false,
                 ]);
             }
         }
